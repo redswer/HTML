@@ -5,26 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form 태그와 submit</title>
+    <title>button 태그</title>
+
+    <style>
+        .btn_img_size {
+            width: 30px;
+            height: 30px;
+        }
+
+        button {
+            border: none;
+            background: none;
+        }
+    </style>
 </head>
-<!-- form 태그의 method 속성을 post로 지정함으로써 전송 데이터가 암호화되어 전송 시
-     get 방식과 달리 주소창에 전송 정보가 표시되지 않음을 확인 가능 -->
-<!-- 단, action 속성을 통해 실제 서버와 연결을 해야만 실제 작동되므로 예제에서는
-     실제 작동되지는 않음 -->
 
 <body>
-    <form action="./html/server.html" name="studentInfo" method="post">
+    <form action="./html/server.html" name="studentInfo">
         <div>
             <label for="named">이름 :</label>
             <input type="text" id="named" name="named" minlength="3" maxlength="5" required>
         </div>
-
         <div>
             <label for="stNum">학번 :</label>
             <input type="text" id="stNum" name="stNum" placeholder="2자리만 입력 가능" minlength="2" maxlength="2" required>
+
         </div>
 
-        <input type="submit" name="transBtn" value="전송">
+        <!-- input 태그의 속성값이 image인 경우 -->
+        <!-- input 태그의 속성이 submit인 경우의 기본적인 형태 대신에 다른 이미지를 이용하여 submit과 동일한 기능 구현
+        img 태그와 동일한 src 속성과 alt 속성을 지정하여 이미지 경로와 대체 텍스트 지정 -->
+        <!-- 이미지 너비와 높이 조정은 css에서 지정 -->
+        <input type="image" class="btn_img_size" src="./image/submit_btn.png" alt="전송 버튼">
+    </form>
+    <hr>
+
+    <form action="./html/server.html" method="post" name="parents">
+        <div>
+            <label>아빠 :
+                <input type="text" name="father" placeholder="아빠이름" minlength="3" maxlength="5" required>
+            </label>
+        </div>
+        <div>
+            <label>엄마 :
+                <input type="text" name="mother" placeholder="엄마이름" minlength="3" maxlength="5" required>
+            </label>
+        </div>
+
+        <!-- button 태그 -->
+        <!-- input 태그의 type 속성값이 submit, button, reset인 경우와 동일한 동작 구현 가능
+            input 태그의 경우 닫는 태그가 없어 지정된 속성 외에는 별도의 컨텐츠를 포함시킬 수 없음
+            button 태그는 닫는 태그가 있어 button 태그 내에 다른 컨텐츠를 포함 가능해 유연한 확장 가능
+            input 태그와 같이 type 속성 지정이 가능하며 submit, button, menu, reser 등의 값 할당 가능
+            type 속성 미 지정시 디폴트값은 submit -->
+        <!-- 버튼에 이미지를 포함시키는 경우 input 태그의 type 속성에 image값을 지정하는 것과는 달리 이미지를
+            둘러싸는 기본적인 테두리와 배경색이 button 태그에 지정되어 표시됨 -> css에서 조정 가능
+            이 경우 버튼화된 이미지의 크기는 button 태그가 아닌 img 태그를 조정해야 함 -->
+        <button>
+            <img class="btn_img_size" src="./image/submit_btn.png" alt="전송 버튼">
+        </button>
+        <button type="reset">
+            <img class="btn_img_size" src="./image/cancel_btn.png" alt="초기화 버튼">
+        </button>
     </form>
 </body>
 

@@ -2,62 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>th 태그의 scope 속성</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>caption 태그와 Table 그룹화</title>
 </head>
-<!-- th 태그의 scope 속성 -->
-<!-- 항목명을 의미하는 th 태그에 scope(범위) 속성을 지정함
-개별 항목에 대한 행 또는 열 방향에 대한 데이터(td)를 대표하는 속성임을 부가적으로 표현하여 검색 효율 증대 -->
 
 <body>
-    <table border="1">
-        <tr>
-            <th>구분</th>
-            <th scope="col">항목1</th>
-            <th scope="col">항목2</th>
-            <th scope="col">항목3</th>
-        </tr>
-        <tr>
-            <th scope="row">a</th>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <th scope="row">b</th>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <th scope="row">c</th>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-        </tr>
-        <tr>
-            <th scope="row">d</th>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <th scope="row">총계</th>
-            <td>22</td>
-            <td>26</td>
-            <td>30</td>
-        </tr>
-    </table>
+  <table border="1">
+    <!-- caption 태그 -->
+    <!-- 테이블의 설명이나 제목 표현
+    테이블 태그의 가장 최초의 자식 요소가 되어야 함 -->
+    <caption>테이블 구조</caption>
+
+    <!-- table 그룹화 태그 -->
+    <!-- thead, tbody, tfoot 등의 테이블 그룹화 태그를 통해 테이블의 항목, 데이터 통계 부분을 그룹화하여 검색효율 증대
+    thead : 테이블의 필드(항목) 부분에 대한 그룹화
+    tbody : 테이블의 레코드(행값) 부분에 대한 그룹화
+    tfoot : 테이블의 말단 부분에 대한 그룹화 -->
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th scope="col">항목1</th>
+        <th scope="col">항목2</th>
+        <th scope="col">항목3</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">a</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <th scope="row">b</th>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <th scope="row">c</th>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <th scope="row">d</th>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th scope="row">총계</th>
+        <td>22</td>
+        <td>26</td>
+        <td>30</td>
+      </tr>
+    </tfoot>
+  </table>
 </body>
 
 </html>
-<!-- div{데이터$}*100 = 
-<div>데이터1</div>
-<div>데이터2</div>
-d<iv>데이터3</div>
-.
-.
-.
-<div>데이터100</div> -->

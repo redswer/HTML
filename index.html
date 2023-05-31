@@ -5,11 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server</title>
+    <title>form 태그와 submit</title>
 </head>
 
+<!-- form 태그 -->
+<!-- 입력 컨트롤을 이용해 사용자로부터 입력받은 데이터를 서버에 전송하기 위한 입력 컨트롤
+    요소들을 그룹화하고 서버측에 전송할 입력 데이터 연결을 위한 중간 매개체 역할
+    input, button, select, textarea 태그 등으로 구성 -->
+<!-- method : 데이터 전송 방식을 구분 (get, post) 
+            > get : 검색어 등의 소량의 빠른 데이터 전송에 유리함 / 보안에 취약
+            > post : 아이디, 패스워드, 개인정보 등 보안이 필요한 데이터나 대량의 데이터 전송-->
+
 <body>
-    <h1>접속완료</h1>
+    <!-- action : 사용자로부터 입력된 데이터를 전송할 서버 URL 등을 지정
+     name : 서버에서 인식 가능한 식별자 지정 / 서버에서의 식별자는 name만 가능 -->
+    <!-- input 속성의 type 속성 값이 submit인 경우 -->
+    <!-- 폼 내에 입력되거나 설정되어진 값들을 폼태그에 설정된 action 속성의 위치로 전송하는 버튼 생성 -->
+    <!-- value : submit 버튼에 표시할 텍스트 지정 -->
+    <!-- mathod 생략 시 디폴트값인 get 방식 -->
+    <form action="./html/server.html" name="studentInfo">
+        <div>
+            <label for="named">이름 :</label>
+            <input type="text" id="naemed" name="named" minlength="3" maxlength="5">
+        </div>
+        <div>
+            <label for="stNum">학번 :</label>
+            <input type="text" id="stNum" name="stNum" placeholder="2자리만 입력 가능" minlength="2" maxlength="2">
+        </div>
+
+        <input type="submit" name="transBtn" value="전송">
+    </form>
 </body>
 
 </html>

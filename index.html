@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heading 태그</title>
+    <title>블럭 레벨 요소 &amp; 인라인 레벨 요소</title>
 </head>
 
 <body>
-    <!--
-        < 헤딩(Heading) 태그 >
-        
-    - 웹페이지 표제를 표시하기 위한 태그로 1 ~ 6 까지의 태그가 존재하며 h1
-      태그의 경우 문서의 가장 상단에 배치하는 것을 권장. 
-      " 1 > 2 > 3... > 6 " 의 관계로 폰트 크기가 결정되며 자동 개행되는 특징.
-      헤딩 태그는 단순히 글자 크기를 나타내는 것뿐만이 아니라 검색 엔진이 웹
-      페이지의 컨텐츠 중요도를 인식하는 매개체로 활용. ( 블럭 요소에 해당 )
-      따라서 동일 레벨의 헤딩 태그가 중복되는 것은 문제가 되지 않지만, 헤딩
-      태그의 레벨을 생략하여 건너뛰거나 레벨의 순서를 역순으로 배치하는 것은
-      권장되지 않음.
-    -->
+    <!-- 웹 페이지의 수평 전체를 요소의 너비로 가지며(브라우저 가로(width) 화면 영역을 100% 차지) 블럭이 끝나는
+  지점에서 자동 개행되는 특성. 블럭 레벨 요소는 다른 블럭 레벨 요소나 인라인 레벨 요소를 포함 가능 -->
+    <h1>블럭 레벨 요소</h1>
+    <h1>블럭 레벨 요소</h1>
 
-    <h1>heading 1</h1>
-    <h2>heading 2</h2>
-    <h2>heading 2</h2>
-    <h3>heading 3</h3>
-    <h4>heading 4</h4>
-    <h5>heading 5</h5>
-    <h6>heading 6</h6>
-
+    <!-- 개행되지 않고 지정된 해당 컨텐츠가 차지하는 영역의 너비(width)와 높이(height) 만큼만 표시되는 특성을
+  가지는 요소. 인라인 레벨 요소는 다른 인라인 레벨 요소를 포함 가능하나 블럭 레벨 요소는 포함은 불가 -->
+    <strong>인라인 레벨 요소</strong>
+    <storng>인라인 레벨 요소</storng>
 </body>
 
 </html>

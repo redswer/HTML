@@ -5,61 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List 태그</title>
+    <title>예제</title>
 </head>
 
 <body>
-    <!-- ol (Ordered List) 태그 -->
-    <!-- 순번이 있는 글머리 항목 생성 
-  ol 태그 내부에 li 태그를 두어 항목의 내용 표시
-  type과 start 속성 지정이 가능함
-  type 속성의 값에는 "1, a ,A, i, I" 등의 글머리기호를 결정하되 미설정시 디폴트로 숫자 글머리 생성
-  start 속성에는 글머리 기호가 시작할 번호(차수) 지정 
-  실질적인 항목을 표시하는 li 태그는 기본적으로 들여쓰기가 적용됨-->
-    <!-- ** ol태그의 자식 태그는 li 태그 외의 다른 태그가 올 수 없으나 li태그의 자식 태그로는 다른 태그 설정 가능 ** -->
-    <ol type="i" start="1">
-        <li>HTML 문서 생성</li>
-        <li>HTML 기본 구조</li>
-        <li>body 태그</li>
-    </ol>
+
+    <h1>중고차</h1>
     <hr>
 
-    <ol type="a" start="2">
-        <li>HTML 기본 구조</li>
-        <li>body 태그</li>
-    </ol>
-    <hr>
-
-    <!-- ul (Unordered List) 태그 -->
-    <!-- 순번이 없는 글머리 항목 생성
-  ul 태그의 자식 태그로는 li 외의 다른 태그가 직접 올 수 없음
-  li 태그의 자식 태그로 다른 태그의 설정 가능
-  ol 태그와 동일하게 ul 태그 내의 li 태그는 기본적으로 들여쓰기 적용 -->
+    <h2>2021년식</h2>
+    <!-- ul>(li>ul>li*3+li>ol>li*2)+li*3 -->
     <ul>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <!-- List의 중첩 -->
-        <!-- 어떤 임의 리스트에 하위 리스트를 설정하는 경우 리스트 내에 ol, ul, dl 등의 리스트 관련 태그를 다시 지정함으로써 중첩 리스트 생성 가능
-    ol, ul, dl 등의 리스트 관련 태그의 하위 자식태그에는 li태그 외에 다른 태그가 올 수 없음 -->
-        <li>Javascript
+        <li>세단
             <ul>
-                <li>VSCODE 자바스크립트 실행 환경 구축</li>
-                <li>기본 출력 및 실행 테스트</li>
-                <li>자료형과 변수</li>
+                <li>그랜저</li>
+                <li>소나타</li>
+                <li>아반떼</li>
+                <li>K7
+                    <ol type="1">
+                        <li>가솔린</li>
+                        <li><strong>디젤</strong></li>
+                    </ol>
+                </li>
             </ul>
         </li>
+        <li>SUV</li>
+        <li>트럭</li>
+        <li>봉고</li>
     </ul>
     <hr>
 
-    <!-- dl (Definition List) -->
-    <!-- 어떠한 용어나 주제에 대한 설명을 다는 형식
-  dl 태그 내 dt(Definition Term)태그를 이용하여 용어를 정의하고 dd(Definition Description)태그를 이용하여 용어에 대한 설명 기술
-  dt, dd 태그의 자식 태그는 dt, dd 태그 외의 다른 태그가 직접 올 수 없지만 dt와 dd 태그의 자식 태그로 다른 태그 설정 가능
-  dl 태그 내 dd 태그는 기본적으로 들여쓰기 적용 -->
-    <dl>
-        <dt>HTML</dt>
-        <dd>HyperText Markup Language</dd>
-    </dl>
+    <h2>2020년식</h2>
+    <!-- ul>li+(li>ul>li+(li>ol>li*2)+li)+li*2 -->
+    <ul>
+        <li>세단</li>
+        <li>SUV
+            <ul>
+                <li>산타페</li>
+                <li>쏘렌토
+                    <ol type="1">
+                        <li style="color: red;"><em>가솔린</em></li>
+                        <li>디젤</li>
+                    </ol>
+                </li>
+                <li>셀토스</li>
+            </ul>
+        </li>
+        <li>트럭</li>
+        <li>봉고</li>
+    </ul>
+
 </body>
 
 </html>

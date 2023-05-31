@@ -2,29 +2,58 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sectioning</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시멘틱(Semantic) 구조 태그</title>
 </head>
+<!-- 시멘틱 구조 태그 -->
+<!-- div 태그를 통한 영역 지정은 의미없는 다수의 동일 div 태그의 사용과 중첩으로 인해 코드 가독성이 떨어짐
+따라서 시멘틱 구조 태그를 통해 영역에 따른 고유한 명칭을 부여함으로써 구조적인 가독성을 높이고 검색엔진의
+데이터 추출 효율성을 증대시킴 -->
+<!-- <nav> : 페이지나 문서의 주요 네비게이션 링크를 그룹화
+<header> : 페이지나 문서의 상단에 배치 / 주제나 검색, 머리말등을 표시 및 그룹화
+<main> : 페이지 본문 내용들을 그룹화
+<footer> : 페이지나 문서의 하단에 배치 / 연락처, 주소, 저작권, 상호, 약관 등 부가 정보들을 그룹화 
+<aside> : 일반적으로 main 내부나 사이드에 배치 / main에 대한 간접적인 추가 정보, 링크 등을 포함하는 사이드바 형태
+<section> : 페이지나 문서의 특정 영역에 대한 독립적인 주제별 컨텐츠를 그룹화
+<article> : 기사나 블로그, 포럼 등 그 자체로 독립적인 컨텐츠들을 저장
+  ※ section 과 article 태그 내에는 개별 요소 식별을 위해 반드시 h2 ~ h6 헤딩 태그가 포함되어야 함
+  -->
 
 <body>
-    <!-- div 태그 : 영역을 그룹화하기 위한 블럭 레벨 요소로써 다른 블럭 레벨 요소와 인라인 레벨 요소들의 컨텐츠를 그룹화 -->
-    <div>
-        <h1>섹셔닝을 통한 요소들의 그룹화</h1>
+  <!-- header>h1+nav>h2 -->
+  <header>
+    <h1>네이버 로고, 검색 창</h1>
 
-        <p>
-            div 태그나 span 태그와 같이 요소들을 그룹화시킬 수 있는 태그들을<br>
-            이용하여 요소들에 대한 관리와 유지보수성을 증대시킬 수 있습니다.
-        </p>
-    </div>
+    <nav>
+      <h2>메일, 카페, 블로그, 지식in (바로가기 메뉴)</h2>
+    </nav>
+  </header>
 
-    <div>
-        <span>
-            <em>div</em>
-            <strong>span</strong>
-        </span>
-    </div>
+  <!-- main>(section>h3)*2+(aside>h3)+article>h3 -->
+  <main>
+    <section>
+      <h3>헤드라인 뉴스</h3>
+    </section>
+
+    <section>
+      <h3>주제별 토론</h3>
+    </section>
+
+    <aside>
+      <h3>로그인, 광고, 쇼핑</h3>
+    </aside>
+
+    <article>
+      <h3>카페, 블로그</h3>
+    </article>
+  </main>
+
+  <!-- footer>h4 -->
+  <footer>
+    <h4>네이버 상호, 약관, 고객센터</h4>
+  </footer>
 </body>
 
 </html>

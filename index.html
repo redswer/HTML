@@ -5,72 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>태그 선택자와 클래스 선택자 활용</title>
+    <title>그룹핑</title>
     <style>
-        ol {
-            background-color: coral;
+        h2,
+        dt {
             color: blue;
         }
 
-        ul {
-            background-color: aquamarine;
+        h3,
+        dd {
             color: red;
-        }
-
-        dl {
-            font-size: 2rem;
-        }
-
-        #javascript_child {
-            background-color: black;
-            color: yellow;
-        }
-
-        /* background- color */
-        .bg-beige {
-            background-color: beige;
-        }
-
-        .bg-brown {
-            background-color: brown;
-        }
-
-        /* text-color */
-        .purple {
-            color: purple;
-        }
-
-        .yellow {
-            color: yellow;
         }
     </style>
 </head>
 
 <body>
-    <ol>
-        <li>HTML 문서 생성</li>
-        <li>HTML 기본 구조</li>
-        <li>body 태그</li>
-    </ol>
+    <h1>선택자에 대한 그룹핑</h1>
     <hr>
 
-    <ul>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <li>Javascript
-            <ul id="javascript_child">
-                <li>VSCODE 자바스크립트 실행 환경 구축</li>
-                <li>기본 출력 및 실행 테스트</li>
-                <li>자료형과 변수</li>
-            </ul>
-        </li>
-    </ul>
+    <h2>CSS</h2>
+    <h3>인라인 스타일 시트</h3>
+    <h3>내부 스타일 시트</h3>
+    <h3>외부 스타일 시트</h3>
     <hr>
 
     <dl>
-        <dt class="bg-beige purple">HTML</dt>
-        <dd class="bg-brown yellow">HyperText Markup Language</dd>
+        <dt>그룹핑(Grouping)</dt>
+        <dd>선택자들을 그룹화하여 공통 스타일을 적용함으로써 중복 스타일을 제거</dd>
     </dl>
+
 </body>
 
 </html>

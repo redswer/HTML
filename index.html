@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>figure 와 figcaption 태그</title>
+    <title>셀(Cell) 병합</title>
 </head>
 
 <body>
-    <!-- figure 태그 -->
-    <!-- 주 문서가 참조는 하지만 다른 부분으로 이동해도 문제가 되지 않는 독립적인 컨텐츠 특성을 가지는 이미지, 도표
-  등을 구획화하고 figcaption 태그를 이용하여 컨텐츠에 대한 설명이나 범례 등을 기술 -->
-    <!-- figure 태그 내 table 요소가 유일한 자식인 경우에는 caption 태그를 대신해 figcaption 태그 이용을 권장 -->
+    <!-- th, td 의 셀 병합 속성 -->
+    <!-- colspan : 행 방향으로 열 셀들을 병합하기 위한 속성 / 병합할 열의 갯수를 값으로 지정 -->
+    <!-- rowspan : 열 방향으로 행 셀들을 병합하기 위한 속성 / 병합할 행의 갯수를 값으로 지정 -->
+    <!-- 병합의 대상이 되는 최초 셀을 제외한 나머지 병합 대상 셀들은 지정하지 않아야 함 -->
 
     <figure>
         <figcaption>테이블 구조</figcaption>
@@ -31,23 +31,23 @@
                 <tr>
                     <th scope="row">a</th>
                     <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
+                    <td colspan="2">5</td>
                 </tr>
+
                 <tr>
-                    <th scope="row">b</th>
+                    <th scope="row" rowspan="3">b</th>
                     <td>4</td>
                     <td>5</td>
                     <td>6</td>
                 </tr>
+
                 <tr>
-                    <th scope="row">c</th>
                     <td>7</td>
                     <td>8</td>
                     <td>9</td>
                 </tr>
+
                 <tr>
-                    <th scope="row">d</th>
                     <td>10</td>
                     <td>11</td>
                     <td>12</td>

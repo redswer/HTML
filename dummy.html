@@ -5,40 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일반 형제 결합자(General sibling combinator)</title>
+    <title>자식 결합자(Child combinator)</title>
 
     <style>
         /*
-            < 일반 형제 결합자(General sibling combinator) >
+            < 자식 결합자(Child combinator) >
 
-        - 부모가 동일한 인접 형제 요소에 대하여 선행 요소를 제외한 "~" 뒤에 지정된
-          모든 요소에 대하여 스타일 적용.
+        - 결합자 ">" 로 부모와 자식요소를 구분하여 지정된 자식요소를 포함한
+          직계 서브 요소에 스타일링 적용.
+          단, 상속이 적용되는 속성은 상속 규칙에 의거 동일한 스타일링 적용.
+
+        형식 : 부모요소 > 자식요소
+
         */
-        h1~hr {
-            border: dashed;
+
+        body>div {
+            color: red;
+        }
+
+        body>div>div {
+            color: blue;
+        }
+
+        body>div>div>div {
+            color: green;
         }
     </style>
 </head>
 
 <body>
-    <h1>일반 형제 결합자</h1>
+    <h1>자식 결합자</h1>
     <hr>
 
-    <h2>CSS</h2>
-    <h3>인라인 스타일 시트</h3>
-    <h3>내부 스타일 시트</h3>
-    <h3>외부 스타일 시트</h3>
-    <hr>
+    <div>할아버지, 할머니
+        <hr>
 
-    <dl>
-        <dt>일반 형제 결합자(General sibling combinator)</dt>
-        <dd>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Non sed autem assumenda itaque ipsum, distinctio error dolores
-            ipsa tempore nam enim, eos voluptates consequuntur modi sit
-            voluptatum, velit magnam natus!
-        </dd>
-    </dl>
+        <div>큰아빠, 큰엄마
+            <div>아들</div>
+            <div>딸</div>
+        </div>
+        <hr>
+
+        <div>작은아빠, 작은엄마
+            <div>아들</div>
+            <div>딸</div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,19 +1,59 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우만1동 체인점</title>
+    <title>input 태그</title>
 </head>
 
 <body>
-    <h1>우만1동 체인점 소개</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus tenetur facilis nisi nemo esse est quod
-        accusamus, similique praesentium eos, illo itaque architecto assumenda ab. Neque dolorum dolorem sint voluptas?
-    </p>
+    <!-- input 태그 -->
+    <!-- 폼(form) 태그를 구성하는 태그 중의 하나로 입력 형식 지정 -->
+    <!-- type : 사용자가 입력 가능한 형식
+    (text, password, email, radio, checkbox, button, sumit, reset, hidden, file)을 지정
+    type에 따라 다른 사용 가능한 속성이 상이 -->
+
+    <!-- input 태그의 type 속성 값이 text인 경우
+        입력상자 형태로 구현-->
+    <!-- size : 화면상에 보이는 필드폭을 지정. 단, 일반적으로 css에서 지정하는 것을 권장-->
+    <div>입력 텍스트1 :
+        <input type="text">
+    </div>
+
+    <div>입력 텍스트2 :
+        <input type="text" size="3">
+    </div>
+
+    <!-- minlength : 필드에 입력 가능한 최대 글자수 지정
+    단, form 태그 내에서 전송(submit)을 해야만 브라우저에서 유효성 체크 가능 -->
+    <div>입력 텍스트3 :
+        <input type="text" minlength="5">
+    </div>
+
+    <!-- maxlength : 필드에 입력 가능한 최대 글자수 지정 / 한글은 지정된 maxlength보다 한 글자 더 추가 입력 가능 -->
+    <div>입력 텍스트4 :
+        <input type="text" maxlength="5">
+    </div>
+
+    <!-- value : 기본적으로 필드에 보여줄 hint 텍스트 지정. 단, 입력을 하여도 hint 텍스트가 자동으로 삭제되지 않음 -->
+    <!-- 잘 사용되지 않고 placeholder가 주로 샤용됨 -->
+    <div>입력 텍스트5 :
+        <input type="text" value="텍스트를 입력하세요^^ 저는 자동으로 지워지지 않아요~" size="50">
+    </div>
+
+    <!-- palceholder : value 속성과 같이 필드에 보여줄 hint 텍스트 지정
+    value 속성과 달리 hint 텍스트가 약간 음영 처리되며, 입력을 하면 hint 텍스트가 자동으로 삭제됨 -->
+    <div>입력 텍스트6 :
+        <input type="text" placeholder="텍스트를 입력하세요^^ 저는 자동으로 지워진답니다~" size="50">
+    </div>
+
+    <!-- readonly : 쓰기가 금지되는 읽기 전용 입력 상자
+                차후 스크립트를 통해 readonly 속성을 설정 및 해제함으로써 상황에 따른 입력 허용 및 불가를 설정가능 -->
+    <div>입력 텍스트7 :
+        <input type="text" value="읽기 전용 텍스트입니다~" readonly size="50">
+    </div>
 </body>
 
 </html>

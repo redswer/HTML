@@ -5,21 +5,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>선택자 Choice</title>
-    
+    <title>태그 선택자와 클래스 선택자 활용</title>
+    <style>
+        ol {
+            background-color: coral;
+            color: blue;
+        }
+
+        ul {
+            background-color: aquamarine;
+            color: red;
+        }
+
+        dl {
+            font-size: 2rem;
+        }
+
+        #javascript_child {
+            background-color: black;
+            color: yellow;
+        }
+
+        /* background- color */
+        .bg-beige {
+            background-color: beige;
+        }
+
+        .bg-brown {
+            background-color: brown;
+        }
+
+        /* text-color */
+        .purple {
+            color: purple;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>선택자의 적용</h1>
+    <ol>
+        <li>HTML 문서 생성</li>
+        <li>HTML 기본 구조</li>
+        <li>body 태그</li>
+    </ol>
+    <hr>
 
     <ul>
-        <li class="red">빨강</li>
-        <li class="red text-center">빨강 가운데 정렬</li>
-        <li class="green">녹색</li>
-        <li class="text-center">가운데 정렬</li>
-        <li class="red text-right">빨강 오른쪽 정렬</li>
-        <li class="blue text-center">파랑 가운데 정렬</li>
+        <li>HTML5</li>
+        <li>CSS</li>
+        <li>Javascript
+            <ul id="javascript_child">
+                <li>VSCODE 자바스크립트 실행 환경 구축</li>
+                <li>기본 출력 및 실행 테스트</li>
+                <li>자료형과 변수</li>
+            </ul>
+        </li>
     </ul>
+    <hr>
+
+    <dl>
+        <dt class="bg-beige purple">HTML</dt>
+        <dd class="bg-brown yellow">HyperText Markup Language</dd>
+    </dl>
 </body>
 
 </html>

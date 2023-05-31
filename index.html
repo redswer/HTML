@@ -7,22 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form 태그와 submit</title>
 </head>
-<!-- input 태그의 required 속성 -->
-<!-- input 태그의 type 지정을 통한 헤당 컨트롤들이 사용자의 직접적인 데이터 입력과 관련된 경우,
-    반드시 입력되어야 할 필수 입력임을 지정-->
-<!-- required 속성이 지정된 입력 인터페이스를 비워진 상태로 전송하면 전송이 되지 않으며 툴팁 표시됨 -->
+
+<!-- novalidate 속성 지정을 통한 form 그룹 차원에서의 유효성 검사 해제 -->
+<!-- novalidate : form 그룹에 속해있는 모든 태그 및 속성에 대한 유효성 검사 해제 -->
+<!-- form 태그에 novalidate 속성을 지정함으로써 브라우저별로 제공되는 유효성 텍스트와 같은
+     인터페이스를 차후 학습할 스크립트를 통해 일관된 인터페이스로 통합하기 위해 form 그룹 차원에서 임시로 지정 -->
 
 <body>
-    <form action="./html/server.html" name="studentInfo" method="get">
+    <form action="./html/server.html" name="studentInfo" method="get" novalidate>
         <div>
-            <label for="named">이름</label>
-            <input type="text" id="stNum" minlength="3" maxlength="5" required>
+            <label for="named">이름 :</label>
+            <input type="text" id="named" name="named" minlength="3" maxlength="5" required>
         </div>
 
         <div>
-            <label for="stNum">학번</label>
+            <label for="stNum">학번 :</label>
             <input type="text" id="stNum" name="stNum" placeholder="2자리만 입력 가능" minlength="2" maxlength="2" required>
         </div>
+
         <input type="submit" name="transBtn" value="전송">
     </form>
 </body>

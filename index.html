@@ -5,33 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Header 태그</title>
+    <title>th 태그의 scope 속성</title>
 </head>
-<!-- th(Table Header)태그 -->
-<!-- 테이블의 행을 구성하는 개별 열(항목명을 정의)
-디폴트로 굵게, 가운데 정렬이 적용됨
-td 태그와 tr 태그의 자식 태그이지만, td태그와 구분하여 항목의 값이 아닌 항목을 구분하는 속성명임을 명시하여 검색 효율 증대
-ul, ol, dl 태그와 마찬가지로 tr태그의 자식요소에는 th, td 이외의 태그가 직접 올 수 없지만, th와 td내에 다른 태그가 포함되는것은 무방 -->
+<!-- th 태그의 scope 속성 -->
+<!-- 항목명을 의미하는 th 태그에 scope(범위) 속성을 지정함
+개별 항목에 대한 행 또는 열 방향에 대한 데이터(td)를 대표하는 속성임을 부가적으로 표현하여 검색 효율 증대 -->
 
 <body>
     <table border="1">
         <tr>
-            <th>학번</th>
-            <th>성명</th>
+            <th>구분</th>
+            <th scope="col">항목1</th>
+            <th scope="col">항목2</th>
+            <th scope="col">항목3</th>
         </tr>
         <tr>
-            <th>1</th>
-            <td>박성연</td>
+            <th scope="row">a</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
         </tr>
         <tr>
-            <th>2</th>
-            <td>김철수</td>
+            <th scope="row">b</th>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
         </tr>
         <tr>
-            <th>3</th>
-            <td>이영희</td>
+            <th scope="row">c</th>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <th scope="row">d</th>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <th scope="row">총계</th>
+            <td>22</td>
+            <td>26</td>
+            <td>30</td>
         </tr>
     </table>
 </body>
 
 </html>
+<!-- div{데이터$}*100 = 
+<div>데이터1</div>
+<div>데이터2</div>
+d<iv>데이터3</div>
+.
+.
+.
+<div>데이터100</div> -->

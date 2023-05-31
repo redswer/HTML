@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form 태그와 submit</title>
 </head>
-
-<!-- novalidate 속성 지정을 통한 form 그룹 차원에서의 유효성 검사 해제 -->
-<!-- novalidate : form 그룹에 속해있는 모든 태그 및 속성에 대한 유효성 검사 해제 -->
-<!-- form 태그에 novalidate 속성을 지정함으로써 브라우저별로 제공되는 유효성 텍스트와 같은
-     인터페이스를 차후 학습할 스크립트를 통해 일관된 인터페이스로 통합하기 위해 form 그룹 차원에서 임시로 지정 -->
+<!-- form 태그의 method 속성을 post로 지정함으로써 전송 데이터가 암호화되어 전송 시
+     get 방식과 달리 주소창에 전송 정보가 표시되지 않음을 확인 가능 -->
+<!-- 단, action 속성을 통해 실제 서버와 연결을 해야만 실제 작동되므로 예제에서는
+     실제 작동되지는 않음 -->
 
 <body>
-    <form action="./html/server.html" name="studentInfo" method="get" novalidate>
+    <form action="./html/server.html" name="studentInfo" method="post">
         <div>
             <label for="named">이름 :</label>
             <input type="text" id="named" name="named" minlength="3" maxlength="5" required>

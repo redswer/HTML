@@ -5,38 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>label 태그</title>
+    <title>Server</title>
 </head>
 
 <body>
-    <!-- label 태그 -->
-    <!-- 사용자 인터페이스(text, password, radio, checkbox등) 에 대한 설명을 표현
-    input 태그에 지정된 id 에 대하여 label 태그의 for 속성에 id를 할당하여 레이블과 사용자 인터페이스 연결
-    화면에 표시된 텍스트 레이블을 클릭하면 사용자 인터페이스로 포커스가 이동하여 text 상자의 경우 커서가 시작되는 부분으로 이동 -->
-
-    <!-- for 속성 -->
-    <!-- label을 사용자 인터페이스 도구와 연결시키기 위해서 반드시 id 식별자가 지정되어야 하며, for 속성에 연결하고자 하는 id를 지정해야 함
-    단, for 속성에 id 식별자를 지정하는 경우에 # 접두사는 빼고 지정해야 함 -->
-    <div>
-        <label for="named">성명 :</label>
-        <input type="text" id="named">
-    </div>
-    
-    <div>
-        <label for="replyTo">연락처 :</label>
-<!-- label 과 input 사이에 다른 태그들이 들어가도 작동함(텍스트 레이블 클릭하면 사용자 인터페이스로 포커스 이동함) -->
-        <!-- div{텍스트$}*5 -->
-        <input type="text" id="replyTo">
-    </div>
-
-    <!-- 암시적 label 지정 -->
-    <!-- label 태그 내에 직접 input 태그를 중첩하여 지정하는 암시적 할당 기능
-        단, 이 경우 label 태그의 for 태그는 지정 불가하며 input 태그에도 id 속성 지정 불필요 -->
-    <!-- label 태그의 하위 연결 컨트롤은 하나만 지정 가능
-        label 태그의 하위 요소르 다른 label 태그가 중첩될 수 없음 -->
-    <label>직업 :
-        <input type="text">
-    </label>
+    <h1>접속완료</h1>
 </body>
 
 </html>

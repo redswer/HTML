@@ -5,60 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>태그, id, 클래스 선택자</title>
-    <style>
-        /* 태그 선택자 */
-        /* 개별 태그에 대한 속성들을 미리 정의함으로써 본문에 적용된 태그에 자동으로 스타일 적용
-            선택자 형식 : 태그명 */
-        h1 {
-            color: crimson;
-        }
-
-        /* 클래스 선택자 */
-        /* 하나 이상의 태그에 복수 적용이 가능한 클래스명을 지정함으로써 다중 태그를 그룹화하여 적용
-            특정 태그에 다중 클래스 식별자 지정도 가능하며 다중 클래스 선택자 지정도 가능 */
-        /* 선택자 형식 : .클래스명
-           다중 클래스 선택자 : .클래스명1.클래스명2.클래스명3  */
-        /* 식별자 형식 : <태그명 class = "클래스명">
-                        <태그명 class = "클래스명1 클래스명2 클래스명3"> */
-        .fontSize {
-            font-size: 45px;
-        }
-
-        .color {
-            color: yellow;
-        }
-
-        .fontSize.color.textDecoration {
-            font-size: 16px;
-            color: blue;
-            text-decoration: underline;
-        }
-
-        /* id 선택자 */
-        /* 단일 태그에만 id 식별자 지정이 가능하며 특정 태그에 다중 id 식별자 지정도 불가
-            특정 태그에 클래스 식별자와 id 식별자를 동시 적용시키는 것이 가능하지만 중복되는 속성에 대해 id 식별자가 우선 적용
-            id 선택자는 a 태그를 이용한 페이지 내부 링크나 form 태그 내 label 태그에 적용하는 것 외에는 사용을 최소화 */
-        /* 선택자 형식 : #id명 {속성 정의}
-               식별자 형식 : <특정 태그명 id = "id명"> */
-        #textAlign_color {
-            text-align: center;
-            color: blue;
-        }
-    </style>
+    <title>선택자 Choice</title>
 </head>
 
 <body>
-    <div>
-        <h1>태그 선택자</h1>
-    </div>
+    <h1>선택자의 적용</h1>
 
-    <div>
-        <h2 class="fontSize">클래스 선택자</h2>
-        <h2 id="textAlign_color">id 선택자</h2>
-        <h3 class="fontSize color">다중 클래스 식별자</h3>
-        <h4 class="fontSize color textDecoration">다중 클래스 식별자에 대한 다중 클래스 선택자 지정</h4>
-    </div>
+    <ul>
+        <li id="red">빨강</li>
+        <li id="red_center">빨강 가운데 정렬</li>
+        <li id="green">녹색</li>
+        <li id="center">가운데 정렬</li>
+        <li id="red_right">빨강 오른쪽 정렬</li>
+        <li id="blue_center">파랑 가운데 정렬</li>
+    </ul>
 </body>
 
 </html>

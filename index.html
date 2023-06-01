@@ -5,152 +5,261 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>트리 구조 가상 클래스 선택자(Tree-structural poseduo-class Selectors)</title>
-    <!-- 트리 구조 가상 클래스 선택자 */
-    /* html 문서 내에서 임의 부모 요소를 기준으로 자식 관계가 성립되는 형제 요소에 대한 위치와 관련된 스타일 -->
+    <title>재고관리 테이블 스타일 지정</title>
     <style>
-        /* first-child, lasf-of-child, nth-of-child */
-        /* 부모 요소를 기준으로 서로 다른 형제 요소들을 포함한 순번에서의 지정된 위치와 지정된 요소가 모두 일치해야 함 */
+        table * {
+            font-size: 30px;
+            text-align: center;
+            color: dodgerblue;
+            background-color: aliceblue;
+            border: 1px solid green;
+        }
 
-        /* 첫 번째 자식 요소가 li 태그이면 스타일 적용 */
-        li:first-child {
+        td {
+            color: hotpink;
             background-color: antiquewhite;
+            font-size: 22px;
         }
 
-        li:last-child {
-            background-color: chocolate;
-        }
-
-        p:first-child {
-            /* 첫 번째 자식 요소가 p 태그이면 스타일 적용 */
+        tfoot td {
             color: red;
-        }
-
-        li:nth-child(3) {
-            /* 3번째 자식 요소가 li 태그이면 스타일 적용 */
-            font-size: 20px;
-        }
-
-        li:nth-last-child(3) {
-            /* 끝에서 3번째 */
-            font-size: 10px;
-        }
-
-        li:not(:last-child) a {
-            /* 마지막 자식 요소가 아닌 모든 li 태그의 자손 요소인 a 태그 */
-            color: red;
-        }
-
-        li+li:hover a {
-            /* li 태그의 인접 형제가 되는 li 태그에 마우스를 올리면 a 태그에 스타일 적용 */
-            color: white;
-        }
-
-        /* nth-child(An + B) */
-        /* 구분자 소괄호 내에서 연산을 통한 자식 요소의 선택
-            n 을 0부터 카운팅을 늘리면서 연산과 부호 적용을 통해 다중 선택과 범위 지정
-            * 연산자는 생략 / 연산에 의해 결정된 자식 요소는 0이 아닌 첫 번째(1) 요소 부터 카운팅되어 선택 */
-
-        div p:nth-child(2n) {
-            /* div의 자손 요소 중 짝수 번째에 해당하는 요소가 p 태그이면 스타일 적용 */
-            background-color: darkgrey;
-        }
-
-        div p:nth-child(2n+1) {
-            /* div의 자손 중 홀수 번째에 해당하는 요소가 p 태그이면 적용 */
-            background-color: yellow;
-        }
-
-        li:nth-child(2n-1) a {
-            /* 홀수 번째에 해당하는 li의 자손인 a 태그에 스타일 적용 (= 2n+1) */
-            text-decoration: none;
-        }
-
-        li:nth-child(even) {
-            /* (= 2n) */
-            list-style: square;
-        }
-
-        li:nth-child(odd) {
-            /* (= 2n-1 = 2n+1) */
-            list-style: circle;
-        }
-
-        div p:nth-child(n+4) {
-            /* div의 자식 중 4번째 이상(4,5,6 순)부터 배치되는 요소가 p 태그이면 스타일 적용 */
-            text-decoration: line-through;
-        }
-
-        div p:nth-child(-n+3) {
-            /* div의 자식 중 3번째 이하(3,2,1 순)부터 배치되는 요소가 p태그이면 스타일 적용 */
-            font-weight: bold;
-        }
-
-        /* 5 이상 10 이하인 자식 요소가 p 태그이면 스타일 적용 */
-        p:nth-child(n+5):nth-child(-n+10) {
-            color: blue;
-        }
-
-        /* first-of-type, last-of-type, nth-of-type */
-        /* type은 child와 달리 지정된 동일 타입의 형제 요소들 중에서만 순번을 매칭시켜 스타일 적용 */
-
-        p:first-of-type {
-            /* p태그 중에서의 첫 번째 요소에 스타일 적용 */
+            font-size: 25px;
             text-decoration: underline;
+            background-color: aquamarine;
         }
 
-        body>p:last-of-type {
-            /* body 태그의 자식 요소 중 p 태그 중에서의 마지막 요소에 스타일 적용 */
-            background-color: green;
-        }
+        col:first-child {
+            width: 50px;
 
-        /* body태그의 자식 p태그 중 2번째에서 5번째까지 요소에 스타일 적용 */
-        body>p:nth-of-type(n+2):nth-of-type(-n+5) {
-            font-size: 20px;
-            font-weight: bold;
-        }
+            < !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><style>table {
+                font-size: 30px;
+                background-color: azure;
+                color: cornflowerblue;
+                text-align: center;
+            }
+
+            table col:nth-child(1) {
+                width: 50px;
+            }
+
+            table col:nth-child(2) {
+                width: 100px;
+            }
+
+            table col:nth-child(3) {
+                width: 120px;
+            }
+
+            thead tr,
+            tfoot tr {
+                height: 60px;
+            }
+
+            th,
+            td {
+                border: 1px solid green;
+            }
+
+            /* ================================ */
+            /* tbody */
+
+            tbody tr {
+                height: 50px;
+            }
+
+            tbody td {
+                font-size: 22px;
+                background-color: bisque;
+                color: deeppink;
+            }
+
+            /* ================================ */
+            /* tfoot */
+
+            tfoot td {
+                font-size: 25px;
+                background-color: aquamarine;
+                color: red;
+                text-decoration: underline;
+            }
+
+            /* ================================ */
+            /* hover */
+
+            td:not(tfoot td):hover {
+                background-color: silver;
+                font-size: 30px;
+            }
     </style>
+</head>
 
+<!-- 
+        < 문제 >
+    
+      1. 텍스트 크기
+      - 테이블 기본 크기 : 30px
+      - 품목 별 단가, 수량 데이터 텍스트 : 22px
+      - 과일 재고수량 데이터 텍스트 : 25px
+    
+      2. 테이블 개별 셀(Cell) 배경 및 텍스트의 색상은 화면구현 예시를 참조.
+    
+      3. 열 너비
+      - 1번 열 : 50px
+      - 2번 열 : 100px
+      - 3번 열 : 120px
+      - 4번 열 : 120px
+    
+      4. 행 높이
+    
+      - 테이블 헤드 : 60px
+      - 테이블 바디의 개별 행 : 50px
+      - 테이블 풋 : 60px
+    
+      5. 테이블 셀 테두리
+      - 선두께 : 1px
+      - 선종류 : 실선
+      - 선색상 : 녹색
+    
+      6. 선택자 구현 시 class, id 선택자 사용 불가.
+    
+      7. "과일 재고수량"을 제외한 모든 개별 데이터 셀에 마우스를 올리면
+         배경색을 "silver", 텍스트 크기를 30px로 보이도록 설정.
+         - 선택자에 tbody 지정 불가.
+         - 트리구조 가상 클래스 선택자 사용 불가.
+    
+      8. 그 외 사항은 화면구현 예시를 참조하여 동일하게 나타나도록 구현.
+      -->
+
+<body>
+    <figure>
+        <figcaption>과일 재고관리</figcaption>
+
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col span="2">
+            </colgroup>
+
+            <thead>
+                <tr>
+                    <th colspan="2">구분</th>
+                    <th scope="col">단가</th>
+                    <th scope="col">수량</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th rowspan="4">품목</th>
+                    <th scope="row">사과</th>
+                    <td rowspan="2">5000 원</td>
+                    <td>30 개</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">배</th>
+                    <td>10 개</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">참외</th>
+                    <td>3500 원</td>
+                    <td>60 개</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">수박</th>
+                    <td>9000 원</td>
+                    <td>20 개</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th scope="row" colspan="3">과일 재고수량</th>
+                    <td>120 개</td>
+                </tr>
+            </tfoot>
+        </table>
+    </figure>
+</body>
+
+</html>
+}
+
+col:nth-child(2) {
+width: 100px;
+}
+
+col:nth-child(n+3) {
+width: 120px;
+}
+
+thead,
+tfoot {
+height: 60px;
+}
+
+tbody {
+height: 50px;
+}
+
+td:not(tfoot td):hover {
+background-color: silver;
+font-size: 30px;
+}
+</style>
 </head>
 
 <body>
-    <h1>트리 구조 가상 클래스 선택자</h1>
-    <hr>
+    <figure>
+        <figcaption>과일 재고관리</figcaption>
 
-    <ul>
-        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
-        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
-        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
-        <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
-        <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
-        <li id="kt"><a href="https://www.kt.com">KT</a></li>
-        <li><a href="https://www.hyundai.com">현대자동차</a></li>
-        <li><a href="https://www.hanwha.co.kr">한화</a></li>
-    </ul>
-    <hr>
-
-    <!-- p:first-child {
-        color: red;
-    } 일때 body 태그의 첫 번째 자식 요소는 h1 태그이지 p 태그가 아니므로 텍스트 색상(red) 스타일 미적용. -->
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    <hr>
-
-    <div>
-        <!--  p:first-child {
-        color: red;
-        } 일때 div 태그의 첫 번째 자식 요소가 p 태그이므로 텍스트 색상(red) 스타일 적용. -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </div>
+        <table>
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th colspan="2">구분</th>
+                    <th scope="col">단가</th>
+                    <th scope="col">수량</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="4">품목</th>
+                    <th scope="row">사과</th>
+                    <td rowspan="2">5000 원</td>
+                    <td>30 개</td>
+                </tr>
+                <tr>
+                    <th scope="row">배</th>
+                    <td>10 개</td>
+                </tr>
+                <tr>
+                    <th scope="row">참외</th>
+                    <td>3500 원</td>
+                    <td>60 개</td>
+                </tr>
+                <tr>
+                    <th scope="row">수박</th>
+                    <td>9000 원</td>
+                    <td>20 개</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row" colspan="3">과일 재고수량</th>
+                    <td>120 개</td>
+                </tr>
+            </tfoot>
+        </table>
+    </figure>
 </body>
 
 </html>

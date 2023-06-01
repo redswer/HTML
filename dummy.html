@@ -1,232 +1,186 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가상 클래스 선택자(Pseduo-class Selectors)</title>
+    <title>트리 구조 가상 클래스 선택자(Tree-structural poseduo-class Selectors)</title>
 
     <!-- 
-        < 가상 클래스 선택자(Pseduo-class Selectors) >
+        < 트리 구조 가상 클래스 선택자(Tree-structural poseduo-class Selectors) >
 
-    - 선택자에 의해 지정된 요소가 특정 상태일 때 스타일링 적용.
-      가상이라 함은 HTML 코드가 실제 존재하지 않는 상태에서 지정함을 의미.
+    - HTML 문서 내에서 임의 부모 요소를 기준으로 자식 관계가 성립되는 형제 요소에 대한
+      위치와 관련된 스타일링 적용.
 
     -->
     <style>
-        /*
-            :hover
-        
-        - 지정된 요소에 마우스 포인터를 올리면 스타일 적용.
+        /* 
+            < first-child, last-of-type, nth-of-type >
+
+        - 부모 요소를 기준으로 서로 다른 형제 요소들을 포함한 순번에서의 지정된 위치와 지정된
+          요소가 모두 일치해야만 스타일 적용.
         */
-        h1:hover {
-            background-color: aqua;
+
+        /* 첫 번째 자식 요소가 li 태그이면 스타일 적용. */
+        li:first-child {
+            background-color: antiquewhite;
         }
 
-        form button:hover {
+        /* 마지막 자식 요소가 li 태그이면 스타일 적용. */
+        li:last-child {
+            background-color: chocolate;
+        }
+
+        /* 첫 번째 자식 요소가 p 태그이면 스타일 적용. */
+        p:first-child {
             color: red;
         }
 
-        form:hover label {
-            font-style: italic;
-            font-weight: bold;
+        /* 3 번째 자식 요소가 li 태그이면 스타일 적용. */
+        li:nth-child(3) {
+            font-size: 20px;
         }
 
-        /* 
-            :focus
-
-        - 링크, 입력상자, 버튼등에 마우스나 TAB 키로 포커스가 맺혔을 때 스타일 적용.
-          웹페이지에서는 손이나 팔이 불편한 장애자를 위해 링크, 입력상자, 버튼등에 TAB 키로
-          포커스를 맞출수 있게 하는 기능이 제공되는데, 이 때의 상태를 규정함으로써 사용자에게
-          편의를 제공.
-        */
-        a:focus,
-        input:focus,
-        button:focus {
-            outline: none;
-            background-color: darkgrey;
-        }
-
-        /* 
-            :active
-
-        - 링크나 버튼등을 눌렀을 때 스타일 적용.
-        */
-        a:active {
-            background-color: orange;
-        }
-
-        /* 
-            :visited
-
-        - 이미 방문한 링크인 경우에 스타일 적용.
-        */
-        a:visited {
-            color: red;
-        }
-
-        /* 
-            :checked
-
-        - radio 나 checkbox 버튼 등이 체크되었을 때 스타일 적용.
-          단, radio 나 checkbox 버튼의 모양에 대한 직접적인 스타일 적용은 불가.
-        
-        ※ radio 나 checkbox 버튼 모양은 직접적인 형태 변경이 불가하여 다른
-           형태로 재구현하는 것이 일반적.
-        */
-        input:checked+label {
-            background-color: bisque;
-        }
-
-        /* 
-            :target
-
-        - 페이지 내부 링크에 의해 지목된 id 를 가진 요소에 대한 스타일 적용.
-        */
-        #title:target {
-            text-decoration: underline;
-        }
-
-        /* 
-            :enabled
-
-        - 텍스트 입력상자나 버튼 등이 활성화된 상태일 때 스타일 적용.
-        */
-        button:enabled {
-            font-weight: bold;
-        }
-
-        /* 
-            :disabled
-
-        - 텍스트 입력상자나 버튼 등이 비활성화된 상태일 때 스타일 적용.
-        */
-        button:disabled {
+        /* 끝에서 3번째 자식 요소가 li 태그이면 스타일 적용.  */
+        li:nth-last-child(3) {
             font-size: 10px;
         }
 
-        /* 
-            :not( 선택자 )
+        /* 마지막 자식 요소가 아닌 모든 li 태그의 자손 요소인 a 태그에 스타일 적용. */
+        li:not(:last-child) a {
+            color: red;
+        }
 
-        - not 에 지정된 선택자가 아닌 요소에 스타일 적용.
+        /*
+            li 태그의 인접 형제가 되는 li 태그에 마우스를 올리면 자손 태그인 a 태그에 스타일 적용.
+            결과적으로 연속적으로 발생되는 동일한 li 태그중 첫 번째 자식 요소를 제외한 모든 자식
+            요소에 스타일이 적용되는 효과.
+        */
+        li+li:hover a {
+            color: white;
+        }
+
+        /*
+            < nth-child(An + B) >
+        
+        - 구분자 소괄호 내에서 산술 연산을 통한 자식 요소의 선택이 가능.
+          n 을 0 부터 카운팅을 늘리면서 *, +, - 연산과 부호 적용을 통한
+          다중 선택과 범위 지정 선택이 가능.
+          단, * 연산자는 생략해야 하며 연산에 의해 결정된 자식 요소는
+          0 이 아닌 첫 번째(1) 요소부터 카운팅되어 선택됨에 주의.
         */
 
-        /* form 태그의  자손 요소중 button 태그가 아닌 태그에 스타일 적용. */
-        form :not(button) {
-            background-color: chartreuse;
+        /* div 태그의 자식 요소중 2의 배수(짝수) 번째에 해당하는 요소가 p 태그이면 스타일 적용. */
+        div p:nth-child(2n) {
+            background-color: darkgrey;
         }
 
-        /* ol 태그의 자손이 되는 li 태그 요소중 id 속성 값이 "kt"가 아닌 요소에 스타일 적용. */
-        ol li:not([id="kt"]) {
-            font-weight: bold;
-            font-size: 32px
+        /* div 태그의 자식 요소중 홀수 번째에 해당하는 요소가 p 태그이면 스타일 적용. */
+        div p:nth-child(2n+1) {
+            background-color: yellow;
         }
+
+        /*
+            홀수 번째에 해당하는 자식 요소가 li 태그이면서 그 자손이 되는 a 태그에 스타일 적용.
+            ( 짝수에 1 을 더하나 1 을 빼나 결과는 홀수 )
+        */
+        li:nth-child(2n-1) a {
+            text-decoration: none;
+        }
+
+        /* 짝수 번째에 해당하는 자식 요소가 li 태그이면 스타일 적용. */
+        li:nth-child(even) {
+            list-style: square;
+        }
+
+        /* 홀수 번째에 해당하는 자식 요소가 li 태그이면 스타일 적용. */
+        li:nth-child(odd) {
+            list-style: circle;
+        }
+
+        /*
+            div 태그의 자식 요소중 4 번째(4 이상)부터 배치되는 요소가 p 태그이면 스타일 적용.
+            ( 4, 5, 6 순으로 요소 카운팅 )
+        */
+        div p:nth-child(n+4) {
+            text-decoration: line-through;
+        }
+
+        /*
+            div 태그의 자식 요소중 3 번째(3 이하)부터 아래로 배치되는 요소가 p 태그이면 스타일 적용.
+            ( 3, 2, 1 순으로 요소 카운팅)
+        */
+        div p:nth-child(-n+3) {
+            font-weight: bold;
+        }
+
+        /* 5 이상이면서 10 이하인 자식 요소가 p 태그이면 스타일 적용. */
+        p:nth-child(n+5):nth-child(-n+10) {
+            color: blue;
+        }
+
+        /* 
+            < first-of-type, last-of-type, nth-of-type >
+
+        - first-child, last-child, nth-child 등은 부모 요소를 기준으로 모든 다른 형제 요소들을
+          포함한 순번에서의 지정된 위치와 지정된 요소가 모두 일치해야만 스타일이 적용되지만,
+          type 은 지정된 동일 타입의 형제 요소들 중에서만 순번을 매칭시켜 스타일이 적용되는 특성.
+        */
+
+        /* 동일 계층의 다른 태그를 제외한 p 태그 중에서의 첫 번째 요소에 스타일 적용. */
+        p:first-of-type {
+            text-decoration: underline;
+        }
+
+        /* body 태그의 자식 요소 계층의 다른 태그를 제외한 p 태그 중에서의 마지막 요소에 스타일 적용. */
+        body>p:last-of-type {
+            background-color: green;
+        }
+
+        /* body 태그의 자식 요소 계층의 다른 태그를 제외한 p 태그 중에서의 2 이상이면서 5 이하인 요소에 스타일 적용. */
+        body>p:nth-of-type(n+2):nth-of-type(-n+5) {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 
 <body>
-    <h1 id="title">가상 클래스 선택자</h1>
+    <h1>트리 구조 가상 클래스 선택자</h1>
     <hr>
 
     <ul>
         <li id="naver"><a href="http://www.naver.com">네이버</a></li>
         <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
         <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
-    </ul>
-    <hr>
-
-    <ol>
         <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
         <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
         <li id="kt"><a href="https://www.kt.com">KT</a></li>
         <li><a href="https://www.hyundai.com">현대자동차</a></li>
         <li><a href="https://www.hanwha.co.kr">한화</a></li>
-    </ol>
+    </ul>
     <hr>
 
-    <form action="#">
-        <div>
-            <label for="name" class="fontStyle color">이름</label>
-            <input type="text" id="name" placeholder="이름을 입력하세요">
-        </div>
-
-        <div>
-            <label class="color fontSize">주소
-                <input type="text" placeholder="주소를 입력하세요">
-            </label>
-        </div>
-
-        <!-- 
-            선택자에서는 부모 요소나 이전 발생한 형제 요소를 지정되는 방법은 제공되지 않음.
-            따라서 아래 예시에서 radio 버튼을 클릭했을 때 label 태그에 대한 스타일링 적용 불가.
-         -->
-        <div>
-            <label for="gender">남</label>
-            <input type="radio" name="gender" id="gender" value="man">
-
-            <label for="woman">여</label>
-            <input type="radio" name="gender" id="woman" value="woman">
-        </div>
-
-        <!-- 
-            아래 예시에서와 같이 label 태그와 input 태그의 순서를 바꾸는 트릭을 적용함으로써
-            radio 버튼을 체크했을 때의 label 태그에 대한 스타일링 적용 가능.
-            이렇게 처리를 하면 당장은 label 과 radio 버튼의 순서가 바뀌는 문제가 발생되지만,
-            차후 기본적인 radio 버튼은 삭제하고 다른 형태로 적용하는 것이 일반적.
-        -->
-        <div>
-            <input type="radio" name="housing-type" id="homeowner" value="homeowner">
-            <label for="homeowner">자가</label>
-
-            <input type="radio" name="housing-type" id="rental-house" value="rental-house">
-            <label for="rental-house">임대</label>
-        </div>
-
-        <!-- 
-            < disabled 속성 >
-        
-        - 텍스트 입력상자나 버튼 등을 비활성화하는 속성.
-        -->
-        <button type="reset" disabled>초기화</button>
-        <button>전송</button>
-    </form>
+    <!-- body 태그의 첫 번째 자식 요소는 h1 태그이지 p 태그가 아니므로 텍스트 색상(red) 스타일 미적용. -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     <hr>
 
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam debitis velit beatae quasi
-        quia dolorem, quos et voluptatem amet illo. Nesciunt minima cumque consectetur iusto ratione
-        necessitatibus debitis quia impedit.
-    </p>
-
-    <a href="#title">제목으로</a>
+    <div>
+        <!-- div 태그의 첫 번째 자식 요소가 p 태그이므로 텍스트 색상(red) 스타일 적용. -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
 </body>
 
 </html>

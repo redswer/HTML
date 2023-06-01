@@ -5,43 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가상 요소 선택자(Pasduo-element Seloctors)</title>
+    <title>사용자 정의 속성(data-)과 attr 함수</title>
+
     <style>
-        /* 가상 요소 선택자 */
-        /* 선택한 요소의 특정 부분에 특정 스타일이나 내용을 지정
-            가상 클래스 선택자와 구분하기 위해 구분자로 단일콜론(:) 대신 이중콜론(::)을 사용
-            단, 현재까지는 단일콜론을 허용 */
-        li {
-            list-style: none;
-        }
-
-        li:first-child::before {
-            content: "♡ ";
+        /* attr 함수 */
+        /* 인수로 지정된 속성에 대한 value 를 문자열로 변환하되 속성이 존재하지 않으면 빈 문자열 반환 */
+        li:first-child:hover::before {
+            content: attr(data-before-heart);
             color: red;
         }
 
-        li:nth-child(2)::after {
-            content: "♡ ";
+        li:nth-child(2):hover::after {
+            content: attr(data-after-heart);
             color: red;
         }
 
-        li:last-child::before,
-        li:last-child::after {
-            content: " ★ ";
+        li:last-child:hover::before,
+        li:last-child:hover::after {
+            content: attr(data-beforeAfter-star);
             color: blue;
         }
     </style>
 </head>
 
 <body>
-    <h1>가상 요소 선택자</h1>
+    <h1>사용자 정의 속성(data-)과 attr 함수</h1>
     <hr>
 
     <h2>커리큘럼</h2>
+    <!-- 사용자 속성 정의 -->
+    <!-- 접두사 'data-' 뒤에 임의 사용자 정의 속성명을 정의하고 value 를 할당함으로써 컨텐츠로 활용 가능 -->
     <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
+        <li data-before-heart="♡ ">HTML</li>
+        <li data-after-heart=" ♡">CSS</li>
+        <li data-beforeAfter-star=" ★ ">JavaScript</li>
     </ul>
 </body>
 

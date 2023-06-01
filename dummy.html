@@ -2,127 +2,99 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자(Attribute Selectors)</title>
 
-  <style>
-    h1 {
-      font-size: 50px;
-    }
+    <!-- 
+        < 속성 선택자(Attribute Selectors) >
 
-    h2,
-    .model_2021 ol li+li {
-      font-size: 30px;
-    }
+    - 지정된 속성 또는 value 에 의해 요소를 결정하여 스타일링 적용.
+    -->
+    <style>
+        /* id 속성을 가진 요소. */
+        [id] {
+            background-color: bisque;
+        }
 
-    .model_2021 ol li+li {
-      text-decoration: underline;
-    }
+        /* input 태그 중 id 속성을 가진 요소. */
+        input[id] {
+            font-weight: bold;
+        }
 
-    h1,
-    h2 {
-      background-color: silver;
-      color: darkorange;
-      text-align: center;
-    }
+        /* id 속성이 value 인 요소. */
+        [id="lg"] {
+            list-style: none;
+        }
 
-    /* ======================================================= */
-    /* model_2021 */
+        /* value 가 디폴트로 설정된 값이 있다하더라도 명시적 지정이 되어 있지 않으면 미적용. */
+        [target="_self"] {
+            text-decoration: none;
+        }
 
-    .model_2021 {
-      background-color: antiquewhite;
-      color: blue;
-    }
+        /* ol 태그 자손 요소중 href 속성을 가진 요소. */
+        ol [href] {
+            font-size: 25px;
+        }
 
-    .model_2021 ul {
-      color: deeppink;
-    }
+        /* href 속성과 target 속성을 가진 요소. */
+        [href][target] {
+            font-style: italic;
+        }
 
-    .model_2021 ul ol {
-      color: green;
-    }
+        /* 지정된 value("font")로 시작되는 class 속성 값을 가진 요소. */
+        [class^="font"] {
+            color: green;
+        }
 
-    /* ======================================================= */
-    /* model_2020 */
+        /* 지정된 value("Size")로 끝나는 class 속성 값을 가진 요소. 매칭 시 대소문자를 구분함에 주의. */
+        [class$="Size"] {
+            color: red;
+        }
 
-    .model_2020 {
-      background-color: darkseagreen;
-    }
-
-    .model_2020 li {
-      color: red;
-    }
-
-    .model_2020>li~li {
-      color: yellow;
-    }
-  </style>
+        /* 지정된 value("co.")가 포함되는 href 속성 값을 가진 요소. */
+        [href*="co."] {
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 
-<!-- 
-  < 지시사항 >
-
-1. 본문을 참조하여 적절한 그룹 지정.
-
-2. 텍스트 크기.
-- h1 : 50px
-- h2, 리스트 텍스트("디젤") : 30px
-- 리스트 : 20px
-
-3. 리스트 텍스트("디젤") : 언더라인 지정.
-
-4. class 식별자는 ul 에만 지정.
-   ( 식별자는 최대 2개로 제한)
-
-5. 텍스트와 배경 색상 지정 및 정렬은 구현 페이지 참조.
-
- -->
-
 <body>
-  <h1>중고차</h1>
-  <hr>
+    <h1>속성 선택자</h1>
+    <hr>
 
-  <h2>2021년식</h2>
-  <ul class="model_2021">
-    <li>세단
-      <ul>
-        <li>그랜저</li>
-        <li>소나타</li>
-        <li>아반떼</li>
-        <li>K7
-          <ol>
-            <li>가솔린</li>
-            <li>디젤</li>
-          </ol>
-        </li>
-      </ul>
-    </li>
-    <li>SUV</li>
-    <li>트럭</li>
-    <li>봉고</li>
-  </ul>
-  <hr>
+    <!-- ul>(li[id]>a[target])*3 -->
+    <ul>
+        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
+        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
+        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
+    </ul>
+    <hr>
 
-  <h2>2020년식</h2>
-  <ul class="model_2020">
-    <li>세단</li>
-    <li>SUV
-      <ul>
-        <li>산타페</li>
-        <li>쏘렌토
-          <ol>
-            <li>가솔린</li>
-            <li>디젤</li>
-          </ol>
-        </li>
-        <li>셀토스</li>
-      </ul>
-    </li>
-    <li>트럭</li>
-    <li>봉고</li>
-  </ul>
+    <ol>
+        <li id="samsung"><a href="https://www.samsung.com">삼성</a></li>
+        <li id="lg"><a href="https://www.lge.co.kr">LG</a></li>
+        <li id="kt"><a href="https://www.kt.com">KT</a></li>
+        <li>현대</li>
+        <li>한화</li>
+    </ol>
+    <hr>
+
+    <form action="#">
+        <div>
+            <label for="name" class="fontStyle color">이름</label>
+            <input type="text" id="name" placeholder="이름을 입력하세요">
+        </div>
+
+        <div>
+            <label class="color fontSize">주소
+                <input type="text" placeholder="주소를 입력하세요">
+            </label>
+        </div>
+
+        <button>전송</button>
+    </form>
 </body>
 
 </html>

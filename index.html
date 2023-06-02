@@ -5,149 +5,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>색상 지정</title>
+    <title>px, %, em, rem</title>
     <style>
-        /* 1 색상명 지정 */
-
-        /* body의 자식이면서 h1, ul 이 아닌 태그
-            브라우저 호환성 측면에서는 body>not(h1):not(ul) 형식을 사용하는 것을 권장 */
-        body>:not(h1, ul) {
-            color: gold;
+        h1 {
+            background-color: yellow;
+            width: 400px;
         }
 
-        li {
-            font-size: 20px;
+        /* % 단위 */
+        /* 부모 요소를 기준으로 적용되는 모든 단위에 대한 상대적 백분율
+   부모 요소가 중첩되고 계층별 부모 요소세 % 단위가 각각 적용되었다면 누적 비율 적용 */
+        h2 {
+            background-color: greenyellow;
+            width: 50%;
         }
 
-        /* 불투명도 */
-        /* 모든 색상 지정 방식은 opacity 속성을 이용하여 별도의 불투명도 설정 가능
-            opacity 는 0 ~ 1.0 범위의 값으로 지정 가능하며 값이 낮을수록 투명도가 높아지고 값이 높을수록 불투명도가 높아짐
-           opacity는 색상의 명도가 아닌 다른 요소와 겹쳤을 때 투명하게 비추일 수 있는 특성임에 주의 */
-        ul:first-of-type li:first-child {
-            background-color: red;
+        /* 부모 요소에 대한 font-size 미지정 시 기본 pixel 은 디폴드값인 16px로 적용 */
+        /* font-size 의 최소 적용 가능한 pixel 크기는 브라우저마다 상이할 수 있음에 주의 / 크롬은 10px */
+        section:nth-child(1) p {
+            background-color: brown;
+            font-size: 80%;
+            /* 16px * 0.8 = 12.8 */
         }
 
-        /* opacity 는 배경색과 폰트색 모두에 적용됨 */
-        ul:first-of-type li:nth-child(2) {
-            background-color: green;
-            /* opacity: 0.7; */
+        section:nth-child(1) p strong {
+            color: white;
+            font-size: 150%;
+            /* 부모 요소인 'section:nth-child(1) p' 의 폰트 크기인 12.8px 의 150% = 12.8 * 1.5 = 19.2px */
         }
 
-        ul:first-of-type li:last-child {
+        /* em 단위 */
+        /* 부모 요소를 기준으로 적용되는 font-size 속성 크기를 기반으로 한 상대적 배율
+           부모 요소가 중첩되고 계층별 부모 요소의 font-size 속성에 em 단위가 각각 적용되었다면 누적 배율 적용
+           단, 임의의 부모 계층이나 자기 자신 요소에 대한 font-size 속성을 px 로 지정하면 그 시점부터 다시
+            초기화되어 이전에 적용되었던 배율은 무시 */
+        section:nth-child(2) p {
+            background-color: aquamarine;
+            font-size: .8em;
+            /* 16px * 0.8 = 12.8 px */
+        }
+
+        section:nth-child(2) p strong {
+            color: red;
+            font-size: 1.5em;
+            /* 12.8 * 1.5 = 19.2 px */
+        }
+
+        /* em 과 % 차이 */
+        /* 결과적으로 % 와 em 은 리터럴 값 표현과 단위 명칭만 다를 뿐 동일하게 적용되는 것처럼 보이지만,
+                %는 상속 계층 내에서 단위 지정이 가능한 모든 개별 속성간 누적 배율이 적용되는 반면,
+                em 은 상속 계층 간 font-size 속성을 기반으로 한 상대적 누적 배율이 적용
+               즉, font-size 속성이 아닌 다른 임의의 속성에 em 단위를 적용하는 경우 해당 속성에 대한 배율이
+                적용되는 것이 아닌 font-size 속성에 대한 누적 배율로 해당 속성에 대한 크기가 결정 */
+        aside {
+            background-color: bisque;
+            width: 20em;
+            /* 16 * 20 = 320px */
+        }
+
+        aside h3 {
+            background-color: blueviolet;
+            width: 80%;
+            /* 320 * 20 = 256px */
+        }
+
+        aside p {
+            background-color: cyan;
+            width: 20em;
+            /* 16 * 20 = 320 px    상속 계층 내 font-size 특성이 변하지 않는 한 다른 속성에 대한
+                                        상속 계층 간 em 단위 배율은 최상위 부모 계층에 지정된 크기에 대한 배율만 적용 */
+        }
+
+        article {
+            background-color: darkseagreen;
+            font-size: 120%;
+            width: 30em;
+            /* 16 * 1.2 * 30 = 576px */
+        }
+
+        article h3 {
+            background-color: coral;
+            /* calc 함수 */
+            /* 단일 값이 아닌, 단위간 산술 연산이 필요한 경우 활용 */
+            font-size: calc(0.5em + 5px);
+            /* 16 * 1.2 * 0.5 + 5 = 14.6px */
+        }
+
+        article p:nth-of-type(1) {
+            background-color: hotpink;
+            font-size: 14px;
+            /* font-size 속성이 px 단위로 초기화되었으므로 상위 계층에서 지정된 비율이나 배율은 무시 */
+            width: 20em;
+            /* 14 * 20 = 280px */
+        }
+
+        article p:nth-of-type(2) {
+            background-color: aquamarine;
+            font-size: 1.4em;
+            /* 16 * 1.2 * 1.4 = 26.88px */
+            width: 50%;
+            /* 576 * 0.5 = 288px */
+        }
+
+        /* rem */
+        /* 최상위 부모(root) 요소의 font-size 속성에 대한 배율만 적용
+           em 과 달리 최상위 부모 외 중간 상위 계층에 px, %, em 등의 단위를 적용하더라도 누적 배율이나 크기가
+            적용되지 않고 무조건 최상위 부모에 지정된 크기에 대한 배율만 적용됨 */
+        footer {
             background-color: blue;
-            color: white;
+            font-size: 30px;
         }
 
-        /* 2 RGB 16진수 값 지정 */
-
-        /* 접두사 # 뒤에 RGB 색상값을 16진수 6자리로 표현하되, 2자리씩 묶어서 혼합하는 형태로 지정
-            #ffffff 는 흰색, #000000 은 검은색을 표현
-            각각 2자리 RGB 값이 동일한 경우 한 자리로 압축하여 표현 가능 / 단, 각 RGB값의 쌍이 모두 동일한 경우에만
-            또한 RGB값 표기 이후에 2자리 16진수를 추가하여 opacity 값 표현 가능 */
-        ul:nth-of-type(2) li:first-child {
-            background-color: #ff0000;
-            /* = #f00 */
+        footer h4 {
+            background-color: silver;
+            font-size: 1.3rem;
+            /* 16 * 1.3 = 20.8px */
+            width: 20rem;
+            /* 16 * 20 = 320px */
         }
 
-        ul:nth-of-type(2) li:nth-child(2) {
-            background-color: #0f0;
-        }
-
-        ul:nth-of-type(2) li:nth-child(3) {
-            background-color: #00f;
-            color: white;
-        }
-
-        ul:nth-of-type(2) li:nth-child(4) {
-            background-color: #000;
-            color: #fff;
-            /*글자색이 흰색이므로 글머리 기호도 흰색이므로 표시되지 않음*/
-        }
-
-        ul:nth-of-type(2) li:last-child {
-            background-color: #00f8;
-            /* 00f = blue, 00f8 = blue + opacity  */
-        }
-
-        /* 함수형 RGB 값 지정 */
-
-        /* RGB 색상 값을 1byte로 표현된 10진수 총 3자리 또는 백분율로 표현 
-           RGB 표기에 10진수와 백분율 혼용 불가 
-           10진수 3자리 뒤에 백분율로 표기하는 형식 또는 0~1.0 범위의 값으로 opacity 추가 가능 */
-        ul:nth-of-type(3) li:first-child {
-            color: rgb(255, 0, 0);
-            /* = rgb(255 0 0) */
-        }
-
-        ul:nth-of-type(3) li:nth-child(2) {
-            color: rgb(0, 255, 0);
-            /* = rgb(0% 100% 0%) */
-        }
-
-        ul:nth-of-type(3) li:nth-child(3) {
-            color: rgb(0, 0, 255);
-        }
-
-        ul:nth-of-type(3) li:last-child {
-            color: rgb(255, 0, 0, 50%);
-            /* =rgb(255 0 0 / 50%) */
-        }
-
-        /* 함수형 RGBA */
-        /* CSS color level 4 부터 함수 rgb()와 동일하게 동작 */
-        ul:nth-of-type(4) li:first-child {
-            background-color: rgba(255, 0, 0, 1);
-            /* = rgba(255, 0, 0, 100%) = rgba(255, 0, 0) */
-        }
-
-        ul:nth-of-type(4) li:nth-child(2) {
-            background-color: rgba(2525, 0, 0, .7);
-        }
-
-        ul:nth-of-type(4) li:last-child {
-            background-color: rgba(255, 0, 0, .3);
-            /* = rgba(100%, 0%, 0%, 30%) = rgba(255 0 0 / .3) = rgba(255 0 0 / 30%) */
-        }
+        /* root 요소의 속성 지정 */
+        /* 아래와 같이 html 태그나 :root 가상 클래스 선택자를 이용하여 지정 */
+        /* html {
+                font-size: 20px;
+            } 
+            
+            :root {
+                font-size: 20px;
+            }
+            */
     </style>
 </head>
 
 <body>
-    <h1>색상 지정</h1>
-    <hr>
+    <header>
+        <h1>네이버 로고, 검색 창</h1>
+        <nav>
+            <h2>메일, 카페, 블러그, 지신in (바로 가기 메뉴)</h2>
+        </nav>
+    </header>
 
-    <h2>1. 색상명 지정</h2>
-    <ul>
-        <li>Red</li>
-        <li>Green</li>
-        <li>Blue</li>
-    </ul>
-    <hr>
+    <main>
+        <section>
+            <h3>헤드라인 뉴스</h3>
+            <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit.</p>
+        </section>
 
-    <h2>2. RGB 16진수 값 지정</h2>
-    <ul>
-        <li>Red</li>
-        <li>Green</li>
-        <li>Blue</li>
-        <li>black &amp; white</li>
-        <li>blue - opacity</li>
-    </ul>
-    <hr>
+        <section>
+            <h3>주제별 토론</h3>
+            <p>Lorem ipsum <strong>dolor</strong> sit amet consectetur adipisicing elit.</p>
+        </section>
 
-    <h2>3. 함수형 RGB 값 지정</h2>
-    <ul>
-        <li>Red</li>
-        <li>Green</li>
-        <li>Blue</li>
-        <li>Red - opacity</li>
-    </ul>
-    <hr>
+        <aside>
+            <h3>로그인, 광고, 쇼핑</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </aside>
 
-    <h2>4. 함수형 RGBA(Red Green Blue Alpha)</h2>
-    <ul>
-        <li>Red - opacity 100%</li>
-        <li>Red- opacity 70%</li>
-        <li>Red- opacity 30%</li>
-    </ul>
+        <article>
+            <h3>카페, 블러그</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p><em>ipsum</em> dolor sit amet consectetur adipisicing elit.</p>
+        </article>
+    </main>
+
+    <footer>
+        <h4>네이버 상호, 약관, 고객센터</h4>
+    </footer>
 </body>
 
 </html>

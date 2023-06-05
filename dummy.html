@@ -5,183 +5,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>inline, block, inline-block</title>
 
+    <!-- 
+    < inline, block, inline-block 특성 >
+
+  - inline : 기본적으로 텍스트 속성을 가져 인라인 요소간 수평 나열이 가능하지만 크기 지정은 불가.
+
+  - block : 높이는 내부 컨텐트에 의해 결정되지만 너비는 수평 영역 전체를 차지하는 특성으로 인해
+            블럭요소간 수평 나열이 불가.
+            단, 크기 지정은 가능한데 수평 영역 전체는 그대로 차지한 상태에서 컨텐트 영역을 제외한
+            나머지 부분은 마진 영역으로 채워지는 특성.
+  
+  - inline-block : 인라인 요소와 같이 컨텐트 영역만을 차지함으로써 인라인 특성을 가지는 요소간 수평
+                   나열이 가능하면서도 블럭요소와 같이 크기 지정이 가능한 특성.
+                   ( 대표적 인라인 블럭요소 : img )
+                   또한 인라인 블럭 요소 내 다른 블럭요소의 포함이 가능.
+   -->
     <style>
-        col {
-            width: 6vw;
+        em,
+        p,
+        a,
+        div {
+            background-color: greenyellow;
+            color: red;
+            font-weight: bold;
+            font-size: 1.5em;
         }
 
-        tr {
-            height: 6vw;
-        }
+        /* em {
+            display: block;
+        } */
 
-        table td {
-            background-color: cadetblue;
-        }
+        /* 
+            line-height 로 높이를 결정하였으므로 height 는 생략 가능.
+        */
+        /* em {
+            width: 5em;
+            height: 5em;
+            text-align: center;
+            line-height: 5em;
+        } */
 
-        tr:nth-of-type(2n+1) td:nth-child(2n+1),
-        tr:nth-of-type(2n) td:nth-child(2n) {
-            opacity: .3;
-        }
+        /* p {
+            width: 5em;
+            height: 5em;
+        } */
 
-        /*
-        ※ 아래 내용은 예제 실습후 학습.
+        /* p {
+            display: inline;
+        } */
 
-            < border-collapse >
+        /* a {
+            display: inline-block;
+            width: 5em;
+            height: 5em;
+            text-align: center;
+            line-height: 5em;
+        } */
 
-        - separate : 개별 셀을 독립적으로 분리하여 셀들 간의 간격 발생. 디폴트 값.
-        - collapse : 셀들간의 간격을 없애서 경계를 통합.
-        
-        - 셀 간 간격을 독립적(separate)으로 유지할 것인지, 붕괴시켜서(collapse) 없앨 것인지를 결정.
-        각 셀은 별도의 독립된 보더라인 설정이 가능하며 각 셀의 경계에는 일정한 간격이 존재하여
-        별도의 설정을 지정하지 않은 상태(separate)로 보더라인을 지정하면 각 셀간의 보더라인을
-        경계로 일정한 간격이 발생되는 것을 확인 가능.
-        따라서 이러한 간격을 없애고 각 셀의 보더라인이 하나로 중첩되어 통합되도록 설정하려면
-        collapse 값을 지정.
-        단, 이 때 부모 요소가 되는 table 태그에 border-collapse 속성을 지정해야만 부모 자신을
-        포함한 하위 태그들에 대한 속성값이 적용됨에 주의.   
-
-        ※ 테이블은 블럭 요소임에 주의.
-       */
-
-        table {
-            border-collapse: collapse;
-        }
+        /* div {
+            display: inline-block;
+            width: 5em;
+            height: 5em;
+        } */
     </style>
 </head>
 
 <body>
-    <figure>
-        <figcaption>테이블 꾸미기</figcaption>
+    <h1>display 속성</h1>
+    <hr>
 
-        <table>
-            <colgroup>
-                <col span="10">
-            </colgroup>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </figure>
+    <h2>inline &rArr; block</h2>
+    <em>Test1</em>
+    <hr>
 
+    <h2>block &rArr; inline</h2>
+    <p>Test2</p>
+    <hr>
+
+    <h2>inline &rArr; inline-block</h2>
+    <a href="#">Test3</a>
+    <hr>
+
+    <h2>inline-block &gt; block</h2>
+    <div>
+        <h3>Test4</h3>
+    </div>
 </body>
 
 </html>

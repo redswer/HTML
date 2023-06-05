@@ -5,81 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inline, block, inline-block</title>
+    <title>display(none), visibility(hidden, visible)</title>
+    <style>
+        /* 이미지에 대한 크기는 width 나 height 중 하나만 변경해도 원본 이미지에 맞추어 자동으로 비율 조정됨 */
+        img[src="./image/jeep_logo.png"] {
+            width: 150px;
+
+            /* display :none */
+            /* 해당 요소가 컨텐츠 영역을 차지하지 않으면서 숨김
+            스크린 리더에 읽히지 않고 봇에 의해 검색도 되지 않음 */
+            display: none;
+        }
+
+        h2:nth-of-type(1):hover+img {
+            display: inline-block;
+        }
+
+        img[src="./image/starbucks_logo.jpg"] {
+            width: 200px;
+
+            /* visibility */
+            /* hidden : 해당 요소가 컨텐츠 영역을 차지한 상태로 숨김
+                        스크린 리더에 읽히진 않지만 봇에 의한 검색은 가능
+               visible : visibility 속성의 디폴트 값 */
+            visibility: hidden;
+        }
+
+        h2:nth-of-type(2):hover+img {
+            visibility: visible;
+        }
+    </style>
 </head>
-<style>
-    /* inline, block, inline-block 특성 */
-    /* inlline : 기본적으로 텍스트 속성을 가져 인라인 요소 간 수평 나열이 가능하지만 크기 지정은 불가
-       block : 높이는 내부 컨텐츠에 의해 결정되지만 너비는 수평 영역 전체를 차지하는 특성으로 인해 블럭 요소 간 
-                수평 나열이 불가. 단, 크기 지정은 가능하고 나머지 부분은 마진으로 채워짐
-       inline-block : 인라인 요소와 같이 컨텐츠 영역만을 차지함으로써 인라인 특성을 가지는 요소 간 수평 나열이
-                       가능하면서도 블럭 요소와 같이 크기 지정이 가능 (대표적인 인라인 블럭 요소 : img)
-                      또한 인라인 블럭 요소 내 다른 블럭 요소의 포함이 가능 */
-
-    em,
-    p,
-    a,
-    div {
-        background-color: greenyellow;
-        color: red;
-        font-weight: bold;
-        font-size: 1.5em;
-    }
-
-    /* display :block 을 줬기 때문에 너비가 수평 영역 전체를 차지 / 글자 이외의 나머지 부분은 마진이 들어감 */
-    em {
-        display: block;
-    }
-
-    /* line-height 로 높이를 결정하였기 때문에 height는 생략가능 */
-    /* line-height 는 top과 bottom 사이의 거리(높이)를 의미 */
-    em {
-        width: 5em;
-        height: 5em;
-        text-align: center;
-        line-height: 5em;
-    }
-
-    /* display :inline 을 줬기 때문에 블럭 요소인 p 태그의 마진 부분이 삭제됨 */
-    p {
-        display: inline;
-    }
-
-    a {
-        display: inline-block;
-        width: 5em;
-        height: 5em;
-        text-align: center;
-        line-height: 5em;
-    }
-
-    div {
-        display: inline-block;
-        width: 5em;
-        height: 5em;
-    }
-</style>
 
 <body>
-    <h1>display 속성</h1>
+    <h1>display(none), visibility(hidden, visible)</h1>
     <hr>
 
-    <h2>inline &rArr; block</h2>
-    <em>Test1</em>
+    <h2>JEEP</h2>
+    <img src="./image/jeep_logo.png" alt="JEEP LOGO">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ullam fuga rem natus modi non porro alias
+        esse
+        cum deserunt ut, facere voluptatibus tenetur in ea repellat, asperiores suscipit laborum.
+    </p>
     <hr>
 
-    <h2>block &rArr; inline</h2>
-    <p>Test2</p>
-    <hr>
-
-    <h2>inline &rArr; inline-block</h2>
-    <a href="#">Test3</a>
-    <hr>
-
-    <h2>inline-block &gt; block</h2>
-    <div>
-        <h3>Test4</h3>
-    </div>
+    <h2>STARBUCKS</h2>
+    <img src="./image/starbucks_logo.jpg" alt="JEEP LOGO">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ullam fuga rem natus modi non porro alias
+        esse
+        cum deserunt ut, facere voluptatibus tenetur in ea repellat, asperiores suscipit laborum.
+    </p>
 </body>
 
 </html>

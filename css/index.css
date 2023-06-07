@@ -1,24 +1,35 @@
-img {
-    display: inline-block;
-    width: 500px;
-    height: 500px;
+header ul {
+    padding: 0;
 }
 
-div {
+header li {
+    list-style: none;
+    margin-bottom: 1px;
+}
+
+header span {
+    display: inline-block;
+    background-color: cornflowerblue;
+    width: 100px;
+    line-height: 50px;
     text-align: center;
-}
-
-div a {
-    display: inline-block;
-    width: 30px;
-    line-height: 30px;
-    text-decoration: none;
-    background-color: gray;
     opacity: 0.5;
-    color: black;
+    font-size: larger;
+    color: white;
 }
 
-div a[href="#"] {
+header img {
+    display: none;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    margin-left: 100px;
+}
+
+span:hover {
     opacity: 1;
-    color: blue;
+}
+
+span:hover+img {
+    display: block;
 }

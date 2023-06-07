@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>white-space</title>
+    <title>text-indent 와 IR(Image Replacement) 기법</title>
 
     <link rel="stylesheet" href="./CSS/index.css">
 </head>
 
 <body>
-    <h1>white-space</h1>
+    <h1>text-indent 와 IR(Image Replacement) 기법</h1>
     <hr>
 
-    <h2>1 - normal, h2:nth-of-type(1):hover-nowrap</h2>
-    <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    <p class="text-indent1">
+        Enim aliquip irure ullamco ipsum excepteur ex in.
+    </p>
 
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-    </P>
+    <p class="text-indent2">
+        Enim aliquip irure ullamco ipsum excepteur ex in.
+    </p>
 
-    <h2>2 - pre</h2>
-    <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-    </P>
+    <p class="text-indent3">
+        Enim aliquip irure ullamco ipsum excepteur ex in.
+    </p>
+    <hr>
 
-    <h2>3 - pre-wrap</h2>
-    <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-    </P>
+    <h2 class="jeep_logo">
+        <span>jeep</span>
+        <a href="#">
+            <img src="image/jeep_logo.png" alt="jeep_logo">
+        </a>
+    </h2>
+    <hr>
 
-    <h2>4 - pre-line</h2>
-    <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
-        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
-    </P>
+    <h2 class="starbucks_logo">
+        <a href="#">
+            starbucks
+        </a>
+    </h2>
+    <hr>
+
+    <h2 class="starbucks_logo_small">
+        <span>starbucks</span>
+        <a href="#">
+            <img src="image/starbucks_logo.jpg" alt="starbucks_logo">
+        </a>
+    </h2>
 </body>
 
 </html>

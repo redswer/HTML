@@ -1,43 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메뉴 만들기</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <title>white-space</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <style>
+        p {
+    background-color: antiquewhite;
+    width: 500px;
+    margin-bottom: 50px;
+}
+
+/* normal */
+/* white-space 속성 미설정 시의 디폴트 값으로 white-space 문자를 모두 공백으로 처리하고 연속된 white-space문자도
+    하나의 공백으로만 인정
+   또한 연속된 텍스트가 수평 너비 영역 끝에 닿으면 자동으로 개행되는 특성 */
+p:nth-of-type(1) {
+    white-space: normal;
+}
+
+/* nowrap */
+/* normal 특성에서 텍스트가 수평 너비 영역 끝에 닿을 때 자동 개행되는 특성을 해제 */
+h2:nth-of-type(1):hover+p {
+    white-space: nowrap;
+}
+
+/* pre */
+/* pre 태그와 동일한 기능 */
+p:nth-of-type(2) {
+    white-space: pre;
+}
+
+/* pre-wrap */
+/* pre 속성과 동일하게 적용되지만 수평 너비 영역을 벗어났을 때 nowrap 되는 특성을 wrap 으로 변경 */
+p:nth-of-type(3) {
+    white-space: pre-wrap;
+}
+
+/* pre-line */
+/* pre 속성과 동일하지만 탭과 연속 공백을 제외한 개행만을 인정하고 wrap 특성 적용 */
+p:nth-of-type(4) {
+    white-space: pre-line;
+}
+    </style>
 </head>
 
 <body>
-    <header>
-        <div>
-            <ul>
-                <li>
-                    <span>돈까스</span>
-                    <img src="./image/pork_cutlet.png" alt="pork_cutlet">
-                </li>
+    <h1>white-space</h1>
+    <hr>
 
-                <li>
-                    <span>짜장면</span>
-                    <img src="./image/jajangmyeon.PNG" alt="jajangmyeon">
-                </li>
+    <h2>1 - normal, h2:nth-of-type(1):hover-nowrap</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
 
-                <li><span>탕수육</span>
-                    <img src="./image/sweet_sour_pork.png" alt="sweet_sour_pork">
-                </li>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
 
-                <li><span>김밥</span>
-                    <img src="./image/gimbap.png" alt="gimbap">
-                </li>
+    <h2>2 - pre</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
 
-                <li><span>떡볶이</span>
-                    <img src="./image/tteokbokki.png" alt="tteokbokki">
-                </li>
+    <h2>3 - pre-wrap</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
 
-            </ul>
-        </div>
-    </header>
+    <h2>4 - pre-line</h2>
+    <P>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quas fuga expedita? Tenetur ipsum, deserunt neque
+        quas voluptates ab exercitationem tempore atque a iusto dolores magni saepe, architecto explicabo ullam!
+    </P>
 </body>
 
 </html>

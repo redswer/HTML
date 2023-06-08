@@ -5,114 +5,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글자 장식, 글자 스타일, 글자 변형</title>
-
+    <title>text-align</title>
     <style>
-        .deco {
-            color: red;
+        p {
+            border: 1px solid blue;
+            width: 500px;
         }
 
-        .underline {
-            text-decoration: underline;
+        /* text-align */
+        /* 부모가 되는 블럭요소나 테이블요소에 정렬 속성을 지정함으로써 부모요소 내에서의 인라인 또는 인라인 블럭
+            요소들에 대한 수평 정렬 지정 */
+        /* justify */
+        /*양쪽 정렬
+            문장이 해당 영역의 너비를 넘어가 개행되는 경우, 오른쪽 끝 경계에 단어가 걸리면 단어를 깨지 않고 경계에
+             걸리는 단어부터 어절을 개행하고, 개행되지 않는 문장의 수평 양쪽 끝을 정렬시키기 위해 단어간 간격을 영역
+             너비에 따라 자동으로 조정
+            이에 따라 경계에 걸리는 단어가 음절이 긴 단어일 경우 그 단어가 개행됨으로써 개행되지 않은 문장의 단어 사이
+             간격이 너무 넓게 벌어지는 현상 발생 가능 */
+
+        p:nth-of-type(1) {
+            text-align: left;
         }
 
-        .overline {
-            text-decoration: overline;
+        p:nth-of-type(2) {
+            text-align: right;
         }
 
-        .line-through {
-            text-decoration: line-through;
+        p:nth-of-type(3) {
+            text-align: center;
         }
 
-        /* text-decoration-style, text-decoration-color 등과 같은 속성은 반드시 text-decoration 속성이 설정된 뒤에야
-    적용 가능함 */
-
-        .line-through2 {
-            text-decoration: line-through;
-            text-decoration-style: double;
+        p:nth-of-type(4) {
+            text-align: justify;
         }
 
-        .line-color {
-            text-decoration-color: turquoise;
+        /* word-break : break-all */
+        /* justify 에서 단어를 깨지 않고 개행되어 발생 가능한 넓은 공백이 생기는 문제에 대하여 단어의 어절을
+            끝 경계에서 깸으로써, 자동 정렬로 인해 늘어진 공백이 발생하는 문제점 해소 */
+        p:nth-of-type(4):hover {
+            word-break: break-all;
         }
 
-        .fontStyle,
-        em {
-            color: cornflowerblue;
+        div {
+            background-color: bisque;
+            text-align: center;
         }
 
-        .italic {
-            font-style: italic;
-        }
-
-        /* oblique */
-        /* italic 과 동일 */
-        .oblique {
-            font-style: oblique;
-        }
-
-        [class^="fontStyle"]:hover,
-        em:hover {
-            font-style: normal;
-        }
-
-        .transform {
-            color: darkorange;
-        }
-
-        /* text-transform : uppercase */
-        /* 텍스트를 대문자로 변경 */
-        .upper:hover {
-            text-transform: uppercase;
-        }
-
-        /* text-transform : lowercase */
-        /* 텍스트를 소문자로 변경 */
-        .lower:hover {
-            text-transform: lowercase;
-        }
-
-        /* capitalize */
-        /* 단어의 첫 글자를 대문자로 시작 */
-        .capitalize:hover {
-            text-transform: capitalize;
-        }
-
-        /* font-variant : small-caps */
-        /* 아래 첨자 (sub) 형태의 대문자로 표시 */
-        .font-variant_smallCaps:hover {
-            font-variant: small-caps;
+        div:hover p {
+            display: inline-block;
+            width: 200px;
         }
     </style>
 </head>
 
 <body>
-    <h1>글자 장식, 글자 스타일, 글자 변형</h1>
+    <h1>text-align</h1>
     <hr>
 
-    <h2 class="deco underline line-color">글자 장식 - 밑줄</h2>
-    <h2 class="deco overline line-color">글자 장식 - 윗줄</h2>
-    <h2 class="deco line-through line-color">글자 장식 - 가운데 줄</h2>
-    <h2 class="deco line-through2 line-color">글자 장식 - 가운데 두 줄</h2>
+    <h2>1. left</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
+        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
+        tenetur?
+    </p>
 
-    <!-- 
-      < del 태그 >
+    <h2>2. right</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
+        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
+        tenetur?
+    </p>
 
-    - line-through 속성과 동일한 기능을 하지만 text-decoration-style,
-      text-decoration-color 등과 같은 속성 적용은 불가.
-    -->
-    <h2 class="deco line-color"><del>글자 장식 - del 태그</del></h2>
+    <h2>3. center</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
+        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
+        tenetur?
+    </p>
+
+    <h2>4. justify</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
+        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
+        tenetur?
+    </p>
+    <hr>
     <hr>
 
-    <h2 class="fontStyle italic">글자 스타일 - italic</h2>
-    <h2 class="fontStyle oblique">글자 스타일 - oblique</h2>
-    <h2><em>글자 스타일 - em</em></h2>
-    <hr>
-
-    <h2 class="transform upper">text transform uppercase</h2>
-    <h2 class="transform lower">TEXT TRANSFORM lowercase</h2>
-    <h2 class="transform capitalize">text transform uppercase</h2>
-    <h2 class="font-variant_smallCaps">text transform uppercase</h2>
+    <div>
+        <p>vero aspernatur minima possimus</p>
+        <img src="image/jeep_logo.png" alt="jeep">
+    </div>
 </body>
 
 </html>

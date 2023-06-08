@@ -5,122 +5,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vertical-align</title>
+    <title>테이블 내에서의 수직 정렬</title>
+
     <style>
-        div {
-            border: blue solid 2px;
-            margin-bottom: 5px;
-            font-size: 20px;
+        table {
+            /* border-collape */
+            /* separate : 개별 셀을 독립적으로 분리하여 셀들 간의 간격 발생 / 디폴트 값 */
+            /* collape : 셀들간의 간격을 없애서 경계를 통합 */
+
+            /* 셀 간 간격을 독립적으로 유지할 것인지, 없앨 것인지를  결정
+           각 셀은 별도의 독립된 보더라인 설정이 가능하며 디폴트 상태 (separate) 로 보더라인을 지정하면 일정한
+            간격이 발생하는 것을 확인 가능
+           따라서 이러한 간격을 없애고 각 셀의 보더라인을 하나로 중첩하여 통합시키기 위해 collapse 값을 지정
+           단, 부모 요소가 되는 tabel 태그에 border-collapse 속성을 지정해야지만 부모 자신을 포함한 하위 태그들어
+            대한 속성값이 적용됨 */
+            border-collapse: collapse;
         }
 
-        img {
+        td,
+        th {
+            /* table 자체에 보더를 적용하면 외곽 테두리만 적용되지만 th, td 에 보더라인을 적용하면 각 요소마다 테두리가
+                적용되어 전체적인 테두리 완성 가능 */
+            border: solid 2px red;
             width: 150px;
+        }
+
+        th {
+            color: blue;
+        }
+
+        td {
             height: 100px;
+            text-align: center;
         }
 
-        /* vertical-align */
-        /* 인라인 요소인 텍스트를 기준으로 높이가 다른 인라인 또는 인라인-블럭 요소간의 수직 정렬의 지정
-           대표적 텍스트 성격을 가지는 인라인-블럭 요소인 이미지의 경우 디폴트 설정을 유지할 때 부모요소 내에서
-            텍스트의 baseline을 기준으로 이미지의 하단 부분부터 표시되는 특성으로 인해 항상 부모요소 내에서 하단부분의
-            간극이 발생되는 것을 확인 가능
-           따라서 이미지를 부모요소에 배치하는 경우 vertical-align 속성을 top 이나 bottom, middle 로 지정하여
-            하단 간극이 발생되는 문제점 해결 가능 */
-
-        .vertical_baseline {
-            vertical-align: baseline;
-        }
-
-        /* bottom */
-        /* 텍스트의 bottom 위치를 기준으로 이미지의 하단 부분부터 표시 */
-        .vertical_bottom {
-            vertical-align: bottom;
-        }
-
-        /* top */
-        /* 텍스트의 top 위치를 기준으로 이미지의 상단 부분부터 표시 */
-        .vertical_top {
+        .ver-top {
             vertical-align: top;
         }
 
-        /* middle */
-        /* 텍스트의 middle 위치를 기준으로 이미지의 상단과 하단 방향으로 공평하게 분배되어 표시 */
-        .vertical_middle {
+        .ver-middle {
             vertical-align: middle;
         }
 
-        .vertical_length {
-            vertical-align: 20px;
-        }
-
-        .vertical_percent {
-            vertical-align: 100%;
-        }
-
-        /* 높이가 결정된 부모요소 내에서의 텍스트 수평, 수직 정렬 */
-        /* 텍스트가 아닌 이미지와 같은 다른 인라인-블럭 요소의 수직 위치는 인라인-블럭 요소 자체의 vertical-align 위치가
-            기준이 아닌 텍스트의 vertical-align 위치를 기준으로 한 상대적 수직 위치가 결정됨에 주의
-           즉, vertical-align의 기준은 무조건 텍스트가 기준 */
-        p {
-            border: blue solid 2px;
-            font-size: 20px;
-            margin-bottom: 5px;
-            height: 200px;
-            text-align: center;
-            line-height: 200px;
-        }
-
-        p>img {
-            vertical-align: middle;
+        .ver-bottom {
+            vertical-align: bottom;
         }
     </style>
 </head>
 
 <body>
-    <h1>vertical-align</h1>
+    <h1>테이블 내에서의 수직 정렬</h1>
     <hr>
 
-    <div>
-        vertical-default
-        <img src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>top</th>
+                <th>middle</th>
+                <th>bottom</th>
+            </tr>
+        </thead>
 
-    <div>
-        vertical-baseline
-        <img class="vertical_baseline" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
+        <tbody>
+            <tr>
+                <td class="ver-top">수직 상단 정렬</td>
+                <td class="ver-middle">수직 중간 정렬</td>
+                <td class="ver-bottom">수직 하단 정렬</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div>
-        vertical-botttom
-        <img class="vertical_bottom" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
-
-    <div>
-        vertical-top
-        <img class="vertical_top" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
-
-    <div>
-        vertical-middle
-        <img class="vertical_middle" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
-
-    <div>
-        vertical-length
-        <img class="vertical_length" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
-
-    <div>
-        vertical-percent
-        <img class="vertical_percent" src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </div>
-
-    <p>
-        높이가 결정된 부모요소 내에서의 텍스트 수평, 수직 정렬
-    </p>
-
-    <p>
-        <img src="image/Baekdusan.GIF" alt="백두산 이미지">
-    </p>
 </body>
 
 </html>

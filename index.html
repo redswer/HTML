@@ -5,97 +5,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>text-align</title>
+    <title>vertical-align</title>
     <style>
-        p {
-            border: 1px solid blue;
-            width: 500px;
-        }
-
-        /* text-align */
-        /* 부모가 되는 블럭요소나 테이블요소에 정렬 속성을 지정함으로써 부모요소 내에서의 인라인 또는 인라인 블럭
-            요소들에 대한 수평 정렬 지정 */
-        /* justify */
-        /*양쪽 정렬
-            문장이 해당 영역의 너비를 넘어가 개행되는 경우, 오른쪽 끝 경계에 단어가 걸리면 단어를 깨지 않고 경계에
-             걸리는 단어부터 어절을 개행하고, 개행되지 않는 문장의 수평 양쪽 끝을 정렬시키기 위해 단어간 간격을 영역
-             너비에 따라 자동으로 조정
-            이에 따라 경계에 걸리는 단어가 음절이 긴 단어일 경우 그 단어가 개행됨으로써 개행되지 않은 문장의 단어 사이
-             간격이 너무 넓게 벌어지는 현상 발생 가능 */
-
-        p:nth-of-type(1) {
-            text-align: left;
-        }
-
-        p:nth-of-type(2) {
-            text-align: right;
-        }
-
-        p:nth-of-type(3) {
-            text-align: center;
-        }
-
-        p:nth-of-type(4) {
-            text-align: justify;
-        }
-
-        /* word-break : break-all */
-        /* justify 에서 단어를 깨지 않고 개행되어 발생 가능한 넓은 공백이 생기는 문제에 대하여 단어의 어절을
-            끝 경계에서 깸으로써, 자동 정렬로 인해 늘어진 공백이 발생하는 문제점 해소 */
-        p:nth-of-type(4):hover {
-            word-break: break-all;
-        }
-
         div {
-            background-color: bisque;
-            text-align: center;
+            border: blue solid 2px;
+            margin-bottom: 5px;
+            font-size: 20px;
         }
 
-        div:hover p {
-            display: inline-block;
-            width: 200px;
+        img {
+            width: 150px;
+            height: 100px;
+        }
+
+        /* vertical-align */
+        /* 인라인 요소인 텍스트를 기준으로 높이가 다른 인라인 또는 인라인-블럭 요소간의 수직 정렬의 지정
+           대표적 텍스트 성격을 가지는 인라인-블럭 요소인 이미지의 경우 디폴트 설정을 유지할 때 부모요소 내에서
+            텍스트의 baseline을 기준으로 이미지의 하단 부분부터 표시되는 특성으로 인해 항상 부모요소 내에서 하단부분의
+            간극이 발생되는 것을 확인 가능
+           따라서 이미지를 부모요소에 배치하는 경우 vertical-align 속성을 top 이나 bottom, middle 로 지정하여
+            하단 간극이 발생되는 문제점 해결 가능 */
+
+        .vertical_baseline {
+            vertical-align: baseline;
+        }
+
+        /* bottom */
+        /* 텍스트의 bottom 위치를 기준으로 이미지의 하단 부분부터 표시 */
+        .vertical_bottom {
+            vertical-align: bottom;
+        }
+
+        /* top */
+        /* 텍스트의 top 위치를 기준으로 이미지의 상단 부분부터 표시 */
+        .vertical_top {
+            vertical-align: top;
+        }
+
+        /* middle */
+        /* 텍스트의 middle 위치를 기준으로 이미지의 상단과 하단 방향으로 공평하게 분배되어 표시 */
+        .vertical_middle {
+            vertical-align: middle;
+        }
+
+        .vertical_length {
+            vertical-align: 20px;
+        }
+
+        .vertical_percent {
+            vertical-align: 100%;
+        }
+
+        /* 높이가 결정된 부모요소 내에서의 텍스트 수평, 수직 정렬 */
+        /* 텍스트가 아닌 이미지와 같은 다른 인라인-블럭 요소의 수직 위치는 인라인-블럭 요소 자체의 vertical-align 위치가
+            기준이 아닌 텍스트의 vertical-align 위치를 기준으로 한 상대적 수직 위치가 결정됨에 주의
+           즉, vertical-align의 기준은 무조건 텍스트가 기준 */
+        p {
+            border: blue solid 2px;
+            font-size: 20px;
+            margin-bottom: 5px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        p>img {
+            vertical-align: middle;
         }
     </style>
 </head>
 
 <body>
-    <h1>text-align</h1>
-    <hr>
-
-    <h2>1. left</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
-        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
-        tenetur?
-    </p>
-
-    <h2>2. right</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
-        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
-        tenetur?
-    </p>
-
-    <h2>3. center</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
-        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
-        tenetur?
-    </p>
-
-    <h2>4. justify</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitksliun ullam accusantium inventore repellat
-        quisquam sapiente neque ut est, vel qui porro molestias cum vero aspernatur minima possimus, quia doloribus
-        tenetur?
-    </p>
-    <hr>
+    <h1>vertical-align</h1>
     <hr>
 
     <div>
-        <p>vero aspernatur minima possimus</p>
-        <img src="image/jeep_logo.png" alt="jeep">
+        vertical-default
+        <img src="image/Baekdusan.GIF" alt="백두산 이미지">
     </div>
+
+    <div>
+        vertical-baseline
+        <img class="vertical_baseline" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <div>
+        vertical-botttom
+        <img class="vertical_bottom" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <div>
+        vertical-top
+        <img class="vertical_top" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <div>
+        vertical-middle
+        <img class="vertical_middle" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <div>
+        vertical-length
+        <img class="vertical_length" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <div>
+        vertical-percent
+        <img class="vertical_percent" src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </div>
+
+    <p>
+        높이가 결정된 부모요소 내에서의 텍스트 수평, 수직 정렬
+    </p>
+
+    <p>
+        <img src="image/Baekdusan.GIF" alt="백두산 이미지">
+    </p>
 </body>
 
 </html>

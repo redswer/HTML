@@ -5,80 +5,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>font-weight</title>
+    <title>글자 장식, 글자 스타일, 글자 변형</title>
+
     <style>
-        h2 {
+        .deco {
             color: red;
         }
 
-        p {
-            border: 1px solid blue;
-            font-size: 2em;
+        .underline {
+            text-decoration: underline;
         }
 
-        /* font-weight */
-        /* 글자 두께 설정 */
-        /* lighter(300), normal(400), bold(700) 등의 가중치 명이나 1 ~ 1000 범위에서의 가중치 값 적용 가능
-           normal(400)이 디폴트
-           개별 브라우저나 폰트별로 가중치 명이나 가중치 값에 대한 지원 여부가 다를 수 있음 */
-           .lighter {
-            font-weight: lighter;
-           }
+        .overline {
+            text-decoration: overline;
+        }
 
-           .lighter-num {
-            font-weight: 300;
-           }
+        .line-through {
+            text-decoration: line-through;
+        }
 
-           .normal {
-            font-weight: normal;
-           }
+        /* text-decoration-style, text-decoration-color 등과 같은 속성은 반드시 text-decoration 속성이 설정된 뒤에야
+    적용 가능함 */
 
-           .normal-num {
-            font-weight: 400;
-           }
-           .bold {
-            font-weight: bold;
-           }
+        .line-through2 {
+            text-decoration: line-through;
+            text-decoration-style: double;
+        }
 
-           .bold-num {
-            font-weight: 700;
-           }
+        .line-color {
+            text-decoration-color: turquoise;
+        }
 
-           
+        .fontStyle,
+        em {
+            color: cornflowerblue;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        /* oblique */
+        /* italic 과 동일 */
+        .oblique {
+            font-style: oblique;
+        }
+
+        [class^="fontStyle"]:hover,
+        em:hover {
+            font-style: normal;
+        }
+
+        .transform {
+            color: darkorange;
+        }
+
+        /* text-transform : uppercase */
+        /* 텍스트를 대문자로 변경 */
+        .upper:hover {
+            text-transform: uppercase;
+        }
+
+        /* text-transform : lowercase */
+        /* 텍스트를 소문자로 변경 */
+        .lower:hover {
+            text-transform: lowercase;
+        }
+
+        /* capitalize */
+        /* 단어의 첫 글자를 대문자로 시작 */
+        .capitalize:hover {
+            text-transform: capitalize;
+        }
+
+        /* font-variant : small-caps */
+        /* 아래 첨자 (sub) 형태의 대문자로 표시 */
+        .font-variant_smallCaps:hover {
+            font-variant: small-caps;
+        }
     </style>
-    
 </head>
 
 <body>
-    <h1>font-weight</h1>
+    <h1>글자 장식, 글자 스타일, 글자 변형</h1>
     <hr>
 
-    <h2>1. font-weight - lighter</h2>
-    <p class="lighter">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
-    <p class="lighter-num">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
+    <h2 class="deco underline line-color">글자 장식 - 밑줄</h2>
+    <h2 class="deco overline line-color">글자 장식 - 윗줄</h2>
+    <h2 class="deco line-through line-color">글자 장식 - 가운데 줄</h2>
+    <h2 class="deco line-through2 line-color">글자 장식 - 가운데 두 줄</h2>
 
-    <h2>2. font-weight - normal</h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
-    <p class="normal">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
-    <p class="normal-num">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
+    <!-- 
+      < del 태그 >
 
-    <h2>3. font-weight - bold</h2>
-    <p class="bold">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
-    <p class="bold-num">
-        Lorem ipsum dolor sit amet consectetur.
-    </p>
+    - line-through 속성과 동일한 기능을 하지만 text-decoration-style,
+      text-decoration-color 등과 같은 속성 적용은 불가.
+    -->
+    <h2 class="deco line-color"><del>글자 장식 - del 태그</del></h2>
+    <hr>
+
+    <h2 class="fontStyle italic">글자 스타일 - italic</h2>
+    <h2 class="fontStyle oblique">글자 스타일 - oblique</h2>
+    <h2><em>글자 스타일 - em</em></h2>
+    <hr>
+
+    <h2 class="transform upper">text transform uppercase</h2>
+    <h2 class="transform lower">TEXT TRANSFORM lowercase</h2>
+    <h2 class="transform capitalize">text transform uppercase</h2>
+    <h2 class="font-variant_smallCaps">text transform uppercase</h2>
 </body>
 
 </html>

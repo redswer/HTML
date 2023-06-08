@@ -1,113 +1,80 @@
-/* 
-   < Image Sprites 기법 >
+body {
+    background-image: url(../image/starbucks_logo.jpg);
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
 
-- 개별 이미지 별로 로드할 때의 메모리 낭비를 최소화하기 위한 기법.
-  다중 이미지를 하나로 이미지화하고 background-position 속성을 이용,
-  백그라운드 이미지의 위치를 x, y 좌표를 이용하여 이동함으로써 개별
-  이미지의 크기에 맞는 너비와 높이를 지정하여 로드.
+    /* 
+      < background-attachment >
 
-===========================================================================================================
+   - 백그라운드 배경이 해당 요소에 자체에 고정되는지 또는 뷰포트에 고정
+     되는지의 여부를 결정.
 
-   < 그림판을 이용한 좌표 계산 >
+   ========================================================================
 
-- 그림판에서 로드할 이미지의 크기를 조사하여 background-position 속성의
-  x, y 좌표를 결정할 이지지의 너비와 높이 조사.
+      < scroll >
 
-※ 5_CSS(Cascading_Style_Sheet)-(2)_Image_sprites와IR(Image Replacement)_기법_그람판활용 - 엑셀 파일 참조
-*/
-li a {
-    background-image: url("../image/sprites_img.JPG");
-
-    /* 인라인 요소인 a 태그에 너비와 높이를 주기위해 인라인 블럭으로 속성 변경. */
-    display: inline-block;
-
-    /*
-      로드한 이미지 파일에서 최초 "메뉴" 이미지를 로드하기 위해 그림판에서 조사한
-      "메뉴" 이미지의 너비와 크기에 맞게 width 와 height 를 지정.
+   - 미지정 시의 디폴트 값으로 백그라운드 배경이 해당 요소 전체에 고정되어
+     해당 요소의 내용이 뷰포트 영역을 넘쳐 스크롤이 되어도 요소 전체에 고정.
+     
    */
-    width: 304px;
-    height: 113px;
-}
-
-
-/* 
-   < 로드될 백그라운드 이미지가 할당된 너비나 높이 보다 큰 경우 주의 사항 >
-
-- 로드될 백그라운드 이미지가 할당된 너비나 높이 보다 작은 경우에는 해당 좌표로 이미지를
-  양수 방향으로 정상적 이동을 시키면 되지만,
-  반대의 상황에서는 이미지가 지정된 너비나 높이를 벗어난 상태에서 오른쪽이나 아래쪽 이미지를
-  로드하기 위해서는 좌표를 음수 방향으로 이동해야함에 주의.
-
-※ 5_CSS(Cascading_Style_Sheet)-(2)_Image_sprites와IR(Image Replacement)_기법_주의사항 - 엑셀 파일 참조
-
-===========================================================================================================
-
-"카페" 이미지를 로드하기 위해 a 태그의 background-position 속성의 x 좌표를 이동.
-좌표 지정 시 이미지 사이 경계 선(1px)도 포함되어 이동해야 함에 주의.
-
-===========================================================================================================
-
-※ 메뉴 변경 또는 삭제가 될때의 유지보수성을 위하여 "트리 구조 가상 클래서 선택자"가
-   아닌 클래스 선택자 지정.
-*/
-/* .cafe {
-    background-position-x: -305px;
-}
-
-.blog {
-    background-position-x: calc(-305px * 2);
-}
-
-.knowledge {
-    background-position-x: calc(-305px * 3);
-} */
-
-/* IR 기법을 적용키 위해 텍스트를 안보이게 인덴트 설정. */
-a {
-    /* text-indent: -9999em; */
-}
-
-/* 리스트의 머릿 기호 삭제. */
-li {
-    /* list-style-type: none; */
-}
-
-/*
-   브라우저에 의해 디폴트로 지정되는 ul 의 왼쪽 패딩을 삭제하여
-   리스트의 들여쓰기 해제.
-*/
-ul {
-    /* padding: 0; */
-}
-
-.mail:hover,
-.cafe:hover,
-.blog:hover,
-.knowledge:hover {
-    /* background-position-y:-114px; */
+    /* background-attachment: scroll; */
 }
 
 /* 
-===========================================================================================================
-*/
+   < fixed >
 
-/* 
-   < 수평 메뉴 만들기 >
-
-- 리스트 메뉴를 가로로 배열하기 위해 블럭요소인 리스트를 인라인 블럭으로 속성 변경.
-  단, 인라인 블럭요소 내에는 블럭요소(h3)를 포함 가능하여 인라인 블럭 내에서의 수평 전체
-  영역을 차지하지만, 인라인 요소는 블럭요소(h3)를 포함하지 못하므로 변경한 인라인 요소
-  자리를 자식인 블럭요소(h3)가 동시에 차지하게 됨으로써 수평 배치 불가.
-  따라서 리스트에 대한 인라인 설정은 불가.
+- 백그라운드 배경이 해당 요소가 아닌 뷰포트를 기준으로 고정되어 요소가 
+  스크롤되어도 요소와 함께 이동하지 않고 뷰포트에 고정되어 표시.
 */
-ul:nth-of-type(2) li {
-    /* display: inline-block; */
+body {
+    /* background-attachment: fixed; */
 }
 
 /* 
-   수평 배열된 메뉴가 브라우저 너비 영역을 벗어났을 때, 인라인 특성으로 인한 자동 개행을
-   막기 위해 nowrap 설정.
+   < background-size >
+
+- 단위를 이용하여 원본 사이즈를 조정.
+  이때 사이즈는 이미지 원본 크기와 관계없이 이미지 전체 크기를 background-size 에
+  할당한 크기 내에서 표현.
+  단, 이미지 원본의 실제 크기가 이를 포함하는 컨테이너 보다 작은 경우에는 컨터이너
+  전체를 백그라운드 이미지로 다 채우지는 못할 수 있음에 주의.
 */
-ul {
-    /* white-space: nowrap; */
+body {
+    /* 수평, 수직 크기를 동시 지정. */
+    /* background-size: 100vw; */
+
+    /* 아래와 같이 수평, 수직 크기를 순서대로 별도 지정 가능. */
+    /* background-size: 300px 500px; */
+}
+
+/* 
+   < background >
+
+- background-repeat, background-position, background-attachment, background-color
+  background-size, background-image 등을 하나로 통합 표현 가능.
+  단, background-position 과 background-size 는 '/' 구분자를 기준으로 순서대로
+  각각 구분되어야 하지만, 다른 속성들과의 순서는 상관없음.
+*/
+body {
+    /* background: url(../image/starbucks_logo.jpg) no-repeat bottom right/50vw fixed yellow; */
+}
+
+body {
+    /* height: 100vh; */
+    /* background: url(../image/starbucks_logo.jpg) center/100% 100%; */
+
+    /* 
+                < background-size - cover >
+        
+            - 이미지를 컨테이너에 가득 채우되 컨터이너 크기 변화에 따른 수평과 수직에
+              대한 이미지 늘림과 줄임으로 인한 이미지 원본 왜곡 현상을 최소화함으로써
+              좀 더 자연스로운 배경 표현 가능.
+              단, 컨터이너를 확장하는 경우 이미지에 대한 늘림 대신 확대가 적용됨으로써
+              수평과 수직에 대한 이미지 잘림 현상 발생.
+              이때 position 의 위치는 이미지 확대시의 기준점이 되어 포지션을 0 또는
+              center 로 지정을 함으로써 이미지 확대시 이미지의 중앙을 기준으로 확대,
+              축소가 가능.
+    */
+    /* background: url(../image/starbucks_logo.jpg) center/cover; */
+    /* background: url(../image/starbucks_logo.jpg) top/cover; */
 }

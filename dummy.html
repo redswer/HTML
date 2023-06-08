@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>테이블 내에서의 수직 정렬</title>
+    <title>font-family, font</title>
+
+    <!--
+    < 구글 웹폰트 링크 지정 >
+
+  - CSS link 태그 전에 먼저 지정해야함에 주의.
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dokdo&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="./CSS/index.css">
 </head>
 
 <body>
-    <h1>테이블 내에서의 수직 정렬</h1>
+    <h1>font-family, font</h1>
     <hr>
 
-    <table>
-        <thead>
-            <tr>
-                <th>top</th>
-                <th>middle</th>
-                <th>bottom</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td class="ver-top">수직 상단 정렬</td>
-                <td class="ver-middle">수직 중간 정렬</td>
-                <td class="ver-bottom">수직 하단 정렬</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <h2 class="serif">serif 한글</h2>
+    <h2 class="sans_serif">sans-serif 한글</h2>
+    <h2 class="cursive">cursive 한글</h2>
+    <h2 class="monospace">monospace 한글</h2>
+    <h2 class="dotum_eng">dotum-eng 한글</h2>
+    <h2 class="dotum_kor">dotum-kor 한글</h2>
+    <h2 class="shizuru">shizuru 한글</h2>
+    <h2 class="google_web_font">goole-web-font 한글</h2>
+    <h2 class="font_1">font_1 한글</h2>
+    <h2 class="font_2">font_2 한글</h2>
 </body>
 
 </html>

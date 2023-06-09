@@ -5,104 +5,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마진의 이동과 중첩</title>
+    <title>box-sizing</title>
     <style>
+        p {
+            margin: 0;
+        }
+
         .parentBox {
             background-color: antiquewhite;
             width: 400px;
-            height: 300px;
+            border: solid 5px red;
+            text-align: justify;
+            word-break: break-all;
+            margin: auto;
         }
 
-        .parentBox div {
-            width: 100px;
-            height: 100px;
+        /* 부모 요소에 padding을 지정함으로써 부모 요소에 할당하려는 너비를 초과 */
+        /* 400 (width) + 20*2 (padding) + 5*2(border) = 450px */
+        .p2box {
+            padding: 20;
         }
 
-        .childBox1 {
-            background-color: blue;
+        /* 패딩을 뺀 너비를 부모요소에 재할당하여 너비를 유지
+           이는 패딩을 조정할때마다 부모요소의 너비도 매번 조정해야하는 문제점 생김 */
+        .p3box {
+            width: 360px;
+            padding: 20px;
         }
 
-        .childBox2 {
-            background-color: red;
+
+        /* 부모 요소의 패딩이 아닌 자식 요소의 패딩을 조정
+           이는 원하는 레이아웃이 아닌 결과를 초래할 수 있음
+           ( = 자식 요소가 하나인 경우에는 문제가 되지 않지만 자식 요소가 여러개인 경우 개별 자식요소에 대해 모든 패딩을
+                별도로 지정해야 하는 문제점 생김) */
+        .p4box p {
+            padding: 20px;
         }
 
-        .childBox3 {
-            background-color: yellow;
+        /* box-sizing */
+        /* content-box : width 와 height 의 영역을 컨텐츠 영역까지로 지정 (디폴트 값)
+           border-box : width 와 hright 의 영역을 보더 영역까지로 지정 */
+
+        .p5box {
+            box-sizing: content-box;
+            padding: 20px;
         }
 
-        /* 마진을 이용한 요소의 중첩 - 자식요소가 인라인-블럭인 경우 */
-        /* 1. childBOx1 : margin-left: 100px;
-                - 부모(parentBox)로부터의 왼쪽 거리 */
-        .parentBox:hover .childBox1 {
-            margin-left: 100px;
-        }
-
-        /* 2. childBox2 : margin-left: -100px;
-                - chlidBox1 의 왼쪽 마진이 음수값으로 지정됨으로써 childBox1 으로부터 childBox2 의 거리가 점차
-                  가까워짐으로써 중첩되는 것을 확인 가능 */
-        .parentBox:hover .childBox2 {
-            margin-left: -100px;
-        }
-
-        /* 3. childBox3 : margin-left: 300px;
-                          margin-top: -200px;
-                -childBox3 의 왼쪽 마진이 300px로 지정되어 chlidBox2와의 왼쪽 거리가 300px을 유지해야 하지만,
-                 해당 수평 영역에서의 남은 영역이 부족함에 따라 개행됨
-                따라서 childBox3는 개행된 위치로부터 왼쪽으로 300px 거리를 생성
-                또한 margin-top을 음수로 지정함으로써 개행전 상단 요소로부터 childBox3가 가까워져 수직 상단으로
-                 이동하는 것을 확인 가능함
-                단, 이 때 특정 음수 시점을 벗어나면 더 이상 수직 상단으로 이동하지 않는 것을 확인 가능
-                이는 블럭요소와 달리 인라인-블럭요소는 기본적인 인라인 텍스트 성질로 인해 텍스트의 높이가 가지는
-                 영역을 마진으로 유지한  상태에서 이동이 가능한데, 수직에 대한 특정 시점을 벗어나면 기본적으로
-                 차지하는 텍스트의 마진과 요소가 떨어질 수 없으므로 그 이상의 음수 마진을 허용하지 않음
-                따라서 childBox3에 임의 컨텐츠를 넣은 후 수직 음수 마진을 적용하면 왼쪽 상단부터 표현되는 문서의
-                 특성상 왼쪽 수평 마진을 유지한 상태로 더 이상 수직 음수 마진이 적용되지 않는 것을 확인 가능 */
-        .parentBox:hover .childBox3 {
-            margin-left: 300px;
-            margin-top: -200px;
-        }
-
-        /* 마진은 요소의 본래 위치에 대한 거리가 아닌 요소들간의 상대적 거리를 의미하며, html 문서상에서의 인라인
-            블럭 요소간의 개행과 기본 line-height로 인한 수평, 수직에서의 미세한 단차가 발생할 수 있음에 주의 */
-
-        .childBox4 {
-            background-color: green;
-        }
-
-        /* 인라인 블럭요소 지정으로 인해 수평 요소간 갭은 자식요소의
-            개행으로 인해 발생되며 수직 요소간 갭은 인라인 블럭요소에
-            대한 디폴트 line-height 로 발생됨에 주의. */
-        div:nth-of-type(2) div {
-            display: inline-block;
+        /* 호버하면 content-box 를 border-box 로 변경함으로써 지정된 부모 요소의 width 를 컨텐츠 영역이 아닌
+            보더 영역까지를 포함하여 산출 */
+        .p5box:hover {
+            box-sizing: border-box;
+            width: 410px;
         }
     </style>
 </head>
 
 <body>
-    <h1>마진의 이동과 중첩</h1>
+    <h1>box-sizing</h1>
     <hr>
 
-    <h2>1. 마진을 이용한 요소의 이동</h2>
-    <div class="parentBox">
-        <div class="childBox1"></div>
-        <div class="childBox2"></div>
-        <div class="childBox3"></div>
+    <h2>1. width(400px) + border(5px * 2) = 410px</h2>
+    <div class="parentBox p1box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
+            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
+            magni numquam eius dolorum!
+        </p>
     </div>
     <hr>
 
-    <!-- 
-    인라인 블럭요소 지정으로 인해 수평 요소간 갭은 자식요소의
-    개행으로 인해 발생되며 수직 요소간 갭은 인라인 블럭요소에
-    대한 디폴트 line-height 로 발생됨에 주의.
-
-  -->
-    <h2>2. 마진을 이용한 요소의 중첩</h2>
-    <div class="parentBox">
-        <div class="childBox1"></div>
-        <div class="childBox2"></div>
-        <div class="childBox3"></div>
-        <div class="childBox4"></div>
+    <h2>2. width(400px) + padding(20px * 2) + border(5px * 2) = 450px</h2>
+    <div class="parentBox p2box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
+            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
+            magni numquam eius dolorum!
+        </p>
     </div>
+    <hr>
+
+    <h2>3. width(360px) + padding(20px * 2) + border(5px * 2) = 410px</h2>
+    <div class="parentBox p3box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
+            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
+            magni numquam eius dolorum!
+        </p>
+    </div>
+    <hr>
+
+    <h2>4. width(400px) + border(5px * 2) = 410px</h2>
+    <div class="parentBox p4box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
+            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
+            magni numquam eius dolorum!
+        </p>
+    </div>
+    <hr>
+
+    <h2>content-box - width(400px) + padding(20px * 2) + border(5px * 2) = 450px</h2>
+    <h2>border-box - content(360px) + padding(20px * 2) + border(5px * 2) = 410px</h2>
+    <div class="parentBox p5box">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
+            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
+            magni numquam eius dolorum!
+        </p>
+    </div>
+    <hr>
 </body>
 
 </html>

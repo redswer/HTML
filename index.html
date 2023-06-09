@@ -5,49 +5,127 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>배경 중첩과 스크롤 문서</title>
+    <title>박스 모델(Box Model)의 구성과 요소의 크기</title>
+    <style>
+        /* 박스 모델(box model) */
+        /* 개별 컨텐츠 요소를 감싸고 있는 사각 형태의 박스 형태로 므라우저 화면에 영역을 차지하면서 표시되는 컨텐츠를
+            포함하는 전체 영역을 의미
+           기본적으로 외곽영역부터 마진, 보더, 패딩, 컨텐츠로 구성되며 보더의 바깥에 표시되는 아웃라인을 추가로 구성가능 */
+        /* 요소의 크기는 마진을 제외한 보더, 패딩, 컨텐츠의 크기를 모두 합한 크기로 산출 */
 
-    <link rel="stylesheet" href="./CSS/index.css">
+        /* margin (여백) : 박스 모델의 가장 바깥쪽을 구성하는 요소
+                           마진값이 0 이라는 것은 요소와 요소 간 비어있는 경계가 없음을 의미
+                           부모 요소와 자식 요소와의 관계에서 마진이란 부모 요소의 컨텐츠가 시작되는 경계 영역으로부터
+                            안쪽 자식 요소의 박스 영역 중 가장 바깥쪽을 구성하는 영역과의 비어있는 경계(거리)를 의미
+                           영역을 차지하는 박스 모델 영역 중 유일하게 기본적인 음수값 적용이 가능한데, 이는 다른
+                            요소와의 거리가 점점 가까워져 서로 중첩될 수 있음을 의미
+
+           border (테두리) : 컨텐츠의 외곽 테두리 라인을 표시하는 영역으로 마진과 패딩 사이에 표시
+           
+           padding : 테두리와 컨텐츠 사이의 안쪽 여백
+           
+           content : 실제 내용이 표시되는 영역
+                     박스 요소 중 유일하게 영역에 대한 너비(width)와 높이(height) 지정이 가능 / 음수값은 불가
+                     
+           outline : 테두리 라인의 바로 외곽에 표시 가능한 선으로 표시는 되지만 다른 박스 요소와 달리 영역을 차지하지는 않음
+                      따라서 마진 영역이 지정된 경우, 아웃라인 두께값을 높일수록 마진 영역을 덮어가면서 표시
+                     outline-offset 속성을 추가로 설정하면 아웃라인이 표시되는 시작 지점을 설정 가능한데, 음수값을 설정하면
+                      시작 지점인 디폴트값인 0을 기준으로 안쪽으로 당겨져 보더라인 안쪽에 아웃라인을 표시 */
+        * {
+            margin: 0;
+        }
+
+        p {
+            display: inline-block;
+            text-align: justify;
+            word-break: break-all;
+            width: 300px;
+            height: 50px;
+            background-color: bisque;
+        }
+
+        /* 요소의 너비 : width (300) + padding (20*2) + border (20*2) = 380px
+               요소의 높이 : height (50) + padding (20*2) + border (20*2) = 130px  */
+        .box1 {
+            padding: 20px;
+            border: 20px solid red;
+            margin: 20px
+        }
+
+        .box2 {
+            padding: 20px;
+            border: 20px solid #f000;
+            margin: 20px;
+        }
+
+        .box3 {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .box4 {
+            margin: 20px;
+        }
+
+        /* 아웃라인이 보더의 바깥 마진 영역을 덮어서 표시되어 요소의 크기에 영향을 주지 않음을 확인 가능 */
+        .box5 {
+            padding: 20px;
+            border: 20px solid red;
+            outline: 10px solid blue;
+            margin: 20px;
+        }
+
+        /* outline-offst */
+        /* outline 의 디폴트 시작 지점을 outline-offset 속성을 이용하여 조정 가능 */
+        .box6 {
+            padding: 20px;
+            border: 20px solid red;
+            outline: 10px solid blue;
+            outline-offset: -10px;
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>
-        <span>진달래꽃(김 소 월)</span>
+    <h1>박스 모델(Box Model)의 구성과 요소의 크기</h1>
+    <hr>
 
-
-
-
-        나 보기가 역겨워
-
-        가실 때에는
-
-        말없이 고이 보내 드리오리다.
-
-
-
-        영변에 약산
-
-        진달래꽃,
-
-        아름 따다 가실 길에 뿌리오리다.
-
-
-
-        가시는 걸음 걸음
-
-        놓인 그 꽃을
-
-        사뿐히 즈려 밟고 가시옵소서.
-
-
-
-        나 보기가 역겨워
-
-        가실 때에는
-
-        죽어도 아니 눈물 흘리오리다.
-
+    <h2>1. 패딩, 보더, 마진 적용</h2>
+    <p class="box1">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
     </p>
+    <hr>
+
+    <h2>2. 백그라운드의 기본 영역</h2>
+    <p class="box2">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
+    </p>
+    <hr>
+
+    <h2>3. 패딩, 마진 적용</h2>
+    <p class="box3">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
+    </p>
+    <hr>
+
+    <h2>4. 마진 적용</h2>
+    <p class="box4">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
+    </p>
+    <hr>
+
+    <h2>5. 패딩, 보더, 아웃라인, 마진 적용</h2>
+    <p class="box5">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
+    </p>
+    <hr>
+
+    <h2>6. 패딩, 보더, 아웃라인 offset, 마진 적용</h2>
+    <p class="box6">
+        loConsequat non Lorem veniam in aliqua eu deserunt aute pariatur incididunt.
+    </p>
+    <hr>
 </body>
 
 </html>

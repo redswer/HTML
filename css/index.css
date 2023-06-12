@@ -1,126 +1,77 @@
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-header,
-main,
-footer {
-    width: calc(1024px*0.8);
-    margin: auto;
-    text-align: center;
-}
-
-/* ============================================ */
-/* common set */
-
-header,
-footer {
-    height: 20vh;
-}
-
-main {
-    height: 60vh;
-}
-
-header h1,
-header h1 a,
-header nav,
-header nav li,
-header nav li a,
-#section_article,
-aside {
-    display: inline-block;
-}
-
-/* ============================================== */
-/* header */
-
-header h1 {
-    margin: calc((20vh - 150px)/2) 20px;
-}
-
-header a {
-    text-indent: -9999em;
-}
-
-header h1 a {
-    width: 150px;
-    height: 150px;
-    background: url(../image/starbucks_logo.jpg) 0/100% no-repeat;
-}
-
-header nav {
-    margin: calc((20vh - 38px)/2) 10px;
-    vertical-align: top;
-}
-
-header nav li {
-    margin-left: 20px;
-}
-
-header nav li a {
-    background: url(../image/menu_img.jpg) -3px -3px;
-    width: 108px;
-    height: 38px;
-}
-
-header nav li:nth-child(2) a {
-    background-position-x: calc(-3px - 109px);
-}
-
-header nav li:nth-child(3) a {
-    background-position-x: calc(-3px - 109px * 2 - 1px);
-
-}
-
-header nav li:nth-child(4) a {
-    background-position-x: calc(-3px - 109px * 3 - 2px);
-}
-
-header nav li a:hover {
-    background-position-y: calc(-3px - 39px);
-}
-
-/* ============================================== */
-/* main */
-
-#section_article {
-    width: 70%;
-    height: 100%;
-}
-
-#section_article section {
-    height: calc(100% * 0.6);
-    background-color: silver;
-    /* line-height는 %사용 불가능 */
-    line-height: calc(60vh * 0.6);
-}
-
-#section_article article {
-    height: calc(100% * 0.4);
-    background-color: cadetblue;
-    /* line-height는 %사용 불가능 */
-    line-height: calc(60vh * 0.4);
-}
-
-main aside {
-    width: 30%;
-    height: 100%;
-    line-height: 60vh;
-    background-color: burlywood;
-    margin-left: -6px;
-    vertical-align: top;
-}
-
-/* ============================================== */
-/* footer */
-
-footer {
+div {
     background-color: antiquewhite;
 }
 
-footer h3 {
-    line-height: 20vh;
+.left,
+.right {
+    background-color: aqua;
+}
+
+.none {
+    background-color: coral;
+}
+
+/* ======================================================== */
+
+.size {
+    width: 100px;
+    height: 50px;
+}
+
+/* ======================================================== */
+
+img {
+    width: 150px;
+    height: 100px;
+}
+
+p {
+    text-align: justify;
+    word-break: break-all;
+}
+
+/* ======================================================== */
+.left {
+    /* float: left; */
+}
+
+.right {
+    /* float: right; */
+}
+
+/* 
+   float 요소를 이용한 마진 적용은 바로 비 float 요소와의 거리로
+    측정이 되지만, 비 float 요소에 대한 마진 적용은 float 요소와의
+    거리가 아닌 부모 컨테이너와의 거리로 측정됨에 주의.
+*/
+img.left {
+    /* margin-right: 20px; */
+}
+
+img.right {
+    /* margin-left: 20px; */
+}
+
+p {
+    margin: 0 20px;
+}
+
+/* ======================================================== */
+
+
+/* 
+    float 요소를 둘러싸는 비 float 요소가 블럭요소이고 비
+    float 요소의 너비가 float 요소를 둘러싸면서 비 float 요소
+    자신의 컨텐트를 표현할 너비보다 현저히 작으면 비 float
+    요소는 float 요소를 좌우 측면에서 둘러싸지 못하고 하단으로
+    떨어져 둘러싸는 형태로 표시될 수 있음에 주의.
+
+※ 비 float 요소가 float 요소를 둘러싸는 너비의 정의는 float
+   요소의 너비를 포함하면서 비 float 요소 자신의 컨텐트를
+   표현할 너비를 합한 너비를 의미.
+*/
+.none {
+    /* width:300px; */
+
+    /* width:100px; */
 }

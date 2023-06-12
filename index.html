@@ -5,115 +5,166 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>box-sizing</title>
+    <title>시멘틱(Semantic) 섹셔닝(Sectioning)</title>
     <style>
-        p {
+        body {
             margin: 0;
         }
 
-        .parentBox {
-            background-color: antiquewhite;
-            width: 400px;
-            border: solid 5px red;
-            text-align: justify;
-            word-break: break-all;
-            margin: auto;
+        header {
+            height: 20vh;
+            width: calc(1024px*0.8);
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* 부모 요소에 padding을 지정함으로써 부모 요소에 할당하려는 너비를 초과 */
-        /* 400 (width) + 20*2 (padding) + 5*2(border) = 450px */
-        .p2box {
-            padding: 20;
+        h1 {
+            display: inline-block;
         }
 
-        /* 패딩을 뺀 너비를 부모요소에 재할당하여 너비를 유지
-           이는 패딩을 조정할때마다 부모요소의 너비도 매번 조정해야하는 문제점 생김 */
-        .p3box {
-            width: 360px;
-            padding: 20px;
+        header h1 a {
+            background: url(../image/starbucks_logo.jpg);
+            background-repeat: no-repeat;
+            width: 150px;
+            height: 150px;
+            background-size: 150px 150px;
+            display: inline-block;
+            text-indent: -9999em;
+            margin: calc(20vh - 150px)/2 auto;
+            vertical-align: middle;
         }
 
-
-        /* 부모 요소의 패딩이 아닌 자식 요소의 패딩을 조정
-           이는 원하는 레이아웃이 아닌 결과를 초래할 수 있음
-           ( = 자식 요소가 하나인 경우에는 문제가 되지 않지만 자식 요소가 여러개인 경우 개별 자식요소에 대해 모든 패딩을
-                별도로 지정해야 하는 문제점 생김) */
-        .p4box p {
-            padding: 20px;
+        header nav {
+            display: inline-block;
+            margin: calc(20vh - 109.81px)/2 auto;
         }
 
-        /* box-sizing */
-        /* content-box : width 와 height 의 영역을 컨텐츠 영역까지로 지정 (디폴트 값)
-           border-box : width 와 hright 의 영역을 보더 영역까지로 지정 */
-
-        .p5box {
-            box-sizing: content-box;
-            padding: 20px;
+        header nav ul li {
+            display: inline-block;
         }
 
-        /* 호버하면 content-box 를 border-box 로 변경함으로써 지정된 부모 요소의 width 를 컨텐츠 영역이 아닌
-            보더 영역까지를 포함하여 산출 */
-        .p5box:hover {
-            box-sizing: border-box;
-            width: 410px;
+        header nav ul li a {
+            background-image: url(../image/menu_img.jpg);
+            display: inline-block;
+            text-indent: -9999em;
+            width: 108px;
+            height: 38px;
+            background-position-x: -3px;
+            background-position-y: -3px;
+        }
+
+        header nav ul li:nth-of-type(2) a {
+            background-position-x: -112px;
+        }
+
+        header nav ul li:nth-of-type(3) a {
+            background-position-x: calc(-111px*2);
+        }
+
+        header nav ul li:nth-of-type(4) a {
+            background-position-x: calc(-111px*3 + 1px);
+        }
+
+        header nav ul li a:hover {
+            background-position-y: -42px;
+        }
+
+        main {
+            height: 60vh;
+            margin: 0 auto;
+            text-align: center;
+            width: calc(1024px*0.8);
+            display: flex;
+        }
+
+        #section_article h2 {
+            margin: 0;
+        }
+
+        #section_article section {
+            background-color: gray;
+            display: inline-block;
+            width: calc(1024px*0.8*0.7);
+            line-height: calc(60vh*0.6);
+        }
+
+        #section_article article {
+            background-color: cadetblue;
+            width: calc(1024px*0.8*0.7);
+            line-height: calc(60vh*0.4);
+        }
+
+        main aside {
+            background-color: burlywood;
+            width: calc(1024px*0.8*0.3);
+            line-height: 60vh;
+        }
+
+        footer {
+            height: 20vh;
+            margin: 0 auto;
+            background-color: beige;
+            text-align: center;
+            line-height: 20vh;
+            width: calc(1024px*0.8);
+        }
+
+        footer h3 {
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
-    <h1>box-sizing</h1>
-    <hr>
+    <header>
+        <h1>
+            <a href="#">starbucks</a>
+        </h1>
 
-    <h2>1. width(400px) + border(5px * 2) = 410px</h2>
-    <div class="parentBox p1box">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
-            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
-            magni numquam eius dolorum!
-        </p>
-    </div>
-    <hr>
+        <nav>
+            <ul>
+                <li>
+                    <h2>
+                        <a href="#">cofee</a>
+                    </h2>
+                </li>
+                <li>
+                    <h2>
+                        <a href="#">menu</a>
+                    </h2>
+                </li>
+                <li>
+                    <h2>
+                        <a href="#">store</a>
+                    </h2>
+                </li>
+                <li>
+                    <h2>
+                        <a href="#">what's new</a>
+                    </h2>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <h2>2. width(400px) + padding(20px * 2) + border(5px * 2) = 450px</h2>
-    <div class="parentBox p2box">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
-            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
-            magni numquam eius dolorum!
-        </p>
-    </div>
-    <hr>
+    <main>
+        <div id="section_article">
+            <section>
+                <h2>news</h2>
+            </section>
+            <article>
+                <h2>info</h2>
+            </article>
+        </div>
 
-    <h2>3. width(360px) + padding(20px * 2) + border(5px * 2) = 410px</h2>
-    <div class="parentBox p3box">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
-            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
-            magni numquam eius dolorum!
-        </p>
-    </div>
-    <hr>
+        <aside>
+            <h2>login</h2>
+        </aside>
+    </main>
 
-    <h2>4. width(400px) + border(5px * 2) = 410px</h2>
-    <div class="parentBox p4box">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
-            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
-            magni numquam eius dolorum!
-        </p>
-    </div>
-    <hr>
-
-    <h2>content-box - width(400px) + padding(20px * 2) + border(5px * 2) = 450px</h2>
-    <h2>border-box - content(360px) + padding(20px * 2) + border(5px * 2) = 410px</h2>
-    <div class="parentBox p5box">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore, repudiandae consequatur hic
-            cupiditate asperiores esse, distinctio architecto illum aliquam, vero impedit sint doloribus voluptate odit
-            magni numquam eius dolorum!
-        </p>
-    </div>
-    <hr>
+    <footer>
+        <h3>contact us</h3>
+    </footer>
 </body>
 
 </html>

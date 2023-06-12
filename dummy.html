@@ -5,65 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>float 의 해지</title>
+    <title>시멘틱 섹셔닝(float 적용)</title>
 
     <link rel="stylesheet" href="./CSS/index.css">
 </head>
+<!-- 
+    < 문제 >
+
+- 화면구현 예시와 같이 기존 코드를 토대로 float 을 적용하여 코드
+  리팩토링(Refactoring)을 하라.
+-->
 
 <body>
-    <h1>float 의 해지</h1>
-    <hr>
+    <header>
+        <h1>starbucks</h1>
+    </header>
 
-    <h2>1. clear - left</h2>
-    <div class="clear_left">
-        <img class="float_left" src="image/Hallasan.JPG" alt="Hallasan">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque exercitationem magni, quibusdam quas quis
-            laudantium perferendis iusto.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque exercitationem magni, quibusdam quas quis
-            laudantium perferendis iusto.
-        </p>
-    </div>
-    <hr>
+    <main>
+        <div id="section_article">
+            <section>
+                <h2>news</h2>
+            </section>
+            <article>
+                <h2>info</h2>
+            </article>
+        </div>
 
-    <h2>2. clear - right</h2>
-    <div class="clear_right">
-        <img class="float_right" src="image/Hallasan.JPG" alt="Hallasan">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque exercitationem magni, quibusdam quas quis
-            laudantium
-            perferendis iusto.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque exercitationem magni, quibusdam quas quis
-            laudantium
-            perferendis iusto.
-        </p>
-    </div>
-    <hr>
+        <aside>
+            <h2>login</h2>
+        </aside>
+    </main>
 
-    <h2>3. clear - both</h2>
-    <div class="clear_both">
-        <img class="float_left" src="image/Hallasan.JPG" alt="Hallasan">
-
-        <img class="float_right" src="image/Hallasan.JPG" alt="Hallasan">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque perferendis iusto.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque perferendis iusto.
-        </p>
-    </div>
-    <hr>
-
-    <h2>4. clear 의 활용</h2>
-    <div class="container">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-    </div>
+    <footer>
+        <h3>contact us</h3>
+    </footer>
 </body>
 
 </html>

@@ -5,83 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>시멘틱 섹셔닝(float 적용)</title>
+    <title>블럭 배열</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        header,
-        main,
-        footer {
-            width: calc(1024px * 0.8);
-            margin: auto;
-            text-align: center;
-        }
-
-        header,
-        footer {
-            background-color: antiquewhite;
-            height: 20vh;
-            line-height: 20vh;
-        }
-
-        main {
-            height: 60vh;
-        }
-
-        #section_article section {
-            background-color: silver;
-            width: calc(1024px * 0.8 * 0.7);
-            height: 60%;
-            line-height: calc(60vh * 0.6);
-        }
-
-        #section_article article {
-            background-color: teal;
-            width: calc(1024px * 0.8 * 0.7);
-            height: 40%;
-            line-height: calc(60vh * 0.4);
-        }
-
-        #section_article {
+        .container {
+            width: 430px;
+            background-color: deeppink;
             float: left;
         }
 
-        main aside {
-            background-color: coral;
-            width: calc(1024px * 0.8 * 0.3);
-            height: 100%;
-            line-height: 60vh;
-            display: inline-block;
+        .container div {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            width: 100px;
+            line-height: 100px;
+            float: left;
+        }
+
+        .container div:not(:nth-of-type(4n)) {
+            margin-right: 10px;
+        }
+
+        .container div:not(:nth-child(n+13)) {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>starbucks</h1>
-    </header>
-
-    <main>
-        <div id="section_article">
-            <section>
-                <h2>news</h2>
-            </section>
-            <article>
-                <h2>info</h2>
-            </article>
-        </div>
-
-        <aside>
-            <h2>login</h2>
-        </aside>
-    </main>
-
-    <footer>
-        <h3>contact us</h3>
-    </footer>
+    <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+    </div>
 </body>
 
 </html>

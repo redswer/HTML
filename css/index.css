@@ -1,49 +1,32 @@
-* {
-    margin: 0;
-    padding: 0;
+.container {
+    width: 430px;
+    background-color: deeppink;
+
+    /* .container::after에 clear를 주지 않고 .container에 display: inline-block;을 줘도 같은 결과 */
+    /* display: inline-block */
 }
 
-header,
-main,
-footer {
-    width: calc(1024px * 0.8);
-    margin: auto;
+.container div {
+    background-color: blue;
+    color: white;
     text-align: center;
-}
-
-header,
-footer {
-    background-color: antiquewhite;
-    height: 20vh;
-    line-height: 20vh;
-}
-
-main {
-    height: 60vh;
-}
-
-#section_article section {
-    background-color: silver;
-    width: calc(1024px * 0.8 * 0.7);
-    height: 60%;
-    line-height: calc(60vh * 0.6);
-}
-
-#section_article article {
-    background-color: teal ;
-    width: calc(1024px * 0.8 * 0.7);
-    height: 40%;
-    line-height: calc(60vh * 0.4);
-}
-
-#section_article {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     float: left;
 }
 
-main aside {
-    background-color: coral ;
-    width: calc(1024px * 0.8 * 0.3);
-    height: 100%;
-    line-height: 60vh;
-    float: right;
+.container div:not(:nth-of-type(4n)) {
+    margin-right: 10px;
+}
+
+.container div:not(:nth-child(n+13)) {
+    /* = div:nth-child(-n+12) */
+    margin-bottom: 10px;
+}
+
+.container::after {
+    content: "";
+    display: block;
+    clear: left;
 }

@@ -1,32 +1,64 @@
-.container {
-    width: 430px;
-    background-color: deeppink;
-
-    /* .container::after에 clear를 주지 않고 .container에 display: inline-block;을 줘도 같은 결과 */
-    /* display: inline-block */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.container div {
-    background-color: blue;
-    color: white;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
+.container {
+    width: 700px;
+    height: 150px;
+    background-color: antiquewhite;
+    margin: auto;
+}
+
+.leftBox,
+.rightBox {
+    margin: calc((150px - 115px)/2);
+    background-color: burlywood;
+}
+
+.leftBox {
+    width: 115px;
+    height: 115px;
     float: left;
 }
 
-.container div:not(:nth-of-type(4n)) {
-    margin-right: 10px;
+
+.rightBox {
+    width: 225px;
+    height: 60px;
+    float: right;
+
+    margin-top: calc((150px - 115px)/2 + 55px);
 }
 
-.container div:not(:nth-child(n+13)) {
-    /* = div:nth-child(-n+12) */
-    margin-bottom: 10px;
+.leftBox li {
+    float: right;
 }
 
-.container::after {
-    content: "";
-    display: block;
-    clear: left;
+.rightBox li {
+    float: left;
+}
+.container li {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 48px;
+    background-color:cornflowerblue;
+    border-radius: 50%;
+    border: 1px solid;
+    margin: 5px;
+}
+
+.leftBox li:nth-child(2n) {
+    margin-right: 0;
+}
+
+.leftBox li:nth-child(n + 3) {
+    margin-top: 0;
+}
+
+.rightBox li:nth-child(-n + 3) {
+    margin-right: 0;
 }

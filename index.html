@@ -5,51 +5,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블럭 배열</title>
+    <title>블럭 배치</title>
     <style>
+        * {
+            list-style: none;
+            font-weight: bold;
+            padding: 0;
+        }
+
         .container {
-            width: 430px;
-            background-color: deeppink;
-            float: left;
+            width: 700px;
+            height: 150px;
+            background-color: antiquewhite;
+            margin: auto;
         }
 
-        .container div {
-            background-color: blue;
-            color: white;
+        div ul li {
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: solid 1px black;
+            border-radius: 100%;
+            background-color: cornflowerblue;
             text-align: center;
-            width: 100px;
-            line-height: 100px;
+        }
+
+        /* ========================================== */
+        /* leftBox */
+
+        .leftBox {
+            width: 115px;
+            height: 115px;
+            display: inline-block;
+            background-color: darkkhaki;
+            margin: calc((150px - 115px)/2);
+        }
+
+        .leftBox li {
+            float: right;
+        }
+
+        .leftBox li:nth-child(-n+2) {
+            margin: 5px 5px 5px 0;
+        }
+
+        .leftBox li:nth-child(n+3) {
+            margin-right: 5px;
+        }
+
+        /* ========================================= */
+        /* rightBox */
+
+        .rightBox {
+            width: 225px;
+            height: 60px;
+            background-color: darkkhaki;
+            float: right;
+            margin-right: calc((150px - 115px)/2);
+            margin-top: calc(((150px - 115px)/2) + 5px + 50px);
+        }
+
+        .rightBox li {
             float: left;
+            margin: 5px 5px 0 0;
         }
 
-        .container div:not(:nth-of-type(4n)) {
-            margin-right: 10px;
-        }
-
-        .container div:not(:nth-child(n+13)) {
-            margin-bottom: 10px;
+        .rightBox li:first-child {
+            margin-left: 5px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-        <div>13</div>
-        <div>14</div>
-        <div>15</div>
-        <div>16</div>
+        <ul class="leftBox">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="rightBox">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
     </div>
 </body>
 

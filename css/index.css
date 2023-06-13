@@ -1,9 +1,9 @@
 * {
     margin: 0;
+    padding: 0;
 }
 
 .box {
-    display: inline-block;
     width: 100px;
     height: 100px;
     background-color: yellow;
@@ -13,39 +13,39 @@
     line-height: 100px;
 
     /* 
-        < relative >
+        < absolute >
 
-    - 옵셋 속성 미적용 시에는 static 포지션과 동일하되, 옵셋 속성 적용시에는
-      static 속성이 지정된 것과 동일하게 문맥 흐름에 따른 박스 영역을 그대로
-      차지하지만, 옵셋 설정에 따른 요소의 디스플레이 영역은 정상적인 문맥흐름과
-      관계없이 표시. 이때 옵셋 설정이된 relative 요소는 다른 static 요소 위에
-      붕떠있는 것처럼 표시.
-      옵셋의 기준은 relative 요소 자신의 본래 위치를 기준으로 옵셋되어 표시.
+    - fixed 와 동일하게 문맥에서의 영역을 차지하지 않아 부모요소에서 높이를
+      인지하지 못하고 인라인 블럭요소처럼 컨텐트 크기만큼만을 디스플레이 영역
+      으로 표시되며 최초 디스플레이 시작 지점을 기준으로 옵셋의 기준 시작 지점이
+      달라지는 등의 모든 포지션 특성이 동일.
+      하지만 뷰포트 영역을 기준으로 고정되는 것이 아닌, 기준이 되는 부모 요소를
+     기준으로 요소의 위치가 결정.
 
-
-    ※ position 속정 미적용시 디폴트 포지션은 static.
-
+    ※ 기준이 되는 부모 요소를 기준으로 그 위치가 결정되므로 스크롤바가 생성시에는
+      그 위치가 변경되거나 화면상에 보이지 않을 수 있음에 주의.
     */
 
-    position:relative;
+    /* position: absolute; */
 }
 
 .b1 {
-    /* left: 300px; */
-    /* top:50px; */
+    /* left: 0; */
 }
 
 .b2 {
-    /* right: -300px; */
-    /* top:-50px; */
+    /* right:0; */
 }
 
 .b3 {
-    /* bottom:-100px; */
-    /* left:-50px; */
+    /* bottom:0; */
 }
 
 .b4 {
-    /* left:200px; */
-    /* bottom:300px; */
+    /* right:0; */
+    /* bottom:0; */
+}
+
+body {
+    /* margin:10px; */
 }

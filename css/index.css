@@ -1,46 +1,30 @@
 .container {
-    width: 5vh;
-    height: 5vh;
-    background-color: black;
-    position: fixed;
-    left: calc((100% - 5vh)/2);
-    top: calc((100% - 5vh)/2);
+    position: relative;
+    margin: calc((100vh - 500px)/2) calc((100% - 400px)/2);
 }
 
-.box {
-    width: calc(100% * 5);
-    height: calc(100% * 5);
+.container .bg {
+    box-sizing: border-box;
+    border: 1px solid;
+    width: 400px;
+    height: 500px;
+    background: url(../image/bg1.jpg) 0/100% 100%;
+}
+
+.container a {
     position: absolute;
-    line-height: calc(5vh * 5);
-    font-size: 1.2em;
-    text-align: center;
-    overflow: hidden;
-    color: white;
+    /* top: calc((100% - 30px)/2); */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: cadetblue;
+    line-height: 30px;
+    padding: 0 10px;
 }
 
-.top {
-    background-color: blue;
-    bottom: 0;
-    left: -200%;
-    /* = left: calc((100% - 100% * 5)/2); */
+.leftBtn {
+    right: calc(100% + 20px);
 }
 
-.left {
-    background-color: chartreuse;
-    color: black;
-    right: 0;
-    z-index: -1;
-}
-
-.right {
-    background-color: deeppink;
-}
-
-.top:hover,
-.left:hover {
-    z-index: 1;
-}
-
-.right:hover {
-    z-index: -2;
+.rightBtn {
+    left: calc(100% + 20px);
 }

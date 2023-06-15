@@ -5,126 +5,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>포지션을 활용한 시멘틱 섹셔닝</title>
     <style>
         * {
-            margin: 0 auto;
+            margin: 0;
             padding: 0;
-            list-style: none;
+            text-align: center;
         }
 
-        body {
-            width: 600px;
+        header,
+        main,
+        footer {
+            margin: auto;
+            width: calc(1024px * 0.8);
         }
 
-        nav {
-            height: 40px;
-            line-height: 40px;
+        header,
+        footer {
+            background-color: antiquewhite;
+            height: 20%;
+            line-height: 20vh;
         }
 
-        .menu {
-            display: inline-block;
-            width: 100%;
-            color: white;
-            background-color: darkslategray;
-        }
-
-        .menu>li {
-            float: left;
-            width: calc(100%/4);
-        }
-
-        .sub_menu {
-            width: calc(600px/4);
-            position: absolute;
-
-        }
-
-        .sub_menu li {
-            color: black;
-            background-color: cadetblue;
-            display: none;
-        }
-
-
-        .menu li:hover .sub_menu li {
-            font-size: 80%;
-            display: block;
-        }
+        /* ========================================================================= */
 
         main {
-            margin-top: 10px;
-            word-break: break-all;
+            height: 60vh;
+            position: relative;
+        }
+
+        main h2 {
+            position: relative;
+        }
+
+        #section_article {
+            width: 70%;
+            height: 100%;
+        }
+
+        #section_article section {
+            height: 60%;
+            line-height: calc(60vh * 0.6);
+        }
+
+        #section_article section h2 {
+            background-color: silver;
+        }
+
+        #section_article article {
+            height: 40%;
+            line-height: calc(60vh * 0.4);
+        }
+
+        #section_article article h2 {
+            background-color: teal;
+        }
+
+        main aside {
+            width: 30%;
+            height: 100%;
+            line-height: 60vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        main aside h2 {
+            background-color: burlywood;
+        }
+
+        /* ==================================================================== */
+
+        section:hover h2 {
+            top: calc(100% / 6 * 4 / 2);
+            left: calc((100% - 60%)/2);
+            z-index: 1;
+        }
+
+        article:hover h2 {
+            left: calc(100% / 7 * 3 / 2);
+            bottom: calc(100% / 4 * 6 / 2);
+            z-index: 1;
+        }
+
+        aside:hover h2 {
+            right: -100%;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <nav>
-            <ul class="menu">
-                <li>Design
-                    <ul class="sub_menu">
-                        <li>Overview</li>
-                        <li>smart</li>
-                        <li>Design Insights</li>
-                        <li>Studios</li>
-                    </ul>
-                </li>
-
-                <li>Innovation
-                    <ul class="sub_menu">
-                        <li>Overview</li>
-                        <li>Charging & Services</li>
-                        <li>Plug-in-Hybrid</li>
-                    </ul>
-                </li>
-
-                <li>Sports
-                    <ul class="sub_menu">
-                        <li>Overview</li>
-                        <li>Motorsports</li>
-                        <li>Golf</li>
-                        <li>Laureus</li>
-                        <li>Esports</li>
-                    </ul>
-                </li>
-
-                <li>Event
-                    <ul class="sub_menu">
-                        <li>Driving Events</li>
-                        <li>Classic Car Travel</li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <h1>starbucks</h1>
     </header>
 
     <main>
-        <p>
-            Do Lorem in anim dolor culpa minim enim ex elit laborum laboris mollit officia magna. Id fugiat laboris
-            dolor
-            exercitation. Magna dolor aliquip sit fugiat aute nostrud reprehenderit exercitation eu aliquip. Ea labore
-            anim
-            reprehenderit quis et laboris excepteur ex sint voluptate. Non et irure sunt id consequat deserunt aliquip
-            commodo dolor
-            nostrud velit. Non do ea irure sunt. Dolore labore ad ad ut anim pariatur. Do nisi qui laborum consectetur
-            velit
-            qui
-            dolor non amet. Magna ex
-            cillum minim consectetur velit veniam. Reprehenderit aliqua consequat duis voluptate et veniam. Cillum aute
-            et
-            exercitation ea ut aliquip excepteur. Eiusmod aliquip ad culpa ullamco quis occaecat ex non. Et consequat
-            incididunt
-            incididunt occaecat in. Reprehenderit aute eiusmod aliquip proident culpa pariatur sit mollit deserunt est
-            dolor
-            nulla
-            deserunt. Cillum labore esse irure magna labore ullamco occaecat proident. Tempor culpa ea anim mollit
-            cupidatat
-            elit
-            labore quis commodo cupidatat et culpa velit eiusmod.
-        </p>
+        <div id="section_article">
+            <section>
+                <h2>news</h2>
+            </section>
+            <article>
+                <h2>info</h2>
+            </article>
+        </div>
+
+        <aside>
+            <h2>login</h2>
+        </aside>
     </main>
+
+    <footer>
+        <h3>contact us</h3>
+    </footer>
 </body>
 
 </html>

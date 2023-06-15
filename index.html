@@ -7,52 +7,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .slide {
-            position: relative;
+        * {
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
         }
 
-        .slide_img {
-            background: url(../image/bg1.jpg);
-            width: 400px;
-            height: 500px;
-            background-size: 400px 500px;
-            background-repeat: no-repeat;
-            border: 1px solid;
-            box-sizing: border-box;
-            margin: calc((100vh - 500px)/2) auto;
+        body {
+            width: 600px;
         }
 
-        .previous_button,
-        .next_button {
-            background-color: cadetblue;
+        nav {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .menu {
+            display: inline-block;
+            width: 100%;
+            color: white;
+            background-color: darkslategray;
+        }
+
+        .menu>li {
+            float: left;
+            width: calc(100%/4);
+        }
+
+        .sub_menu {
+            width: calc(600px/4);
             position: absolute;
-            height: 30px;
-            line-height: 30px;
-            padding: 0 10px;
+
         }
 
-        .previous_button {
-            top: 50%;
-            transform: translateY(-50%);
-            right: calc((100% - 400px)/2 + 400px);
-            margin-right: 20px;
+        .sub_menu li {
+            color: black;
+            background-color: cadetblue;
+            display: none;
         }
 
-        .next_button {
-            bottom: 50%;
-            transform: translateY(+50%);
-            left: calc((100% - 400px)/2 + 400px);
-            margin-left: 20px;
+
+        .menu li:hover .sub_menu li {
+            font-size: 80%;
+            display: block;
+        }
+
+        main {
+            margin-top: 10px;
+            word-break: break-all;
         }
     </style>
 </head>
 
 <body>
-    <div class="slide">
-        <a href="#" class="previous_button">Previous</a>
-        <div class="slide_img"></div>
-        <a href="#" class="next_button">Next</a>
-    </div>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li>Design
+                    <ul class="sub_menu">
+                        <li>Overview</li>
+                        <li>smart</li>
+                        <li>Design Insights</li>
+                        <li>Studios</li>
+                    </ul>
+                </li>
+
+                <li>Innovation
+                    <ul class="sub_menu">
+                        <li>Overview</li>
+                        <li>Charging & Services</li>
+                        <li>Plug-in-Hybrid</li>
+                    </ul>
+                </li>
+
+                <li>Sports
+                    <ul class="sub_menu">
+                        <li>Overview</li>
+                        <li>Motorsports</li>
+                        <li>Golf</li>
+                        <li>Laureus</li>
+                        <li>Esports</li>
+                    </ul>
+                </li>
+
+                <li>Event
+                    <ul class="sub_menu">
+                        <li>Driving Events</li>
+                        <li>Classic Car Travel</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p>
+            Do Lorem in anim dolor culpa minim enim ex elit laborum laboris mollit officia magna. Id fugiat laboris
+            dolor
+            exercitation. Magna dolor aliquip sit fugiat aute nostrud reprehenderit exercitation eu aliquip. Ea labore
+            anim
+            reprehenderit quis et laboris excepteur ex sint voluptate. Non et irure sunt id consequat deserunt aliquip
+            commodo dolor
+            nostrud velit. Non do ea irure sunt. Dolore labore ad ad ut anim pariatur. Do nisi qui laborum consectetur
+            velit
+            qui
+            dolor non amet. Magna ex
+            cillum minim consectetur velit veniam. Reprehenderit aliqua consequat duis voluptate et veniam. Cillum aute
+            et
+            exercitation ea ut aliquip excepteur. Eiusmod aliquip ad culpa ullamco quis occaecat ex non. Et consequat
+            incididunt
+            incididunt occaecat in. Reprehenderit aute eiusmod aliquip proident culpa pariatur sit mollit deserunt est
+            dolor
+            nulla
+            deserunt. Cillum labore esse irure magna labore ullamco occaecat proident. Tempor culpa ea anim mollit
+            cupidatat
+            elit
+            labore quis commodo cupidatat et culpa velit eiusmod.
+        </p>
+    </main>
 </body>
 
 </html>

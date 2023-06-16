@@ -5,32 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>width(height) 와 flex-basis 차이</title>
+    <title>다중 주축에 대한 비율 적용</title>
 
     <link rel="stylesheet" href="./CSS/index.css">
 </head>
 
 <body>
-    <h1>width(height) 와 flexbasis 차이</h1>
+    <h1>다중 주축에 대한 비율 적용</h1>
     <hr>
 
-    <h2>1. 주축의 변경</h2>
+    <h2>1. flex-wrap 에 대한 flex 적용</h2>
     <div class="flex container1">
-        <img class="img1" src="image/jeep_logo.png" alt="">
-        <img class="img2" src="image/jeep_logo.png" alt="">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
     </div>
     <hr>
 
-    <h2>2. 아이템 내 더 큰 내부 컨텐트</h2>
+    <h2>2. flex-wrap 에 대한 퍼센티지 적용</h2>
     <div class="flex container2">
-        <div class="item1">
-            <img src="image/jeep_logo.png" alt="">
-        </div>
-
-        <div class="item2">
-            <img src="image/jeep_logo.png" alt="">
-        </div>
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
     </div>
+    <hr>
 </body>
 
 </html>

@@ -21,89 +21,52 @@
     height: 100px;
     border: 1px solid;
     display: flex;
+}
 
-    /* 
-        gap 은 부모 flex 컨테이너에 설정해야 함에 주의.
-    */
-    /* gap: 10px; */
+/* ======================================================================== */
+/* 1. flex-flow */
+
+.container1 div {
+    width: 100%;
+}
+
+/* 
+    < flex-flow >
+
+- flex-direction 과 flex-wrap 을 순서대로 지정하여 동시 설정.
+*/
+.container1 {
+    flex-flow: row wrap;
+}
+
+.container1:hover {
+    flex-flow: row wrap-reverse;
+}
+
+/* ======================================================================== */
+/* 2. order */
+
+.container2 div {
+    height: 100%
 }
 
 .container2 {
-    flex-direction: column;
+    flex-flow: column wrap-reverse;
 }
 
-/* ======================================================================== */
-/* 2. 주축에 나열되는 항목들의 none overflow 특성 */
+/* 
+    < order >
 
-
-.container4 {
-    flex-direction: column;
-}
-
-.container3 div {
-    width: 100%;
-}
-
-.container4 div {
-    height: 100%;
-}
-
-/* ======================================================================== */
-/* 3. 주축에 나열되는 항목들의 높이가 다른 경우 */
-
-.flex.container5 {
-    width: auto;
-    height: auto;
-}
-
-.container5:hover .item3 {
-    height: 100px;
-}
-
-/* ======================================================================== */
-/* 4. flex-warp */
-
-.container8,
-.container9 {
-    flex-direction: column;
-}
-
-.container6,
-.container7,
-.container8,
-.container9 {
-    flex-wrap: wrap;
-}
-
-.container6 div {
-    width: 100%;
-}
-
-.container7 .item1 {
-    width: 100%;
-}
-
-.container7 .item2,
-.container7 .item3 {
-    width: 50%;
-}
-
-.container8 div {
-    height: 100%;
-}
-
-.container9 .item1 {
-    height: 100%;
-}
-
-.container9 .item2,
-.container9 .item3 {
-    height: 50%;
-}
-
-.container6:hover,
-.container7:hover,
-.container8:hover,
-.container9:hover {
-    flex-wrap: wrap-reverse;
+- 항목들에 순서를 임의로 지정가능하며 order 값에 대한 오름차순
+  순서로 배치.
+  미지정한 항목은 디폴트 0 값을 가지며 명시적 값을 지정한 항목은
+  오름차순 순서대로 배치.
+  또한, 음수값 지정이 가능하며 동일 순위에 대해서는 문서 순서대로
+  배치.
+  따라서 임의의 하나의 항목에 order 값 0 은 의미없는 지정이되며,
+  음수값 지정은 항목들의 최초 선두로 항목을 이동시키고 양수값
+  지정은 항목들의 가장 마지막 위치에 배치하는 결과.
+*/
+.container2:hover .item2 {
+    order: 1;
 }

@@ -5,86 +5,71 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>다중 주축에 대한 비율 적용</title>
+  <title>flex, 가상요소 선택자, 포지션 활용 opacity 분리</title>
   <style>
-    .item1 {
-      background-color: red;
-    }
-
-    .item2 {
-      background-color: blue;
-    }
-
-    .item3 {
-      background-color: green;
-    }
-
-    .flex div {
-      color: white;
-    }
-
-    .flex {
-      width: 500px;
-      height: 200px;
-      border: 1px solid;
-
+    .container {
       display: flex;
-      flex-wrap: wrap;
+      height: 450px;
+      gap: 10px;
     }
 
-    /* ============================================================== */
-    /* 1. flex-wrap 에 대한 flex 적용 */
-
-    /* wrao 설정으로 인한 다중 주 축이 생성되어도 다중 주 축에 대한 flex 비율은 적용되지 않아 다중 주 축 개졀 비율이
-        적용됨으로써 의미없는 비율 적용이 될 수 있음에 주의 */
-
-    .container1 div {
-      /* flex-basis: 100%; */
+    .background,
+    .flexBox {
+      width: 300px;
+      font-size: 180px;
+      color: darkorange;
     }
 
-    .container1 .item1 {
-      /* flex-shrink: 2; */
-      /* flex-grow: 2; */
-
-      /* flex: 2 100%; */
+    .background {
+      background: url(./image/bg3.jpg) no-repeat 0/100% 100%;
+      text-align: center;
+      line-height: 450px;
+      opacity: .3;
     }
 
-    /* ========================================================== */
-    /* 2. flex-wrap에 대한 퍼센티지 적용 */
+    /* ==================================================================== */
 
-    /* wrap 설정으로 인한 다중 주 축에 대한 비율은 아래와 같이 개별 주 축에 대한 컨텐츠의 크기를 직적 퍼센티지로
-        설정함으로써 적용 가능 */
+    .flexBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    .container2 .item1 {
-      flex-basis: 100%;
+      position: relative;
     }
 
-    .container2 .item2,
-    .container2 .item3 {
-      flex-basis: 50%;
+    /* 가상 요소 선택자에 부모의 크기에 맞추어 배경을 지정하되 absolute 를 지정함으로써 플렉스 컨테이너 내의 다른
+        아이템과 다름 문맥 흐름을 가지게 됨으로써 오프셋 설정 없이도 플렉스 컨테이너의 최초 시점부터 자리를 차지하여
+        별도의 독립적인 배경 설정이 가능 */
+    .flexBox::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      opacity: .3;
+      background: url(./image/bg3.jpg) no-repeat 0/100% 100%;
+      position: absolute;
+
+      /* 부모 요소인 flexBox 컨테이너에 의해 간접적 relative 포지션 속성을 가지는 span 보다 직접적인 포지션 설정이
+          우선 적용되는 백그라운드가 absolute 로 올라옴으로써 span 요소의 컨텐츠가 가려지므로 백그라운드의 z 축을
+          변경하여 내림 */
+      z-index: -1;
     }
   </style>
 </head>
 
 <body>
-  <h1>다중 주축에 대한 비율 적용</h1>
+  <h1>flex, 가상요소 선택자, 포지션 활용 opacity 분리</h1>
   <hr>
 
-  <h2>1. flex-wrap 에 대한 flex 적용</h2>
-  <div class="flex container1">
-    <div class="item1">item1</div>
-    <div class="item2">item2</div>
-    <div class="item3">item3</div>
-  </div>
-  <hr>
+  <div class="container">
+    <div class="background">
+      <span>봄</span>
+    </div>
 
-  <h2>2. flex-wrap 에 대한 퍼센티지 적용</h2>
-  <div class="flex container2">
-    <div class="item1">item1</div>
-    <div class="item2">item2</div>
-    <div class="item3">item3</div>
+    <div class="flexBox">
+      <span>봄</span>
+    </div>
   </div>
-  <hr>
+
 </body>
 
 </html>

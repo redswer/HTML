@@ -11,7 +11,6 @@
 }
 
 .flex div {
-    width: 50px;
     color: white;
 }
 
@@ -19,51 +18,92 @@
 
 .flex {
     width: 500px;
-    height: 200px;
+    height: 100px;
     border: 1px solid;
+    display: flex;
 
     /* 
-        flexbox 는 display 속성을 flex 또는 inline-flex 로 지정 가능.
-        flex 는 블럭수준, inline-flex 는 인라인 블럭수준으로 flexbox 를 지정.
+        gap 은 부모 flex 컨테이너에 설정해야 함에 주의.
     */
-    display: flex;
-    display: inline-flex;
-}
-
-/* ======================================================================== */
-
-/* 
-    < flex-direction >
-
-- flexbox 내의 항목들에 대한 주축 방향으로의 배치를 결정짓는 속성.
-  flexbox 는 기본적으로 주축과 교차축으로 구성되는데 주축은 행(row) 또는
-  열(colume)로 지정 가능하며 교차축은 주축에 대응되는 행 또는 열을 의미.
-
-===========================================================================
-
-    < row >
-
-- flex-direction 속성의 디폴트 값으로 주축의 방향을 행방향으로 설정하면서
-  항목들에 대한 배치 방향을 인라인 방향으로 설정.
-
-※ 인라인 방향이라함은 한국어나 영어는 왼쪽에서 오른쪽 방향이 기본이지만
-   언어 별로 인라인 방향은 달라질 수 있음에 주의.
-   따라서 한국어나 영어의 인라인 방향에 대한 시작선은 왼쪽 끝이 되고,
-   끝 선은 오른쪽 끝으로 설정.
-===========================================================================
-
-    < row-reverse >
-
-- 주축의 방향을 row 와 같이 행방향으로 설정하되, 항목들에 대한 배치를
-  인라인 방향의 역방향부터 순서대로 배치.
-  즉, 인라인 방향에 대한 시작선과 끝 선의 위치가 서로 변경.
-*/
-.container1 {
-    /* flex-direction: row; */
-    /* flex-direction: row-reverse; */
+    /* gap: 10px; */
 }
 
 .container2 {
-    /* flex-direction: column; */
-    /* flex-direction: column-reverse; */
+    flex-direction: column;
+}
+
+/* ======================================================================== */
+/* 2. 주축에 나열되는 항목들의 none overflow 특성 */
+
+
+.container4 {
+    flex-direction: column;
+}
+
+.container3 div {
+    width: 100%;
+}
+
+.container4 div {
+    height: 100%;
+}
+
+/* ======================================================================== */
+/* 3. 주축에 나열되는 항목들의 높이가 다른 경우 */
+
+.flex.container5 {
+    width: auto;
+    height: auto;
+}
+
+.container5:hover .item3 {
+    height: 100px;
+}
+
+/* ======================================================================== */
+/* 4. flex-warp */
+
+.container8,
+.container9 {
+    flex-direction: column;
+}
+
+.container6,
+.container7,
+.container8,
+.container9 {
+    flex-wrap: wrap;
+}
+
+.container6 div {
+    width: 100%;
+}
+
+.container7 .item1 {
+    width: 100%;
+}
+
+.container7 .item2,
+.container7 .item3 {
+    width: 50%;
+}
+
+.container8 div {
+    height: 100%;
+}
+
+.container9 .item1 {
+    height: 100%;
+}
+
+.container9 .item2,
+.container9 .item3 {
+    height: 50%;
+}
+
+.container6:hover,
+.container7:hover,
+.container8:hover,
+.container9:hover {
+    flex-wrap: wrap-reverse;
 }

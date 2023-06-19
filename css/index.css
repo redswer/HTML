@@ -1,22 +1,54 @@
-.container {
-    display: flex;
-    background-color: deeppink;
-    width: 430px;
-    height: 430px;
-    flex-flow: column-reverse wrap-reverse;
-
-    /* gap: 10px; */
-    justify-content: space-between;
-    align-content: space-between;
+* {
+    margin: 0;
 }
 
-.container div {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
-    color: aqua;
-
+body,
+.banner {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+body {
+    height: 100vh;
+}
+
+.banner {
+    box-sizing: border-box;
+    width: 700px;
+    height: 150px;
+    border: 1px solid;
+    font: bold 4em sans-serif;
+    color: darkslategray;
+    text-transform: uppercase;
+    letter-spacing: 40px;
+
+    position: relative;
+}
+
+.banner div {
+    padding-left: 40px;
+}
+
+.banner::before,
+.banner::after {
+    position: absolute;
+    opacity: .3;
+}
+
+.banner::before {
+    content: "";
+    background: url(../image/bg5.jpg) 0/cover;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+}
+
+.banner::after {
+    content: 'flexbox';
+
+    padding-left: 40px;
+    margin-left: -10px;
+    margin-top: -10px;
 }

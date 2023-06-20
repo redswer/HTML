@@ -1,100 +1,56 @@
 * {
     margin: 0;
-}
-
-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
+    list-style: none;
 }
 
 header,
-main,
-footer {
-    width: calc(1024px * .8);
+main {
+    width: 600px;
+    margin: auto;
 }
 
-header,
-footer {
-    flex: 2;
-    background-color: antiquewhite;
+header nav {
+    margin-bottom: 20px;
+    color: white;
 }
 
-main,
-#section_article,
-#section_article section,
-#section_article article,
-main aside {
+main p {
+    text-align: justify;
+    word-break: break-all;
+}
+
+/* =========================================================================== */
+/* header */
+
+header nav>ul {
     display: flex;
+    background-color: darkslategray;
 }
 
-main h2,
-header,
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header nav>ul>li {
+    flex: 1;
+
+    line-height: 40px;
+    padding: 0 20px;
 
     position: relative;
 }
 
-/* ====================================================== */
-
-main {
-    flex: 6;
-}
-
-#section_article {
-    flex: 7;
-
-    flex-direction: column;
-}
-
-#section_article section {
-    flex: 6;
-}
-
-#section_article section h2 {
-    background-color: silver;
-    flex: 1;
-}
-
-#section_article article {
-    flex: 4
-}
-
-#section_article article h2 {
+header nav ul ul {
     background-color: cadetblue;
-    flex: 1
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    display: none;
 }
 
-main aside {
-    flex: 3;
+nav ul ul li {
+    padding: 0 20px;
+    font-size: .7em;
 }
 
-main aside h2 {
-    background-color: burlywood;
-    flex: 1;
-}
-
-/* ====================================================== */
-
-#section_article section:hover h2,
-#section_article article:hover h2 {
-    left: calc((100% / 7 * 3 / 2));
-
-    z-index: 1;
-}
-
-#section_article section:hover h2 {
-    top:calc((100% / 6 * 4 / 2));
-}
-
-#section_article article:hover h2 {
-    bottom: calc((100% / 4 * 6 / 2));
-}
-
-main aside:hover h2 {
-    left: 100%;
+nav>ul>li:hover ul {
+    display: block;
 }

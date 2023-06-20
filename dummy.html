@@ -5,49 +5,100 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flexbox 를 활용한 시멘틱 섹셔닝</title>
+  <title>플렉스 활용 메뉴구현</title>
 
   <link rel="stylesheet" href="./CSS/index.css">
 </head>
+
 <!-- 
     < 문제 >
 
-- 화면구현 예시와 같이 기존 코드를 토대로 플렉스를 적용하여 코드
-  리팩토링(Refactoring)을 하라.
+- 화면구현 예시와 같이 시멘틱 구조를 이용하여 네비게이션 메뉴를 플렉스를 이용 구현하라.
+
+
+    < 메뉴 항목 >
+
+Design -> Overview, smart, Design Insights, Studios
+Innovation -> Overview, Charging & Services, Plug-in-Hybrid
+Sports -> Overview, Motorsports, Golf, Laureus, Esports
+Event -> Driving Events, Classic Car Travel
+
+
+    < 본문 내용 >
+
+Do Lorem in anim dolor culpa minim enim ex elit laborum laboris mollit officia magna. Id fugiat laboris dolor
+exercitation. Magna dolor aliquip sit fugiat aute nostrud reprehenderit exercitation eu aliquip. Ea labore anim
+reprehenderit quis et laboris excepteur ex sint voluptate. Non et irure sunt id consequat deserunt aliquip commodo dolor
+nostrud velit. Non do ea irure sunt. Dolore labore ad ad ut anim pariatur. Do nisi qui laborum consectetur velit qui
+dolor non amet. Magna ex
+cillum minim consectetur velit veniam. Reprehenderit aliqua consequat duis voluptate et veniam. Cillum aute et
+exercitation ea ut aliquip excepteur. Eiusmod aliquip ad culpa ullamco quis occaecat ex non. Et consequat incididunt
+incididunt occaecat in. Reprehenderit aute eiusmod aliquip proident culpa pariatur sit mollit deserunt est dolor nulla
+deserunt. Cillum labore esse irure magna labore ullamco occaecat proident. Tempor culpa ea anim mollit cupidatat elit
+labore quis commodo cupidatat et culpa velit eiusmod.
+
 
     < 조건 >
 
-1) section 과 article 에 마우스를 올리면 main 수평, 수직 중앙에 표시되도록 구현.
-2) aside 에 마우스를 오버하면 main 의 오른쪽 바깥 경계에 표시되도록 구현.
-3) header, main, footer 등의 비율은 동일하지만 너비나 전체 높이가 가변적인 경우를
-   대비하여 유지보수 편의성을 최대한 높일 수 있는 형태로 구현.
-4) main 의 너비 비율은 section_article 과 aside 에만 직접 지정.
-5) h2 요소의 컨테이닝 블럭은 main 지정 불가.
+1) 메뉴와 본문은 화면 중앙에 배치되도록 구현.
+
+2) 메뉴와 본문의 너비는 600px.
+
+3) 메뉴의 배경 색상은 li 요소가 아닌 ul 요소에 지정.
 -->
 
 <body>
   <header>
-    <h1>starbucks</h1>
+    <nav>
+      <ul>
+        <li>Design
+          <ul>
+            <li>Overview</li>
+            <li>smart</li>
+            <li>Design Insights</li>
+            <li>Studios</li>
+          </ul>
+        </li>
+        <li>Innovation
+          <ul>
+            <li>Overview</li>
+            <li>Charging &amp; Services</li>
+            <li>Plug-in-Hybrid</li>
+          </ul>
+        </li>
+        <li>Sports
+          <ul>
+            <li>Overview</li>
+            <li>Motorsports</li>
+            <li>Golf</li>
+            <li>Laureus</li>
+            <li>Esports</li>
+          </ul>
+        </li>
+        <li>Event
+          <ul>
+            <li>Driving Events</li>
+            <li>Classic Car Travel</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <div id="section_article">
-      <section>
-        <h2>news</h2>
-      </section>
-      <article>
-        <h2>info</h2>
-      </article>
-    </div>
-
-    <aside>
-      <h2>login</h2>
-    </aside>
+    <p>
+      Do Lorem in anim dolor culpa minim enim ex elit laborum laboris mollit officia magna. Id fugiat laboris
+      dolor exercitation. Magna dolor aliquip sit fugiat aute nostrud reprehenderit exercitation eu aliquip. Ea
+      labore anim reprehenderit quis et laboris excepteur ex sint voluptate. Non et irure sunt id consequat
+      deserunt aliquip commodo dolor nostrud velit. Non do ea irure sunt. Dolore labore ad ad ut anim pariatur. Do
+      nisi qui laborum consectetur velit qui dolor non amet. Magna ex
+      cillum minim consectetur velit veniam. Reprehenderit aliqua consequat duis voluptate et veniam. Cillum aute
+      et exercitation ea ut aliquip excepteur. Eiusmod aliquip ad culpa ullamco quis occaecat ex non. Et consequat
+      incididunt incididunt occaecat in. Reprehenderit aute eiusmod aliquip proident culpa pariatur sit mollit
+      deserunt est dolor nulla deserunt. Cillum labore esse irure magna labore ullamco occaecat proident. Tempor
+      culpa ea anim mollit cupidatat elit labore quis commodo cupidatat et culpa velit eiusmod.
+    </p>
   </main>
-
-  <footer>
-    <h3>contact us</h3>
-  </footer>
 </body>
 
 </html>

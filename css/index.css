@@ -1,56 +1,5 @@
 * {
     margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-header,
-main {
-    width: 600px;
-    margin: auto;
-}
-
-header nav {
-    margin-bottom: 20px;
-    color: white;
-}
-
-main p {
-    text-align: justify;
-    word-break: break-all;
-}
-
-/* =========================================================================== */
-/* header */
-
-header nav>ul {
-    display: flex;
-    background-color: darkslategray;
-}
-
-header nav>ul>li {
-    flex: 1;
-
-    line-height: 40px;
-    padding: 0 20px;
-
-    position: relative;
-}
-
-header nav ul ul {
-    background-color: cadetblue;
-    position: absolute;
-    left: 0;
-    width: 100%;
-
-    display: none;
-}
-
-nav ul ul li {
-    padding: 0 20px;
-    font-size: .7em;
-}* {
-    margin: 0;
 }
 
 .box1 {
@@ -77,6 +26,23 @@ nav ul ul li {
     background-color: yellowgreen;
 }
 
+.box7 {
+    background-color: black;
+}
+
+.box8 {
+    background-color: coral;
+}
+
+.box9 {
+    background-color: cadetblue;
+}
+
+.box10 {
+    background-color: deeppink;
+}
+
+h2,
 hr {
     margin: 20px 0;
 }
@@ -92,93 +58,52 @@ hr {
     display: grid;
 }
 
-/* 
-    < Grid >
-
-- Flexbox 의 발전 형태로 테이블과 같이 행과 열을 기준으로 하는 2차원 형태의
-  레이아웃을 설계 가능한 모델.
-*/
 
 /* ============================================================================ */
-/* 1. grid-template-columns(rows) */
+/* 1. repeat 함수 */
+
 .container1 {
-
-
-    /* 
-        < grid-template-columns >
-
-    - 개별 열에 대한 너비를 지정.
-
-    =============================================================================
-
-        < grid-template-rows >
-
-    - 개별 행에 대한 높이를 지정.
-    
-
-    ※ auto : 너비나 높이를 자동으로 컨텐트의 크기에 맞추거나 남는 공간에
-              대해서 자동으로 확장.
-
-    */
-    grid-template-columns: 100px auto 100px;
-    grid-template-rows: 100px 100px;
+    grid-template: 50px 50px / 200px 200px 200px 200px 200px;
 }
-
-.container1:hover {
-    grid-template-columns: 200px 300px;
-    grid-template-rows: 50px 50px 50px;
-}
-
-/* ============================================================================ */
-/* 2. grid-template */
 
 .container2 {
 
     /* 
-        < grid-template >
+        < repeat 함수 >
 
-    - 행과 열에 대한 각각의 높이와 너비를 동시에 지정.
+    - repeat 함수를 통해 연속적이고 반복적인 값을 축약.
 
-    형식    :     grid-template : [ grid-template-rows ] / [ grid-template-columns ]
+
+    형식    :    repeat( 반복할 행 또는 열의 횟수, 반복할 행 또는 열의 크기 )
+
     */
-    grid-template: 100px 50px 50px / auto 100px;
+    grid-template: repeat(2, 100px) repeat(3, 50px) / repeat(2, 300px);
 }
 
 /* ============================================================================ */
-/* 3. column(rows)-gap, gap */
+/* 2. fr(Fraction) */
 
 .container3 {
-    grid-template-columns: 100px auto 100px;
-    grid-template-rows: 100px 100px;
 
     /* 
-        < column-gap >
+        < fr(Fraction) >
 
-    - 열 사이의 간격을 지정.
-
-    ============================================================================
-
-        < row-gap >
-
-    - 행 사이의 간격을 지정.
-
+    - Grid 레이아웃에서 아이템들의 행 또는 열방향에 대한 상대적 비율 단위.
     */
-    column-gap: 5px;
-    row-gap: 5px;
+    grid-template: repeat(2, 50px) / 3fr repeat(3, 1fr) 2fr;
 }
 
-.container3:hover {
+/* ============================================================================ */
+/* 3. stretch */
+
+.container4 {
+    grid-template-columns: repeat(2, 1fr);
 
     /* 
-        < gap >
-
-    - 행 사이와 열 사이의 간격을 동시 지정.
-
-    ※ normal : column-gap, row-gap, gap 속성의 디폴트 값.
+        Grid 의 아이템들은 부모 컨테이너에 높이를 지정하지 않는 경우 아이템이
+        갖는 컨텐트 만큼만 높이를 차지하지만, 부모 컨테이너에 높이를 지정하는 경우
+        아이템들에 별도의 높이를 지정하지 않아도 Flex 의 스트레치 특성과 같이
+        부모 컨테이너의 높이에 맞추어 늘어나는 특성을 가짐.
     */
-    gap: normal;
-}
-
-nav>ul>li:hover ul {
-    display: block;
+    height: 500px;
 }

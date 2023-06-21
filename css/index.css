@@ -38,18 +38,67 @@
     background-color: deeppink;
 }
 
-.container div {
+.grid {
+    display: grid;
+    height: 500px;
+}
+
+.grid div {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
+hr {
+    margin: 20px 0;
+}
+
 /* ================================================================================= */
 
-.container {
-    height: 500px;
-    display: grid;
+.container1 div {
+
+    /* 
+        하기 코드는 모두 동일한 의미의 코드. 
+    */
+
+    /* grid-row: 1 / 2; */
+    /* grid-row: 1 / span 1; */
+    /* grid-row: 1 / 1; */
+    /* grid-row: 1; */
+}
+
+.container1 div {
+    /* grid-row: 2 / 3; */
+    /* grid-row: 2 / span 1; */
+    /* grid-row: 2 / 2; */
+    /* grid-row: 2; */
+}
+
+.container1 div {
+    /* grid-row: 3 / 4; */
+    /* grid-row: 3 / span 1; */
+    /* grid-row: 3 / 3; */
+    /* grid-row: 3; */
+}
+
+.container1 div {
+    /* grid-column: 1 / 2; */
+    /* grid-column: 1 / span 1; */
+    /* grid-column: 1 / 1; */
+    /* grid-column: 1; */
+}
+
+.container1 div {
+    /* grid-column: 3 / 4; */
+    /* grid-column: 3 / span 1; */
+    /* grid-column: 3 / 3; */
+    /* grid-column: 3; */
+}
+
+/* ================================================================================= */
+
+.container2 {
 
     /*
         < 7 행 3열 구조의 그리드 레이아웃 >
@@ -57,93 +106,37 @@
     grid-template: 1fr repeat(2, 2fr) repeat(4, 1fr) / repeat(2, 1fr) 2fr;
 }
 
-.box1 {
-    /* 
-        - 4개의 Column Line Number 8개의 Row Line Number 로 레이아웃 구성.
-
-    ※ 엑셀 파일 참조 - 5_CSS(Cascading_Style_Sheet)-11_Layout-4_Grid-3_grid-colume,grid-row_span
-
-    ===============================================================================================
-
-        < grid-column-start, grid-column-end >
-
-    - 병합할 열들에 대한 시작 Column Line Number 와 종료 Column Line Number 지정.
-
-      ※ 병합은 그리드 개별 요소에 대하여 사각형 형태로만 병합 가능하며 교차 병합은 불가.
-           단, grid-area 속성을 이용하면 요소간 교차 병합 가능.
-    */
-    /* grid-column-start: 1;
-    grid-column-end: 4; */
+.container2 div {
+    /* grid-row: 1 / 2; */
+    /* grid-row: 1 / span 1; */
+    /* grid-row: 1 / 1; */
+    /* grid-row: 1; */
 }
 
-.box2 {
-    /* 
-        < grid-row-start, grid-row-end >
-
-    - 병합할 행들에 대한 시작 Row Line Number 와 종료 Row Line Number 지정.
-    */
-    /* grid-row-start: 2;
-    grid-row-end: 4; */
+.container2 div {
+    /* grid-row: 2 / 3; */
+    /* grid-row: 2 / span 1; */
+    /* grid-row: 2 / 2; */
+    /* grid-row: 2; */
 }
 
-.box3,
-.box4 {
-    /* grid-column-start: 2;
-    grid-column-end: 4; */
+.container2 div {
+    /* grid-row: 3 / 4; */
+    /* grid-row: 3 / span 1; */
+    /* grid-row: 3 / 3; */
+    /* grid-row: 3; */
 }
 
-.box5 {
-    /* grid-column-start: 1;
-    grid-column-end: 3; */
-}
-
-.box6 {
-    /* 
-        정의된 행열 구조와 grid-column-start, grid-column-end 생략 시 디폴트로
-        하나의 셀 영역만 지정됨으로써 grid-column-start, grid-column-end 지정
-        불필요.
-    */
-
-    /* grid-column-start: 3;
-    grid-column-end: 4; */
-}
-
-.box7 {
-    /* 
-        < grid-column, grid-row >
-
-    - grid-column-start, grid-column-end, grid-row-start, grid-row-end 의 축약 속성.
-
-
-        < 형식 >
-
-    속성명 : start_Num / end_Num
-    */
-    /* grid-column: 1 / 4; */
-}
-
-.box8 {
-    /* 
-        < span >
-
-    - 병합할 행 또는 열 갯수를 지정.
-      시작 번호 생략 시 해당 아이템이 속한 라인 넘버를 기준으로 병합.
-
-      하기 코드는 하나의 셀만 병합하므로 불필요.
-    */
+.container2 div {
+    /* grid-column: 1 / 2; */
     /* grid-column: 1 / span 1; */
+    /* grid-column: 1 / 1; */
+    /* grid-column: 1; */
 }
 
-.box9 {
-    /* grid-column: 2 / span 2; */
-    /* grid-column: span 2; */
-}
-
-.box10 {
-    /*
-        < 음수 라인 번호 >
-
-    - 라인 번호를 끝에서 부터 카운팅.
-    */
-    /* grid-column: 1 / -1; */
+.container2 div {
+    /* grid-column: 3 / 4; */
+    /* grid-column: 3 / span 1; */
+    /* grid-column: 3 / 3; */
+    /* grid-column: 3; */
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>grid-colume(row)-start(end), span</title>
+    <title>grid-colume(row) 에서의 start 와 end 의 통합 지정</title>
     <style>
         .box1 {
             background-color: brown;
@@ -47,95 +47,142 @@
             background-color: deeppink;
         }
 
-        .container div {
+        .grid {
+            display: grid;
+            height: 500px;
+        }
+
+        .grid div {
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
         }
 
-        /* ============================================================= */
-        .container {
-            height: 500px;
-            display: grid;
+        hr {
+            margin: 20px 0;
+        }
 
+        /* =============================================== */
+        /* 하기 코드는 모두 동일한 의미 */
+        .container1 div {
+
+            /* row 에 대하여 width 지정을 하지 않았기 때문에 1이 시작축, 2가 마지막 축이 됨, 따라서 row 방향으로
+                모두 동일하게 늘어남 */
+            /* grid-row: 1 / 2; */
+
+            /* = grid-row: 1 / span 1;
+               = grid-row: 1 / 1;
+               = grid-row: 1; */
+        }
+
+        .container1 div {
+            /* row 방향에 대하여 width 지정을 하지 않았지만, 시작축이 1이고 grid-row 속성에서 2부터 시작했으므로
+                row  방향으로 절반 지점부터 시작 */
+            /* grid-row: 2 / 3; */
+
+            /* = grid-row: 2 / span 1;
+               = grid-row: 2 / 2;
+               = grid-row: 2; */
+        }
+
+        .container1 div {
+            /* 위와 동일하게 row 방향으로 2/3 지점부터 시작 */
+            /* grid-row: 3 / 4; */
+
+            /* = grid-row: 3 / span 1;
+               = grid-row: 3 / 3;
+               = grid-row: 3; */
+        }
+
+        .container1 div {
+            /* column 방향으로 시작축이 1이 되고 마지막 축이 2 가 되므로 width 전체로 겹쳐짐 */
+            /* grid-column: 1 / 2; */
+
+            /* = grid-column: 1 / span 1;
+               = grid-column: 1 / 1;
+               = grid-column: 1; */
+        }
+
+        .container1 div {
+            /* column 방향으로 시작축이 1이 되고 2/3 지점부터 마지막 축인 4까지로 겹쳐짐 */
+            /* grid-column: 3 / 4; */
+
+            /* = grid-column: 3 / span 1;
+               = grid-column: 3 / 3;
+               = grid-column: 3; */
+        }
+
+        /* ===================================================== */
+        .container2 {
             /* 7행 3열 구조의 그리드 레이아웃 */
             grid-template: 1fr repeat(2, 2fr) repeat(4, 1fr) / repeat(2, 1fr) 2fr;
         }
 
-        .box1 {
-            /* 4개의 column line number 8개의 row line number 로 레이아웃 구성 */
+        .container2 div {
+            /* 그리드 레이아웃이 잡혀 있으므로 row 방향의 시작축부터 2번째 축까지로 겹쳐짐 */
+            /* grid-row: 1 / 2; */
 
-            /* grid-column-start, grid-column-end */
-            /* 병합할 열들의 대한 시작 column line number 와 종료 column line number 지정
-               병합은 그리드 개별 요소에 대하여 사각형 형태로만 병합 가능하며 교차 병합은 불가
-               단, grid-area 속성을 이용하면 요소 간 교차 병합 가능 */
-
-            grid-column-start: 1;
-            grid-column-end: 4;
+            /* = grid-row: 1 / span 1;
+               = grid-row: 1 / 1;
+               = grid-row: 1; */
         }
 
-        .box2 {
-            /* grid-row-start, grid-row-end */
-            /* 병합할 행들에 대한 시작 row line number 와 종료 row line number 지정 */
+        .container2 div {
+            /* 그리드 레이아웃이 잡혀 있으므로 row 방향의 2번째 축부터 3번째 축까지의 높이로 겹쳐짐 */
+            /* grid-row: 2 / 3; */
 
-            grid-row-start: 2;
-            grid-row-end: 4;
+            /* = grid-row: 2 / span 1
+               = grid-row: 2 / 2;
+               = grid-row: 2; */
         }
 
-        .box3,
-        .box4 {
-            grid-column-start: 2;
-            grid-column-end: 4;
+        .container2 div {
+            /* grid-row: 3 / 4; */
+
+            /* = grid-row: 3 / span 1;
+               = grid-row: 3 / 3
+               = grid-row: 3; */
         }
 
-        .box5 {
-            grid-column-start: 1;
-            grid-column-end: 3;
+        .container2 div {
+            /* 그리드 레이아웃이 잡혀 있으므로 column 방향으로 시작축부터 2번째 축까지로 겹쳐짐 */
+            /* grid-column: 1 / 2; */
+
+            /* = grid-column: 1 / span 1;
+               = grid-column: 1 / 1;
+               = grid-column: 1; */
         }
 
-        .box6 {
-            /* 정의된 행열 구조와 grid-column-start, grid-column-end 생략 시 디폴트로 하나의 셀 영역만
-                지정되므로써 grid-column-start, grid-column-end 지정 불필요 */
-            grid-column-start: 3;
-            grid-column-end: 4;
-        }
+        .container2 div {
+            /* grid-column: 3 / 4; */
 
-        .box7 {
-            /* grid-column, grid-row */
-            /* grid-column-start, grid-column-end, grid-row-start, grid-row-end의 축약 속성 */
-            /* 형식 */
-            /* 속성명 : start_Num / end_Num */
-            grid-column: 1 / 4;
-        }
-
-        .box8 {
-            /* span */
-            /* 병합할 행 또는 열 갯수를 지정
-               시작 번호 생략 시 해당 아이템이 속한 라인 넘버를 기준으로 병합
-               하기 코드는 하나의 셀만 병합하므로 불필요 */
-            grid-column: 1 / span 1;
-        }
-
-        .box9 {
-            grid-column: 2 / span 2;
-
-            /* = grid-column: span 2; */
-        }
-
-        .box10 {
-            /* 음수 라인 번호 */
-            /* 라인 번호를 끝에서부터 카운팅 */
-            grid-column: 1 / -1;
+            /* = grid-column: 3 / span 1;
+               = grid-column: 3 / 3;
+               = grid-column: 3; */
         }
     </style>
 </head>
 
 <body>
-    <h1>grid-colume(row)-start(end), span</h1>
+    <h1>grid-colume(row) 에서의 start 와 end 의 통합 지정</h1>
     <hr>
 
-    <div class="grid container">
+    <div class="grid container1">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+        <div class="box5">5</div>
+        <div class="box6">6</div>
+        <div class="box7">7</div>
+        <div class="box8">8</div>
+        <div class="box9">9</div>
+        <div class="box10">10</div>
+    </div>
+    <hr>
+
+    <div class="grid container2">
         <div class="box1">1</div>
         <div class="box2">2</div>
         <div class="box3">3</div>

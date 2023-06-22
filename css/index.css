@@ -34,37 +34,68 @@
     background-color: cadetblue;
 }
 
-.box10 {
-    background-color: deeppink;
-}
 
-.grid div {
+.grid_container div {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-.grid {
+.grid_container {
     display: grid;
+    height: 300px;
+    background-color: yellow;
+    grid-template-columns: repeat(3, 100px);
+    grid-auto-rows: 50px;
 }
 
 /* ================================================================================= */
 
-.container1 {
-    grid-template-columns: repeat(auto-fill, 100px);
-    grid-auto-rows: 50px;
+/* 행 방향 전체 요소들에 대한 정렬 */
+.grid_container {
+    /* justify-content:start; */
+    /* justify-content:end; */
+    /* justify-content:center; */
+    /* justify-content:space-between; */
+    /* justify-content:space-around; */
+    /* justify-content:space-evenly; */
 }
 
-.container2 {
-    grid-auto-columns: 200px;
-    grid-auto-rows: 50px;
-
-    /* grid-template-columns: repeat(1, 200px);
-    grid-auto-rows: 50px; */
+/* 행 방향 개별 열그룹에 대한 정렬 */
+.grid_container {
+    /* justify-items: stretch; */
+    /* justify-items: start; */
+    /* justify-items: end; */
+    /* justify-items: center; */
 }
 
-.container3 {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 50px
+/* 열 방향 전체 요소들에 대한 정렬 */
+.grid_container {
+    /* align-content: start; */
+    /* align-content: end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
+}
+
+/* 열 방향의 개별 행그룹에 대한 정렬 */
+.grid_container {
+    /* align-items:stretch; */
+    /* align-items:start; */
+    /* align-items:end; */
+    /* align-items:center; */
+}
+
+/* 행 방향 개별 열 요소들에 대한 개별 정렬 */
+.box7,
+.box9 {
+    /* justify-self: end; */
+}
+
+/* 열 방향 개별 행 요소들에 대한 개별 정렬 */
+.box1,
+.box3 {
+    /* align-self: start; */
 }

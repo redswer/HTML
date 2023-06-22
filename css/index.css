@@ -1,55 +1,58 @@
-* {
-    margin: 0;
+.box1 {
+    background-color: brown;
 }
 
-#grid_container {
-    display: grid;
-    height: 100vh;
-    grid-template: repeat(7, 1fr) / 1fr 1fr .5fr .5fr;
+.box2 {
+    background-color: blueviolet;
 }
 
-#grid_container div {
+.box3 {
+    background-color: blue;
+}
+
+.box4 {
+    background-color: red;
+}
+
+.box5 {
+    background-color: green;
+}
+
+h2,
+hr {
+    margin: 20px 0;
+}
+
+.grid div {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: larger;
+    font-weight: bold;
     color: white;
 }
 
-#grid_container .logo {
-    background-color: blueviolet;
-    font-size: 3.5em;
-    color: red;
-    grid-row: span 2;
+.grid {
+    display: grid;
+    column-gap: 3px;
 }
 
-.menu {
-    background-color: yellowgreen;
-    grid-area: 1 / 2 / span 3 / 2;
-    z-index: 1;
+/* ============================================================================ */
+
+.container1 {
+
+    /* 
+        < minmax 함수 >
+
+    - min 이상이면서 max 이하의 크기 범위를 설정.
+    
+    형식    :    minmax( min, max )
+    */
+    grid-template-columns: minmax(500px, 700px) minmax(200px, 300px);
 }
 
-.login {
-    background-color: blue;
-    grid-column: span 2;
-}
+/* ============================================================================ */
 
-.contents {
-    background-color: coral;
-    grid-area: 3 / 1 / -2 / 3;
-}
-
-.aside {
-    background-color: cadetblue;
-    grid-area: 2 / -3/ -2 / -1;
-}
-
-.footer {
-    background-color: deeppink;
-    grid-column: 1 / -2;
-}
-
-.scrollTop {
-    background-color: chartreuse;
-    grid-area: -3 / -2/ -1 / -1;
+.container2 {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
 }

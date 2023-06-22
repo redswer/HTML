@@ -5,95 +5,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예제</title>
+    <title>minmax 함수</title>
     <style>
-        * {
-            margin: 0;
-        }
+.box1 {
+    background-color: brown;
+}
 
-        #grid_container {
-            display: grid;
-            height: 100vh;
-            grid-template: repeat(3, 1fr) 2fr repeat(2, 1fr) / repeat(2, 1fr) repeat(2, 0.5fr);
+.box2 {
+    background-color: blueviolet;
+}
 
-        }
+.box3 {
+    background-color: blue;
+}
 
-        #grid_container div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            color: white;
-        }
+.box4 {
+    background-color: red;
+}
 
-        #grid_container .logo {
-            background-color: blueviolet;
-            grid-area: 1 / 1 / 3 / 2;
-            color: red;
-            font-size: 3em;
-        }
+.box5 {
+    background-color: green;
+}
 
-        .menu {
-            background-color: yellowgreen;
-            grid-area: 1 / 2 / 4 / 3;
-        }
+h2,
+hr {
+    margin: 20px 0;
+}
 
-        .login {
-            background-color: blue;
-            grid-area: 1 / 3 / 2 / 5;
-        }
+.grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
 
-        .contents {
-            background-color: coral;
-            grid-area: 3 / 1 / 6 / 3;
-            z-index: -1;
-        }
+.grid {
+    display: grid;
+    column-gap: 3px;
+}
 
-        .aside {
-            background-color: cadetblue;
-            grid-area: 2 / 3 / 6 / 5;
-            z-index: -1;
-        }
+/* ============================================= */
 
-        .footer {
-            background-color: deeppink;
-            grid-area: 6 / 1 / 7 / 4;
-        }
+.container1 {
+    /* minmax 함수 */
+    /* min 이상이면서 max 이하의 크기 범위를 설정 */
+    /* 형식   :   minmax(min, max) */
+    grid-template-columns: minmax(500px, 700px) minmax(200px, 300px);
+}
 
-        .scrollTop {
-            background-color: greenyellow;
-            grid-area: 5 / 4 / 7 / 5;
-        }
+.container2 {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+}
     </style>
 </head>
 
-<!-- 
-    < 문제 >
-
-- Grid 레이아웃의 grid-area 이용하여 화면 구현 예시와 같이 구현하라.
-
-=====================================================================
-
-    < 처리조건 >
-
-1) 행은 logo, menu, login, contents, aside, footer, scrollTop 각각
-   2 : 3 : 1 : 4 : 5 : 1 : 2 비율을 유지.
-2) 열은 logo, menu, aside, scrollTop 각가 1 : 1 : 1 : 0.5 비율을 유지.
-3) logo 는 3em, red 로 적용하되, 나머지 모든 텍스트는 1.5em, white 로 적용.
-   단, grid_container 에는 직접 지정 불가.
-
--->
-
 <body>
-    <div id="grid_container">
-        <div class="logo">Logo</div>
-        <div class="menu">Menu</div>
-        <div class="login">Login</div>
-        <div class="contents">Contents</div>
-        <div class="aside">Aside</div>
-        <div class="footer">Footer</div>
-        <div class="scrollTop">ScrollTop</div>
+    <h1>minmax 함수</h1>
+    <hr>
+
+    <h2>1. minmax 함수</h2>
+    <div class="grid container1">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
     </div>
+    <hr>
+
+
+    <h2>2.</h2>
+    <div class="grid container2">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+        <div class="box5">5</div>
+    </div>
+    <hr>
+
 </body>
 
 </html>

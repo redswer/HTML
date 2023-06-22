@@ -1,142 +1,74 @@
-.box1 {
-    background-color: brown;
+* {
+    margin: 0;
 }
 
-.box2 {
+.logo {
     background-color: blueviolet;
 }
 
-.box3 {
-    background-color: blue;
-}
-
-.box4 {
-    background-color: red;
-}
-
-.box5 {
-    background-color: green;
-}
-
-.box6 {
+.menu {
     background-color: yellowgreen;
 }
 
-.box7 {
-    background-color: black;
-}
-
-.box8 {
+.contents {
     background-color: coral;
 }
 
-.box9 {
+.aside {
     background-color: cadetblue;
 }
 
-.box10 {
+.footer {
     background-color: deeppink;
 }
 
-.grid {
-    display: grid;
-    height: 500px;
-}
-
-.grid div {
+#grid_container div {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-hr {
-    margin: 20px 0;
-}
-
 /* ================================================================================= */
 
-.container1 div {
+#grid_container {
+    height: 100vh;
+    display: grid;
+
+    grid-template-rows: 2fr 8fr 3fr;
 
     /* 
-        하기 코드는 모두 동일한 의미의 코드. 
+        < grid 행 또는 열에 대한 라인 번호 네이밍(Naming) >
+
+    - grid-template 관련 속성에 대한 행 또는 열을 구성 시 각각의 개별 구성 행 또는
+      열 사이에 행번호 또는 열번호를 대신하는 명칭을 대괄호[] 안에 명시함으로써
+      좀 더 직관적인 구조를 구성 가능.
+
+    형식    :       [ 사용자정의_명칭 ]
+
+    - 사용자정의_명칭 : 하이픈(-) 앞에는 임의 명칭을 사용하면 되지만 하이픈(-) 뒤에는
+                        반드시 start 또는 end 키워드만 지정 가능.
+                        사용자정의_명칭은 다중 구성 가능.
     */
-
-    /* grid-row: 1 / 2; */
-    /* grid-row: 1 / span 1; */
-    /* grid-row: 1 / 1; */
-    /* grid-row: 1; */
+    grid-template-columns: [col-start] 1fr [menu-start logo-end] 1fr [aside-start contents-end] 1fr [col-end]
 }
 
-.container1 div {
-    /* grid-row: 2 / 3; */
-    /* grid-row: 2 / span 1; */
-    /* grid-row: 2 / 2; */
-    /* grid-row: 2; */
-}
-
-.container1 div {
-    /* grid-row: 3 / 4; */
-    /* grid-row: 3 / span 1; */
-    /* grid-row: 3 / 3; */
-    /* grid-row: 3; */
-}
-
-.container1 div {
-    /* grid-column: 1 / 2; */
-    /* grid-column: 1 / span 1; */
-    /* grid-column: 1 / 1; */
-    /* grid-column: 1; */
-}
-
-.container1 div {
-    /* grid-column: 3 / 4; */
-    /* grid-column: 3 / span 1; */
-    /* grid-column: 3 / 3; */
-    /* grid-column: 3; */
-}
-
-/* ================================================================================= */
-
-.container2 {
-
-    /*
-        < 7 행 3열 구조의 그리드 레이아웃 >
+.menu {
+    /* 
+        행 또는 열번호 대신 아래와 같이 네이밍된 행 또는 열번호 명칭을 지정 가능.
     */
-    grid-template: 1fr repeat(2, 2fr) repeat(4, 1fr) / repeat(2, 1fr) 2fr;
+    grid-column: menu-start / col-end;
 }
 
-.container2 div {
-    /* grid-row: 1 / 2; */
-    /* grid-row: 1 / span 1; */
-    /* grid-row: 1 / 1; */
-    /* grid-row: 1; */
+.contents {
+    grid-column: col-start / contents-end;
 }
 
-.container2 div {
-    /* grid-row: 2 / 3; */
-    /* grid-row: 2 / span 1; */
-    /* grid-row: 2 / 2; */
-    /* grid-row: 2; */
-}
-
-.container2 div {
-    /* grid-row: 3 / 4; */
-    /* grid-row: 3 / span 1; */
-    /* grid-row: 3 / 3; */
-    /* grid-row: 3; */
-}
-
-.container2 div {
-    /* grid-column: 1 / 2; */
-    /* grid-column: 1 / span 1; */
-    /* grid-column: 1 / 1; */
-    /* grid-column: 1; */
-}
-
-.container2 div {
-    /* grid-column: 3 / 4; */
-    /* grid-column: 3 / span 1; */
-    /* grid-column: 3 / 3; */
-    /* grid-column: 3; */
+.footer {
+    /* 
+        네이밍된 행 또는 열번호의 start 와 end 의 사용자정의 명칭이 동일한 경우에는
+        아래와 같이 / 로 start 와 end 를 구분할 필요없이 생략하여 사용자정의 명칭만
+        지정 가능.
+    */
+    grid-column: col;
 }

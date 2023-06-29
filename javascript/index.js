@@ -1,17 +1,69 @@
-'use strict';
+'use strict'
 
-let number1, number2;
+/* if (조건식) {
+    참 실행 블럭;
+} else {
+    거짓 실행 블럭;
+    } */
 
+/* if (조건식) {
+    참 실행 블럭;
+} */
 
-/* 문자열 '1' 과 숫자 1 을 더하면 문자열 11이 출력됨
-   따라서 문자열 '1' 을 숫자로 변환하려면 *1 을 해줘야 함 = prompt 앞에 +를 붙이는 것과 같은 효과 */
-number1 = +prompt('첫번째 정수 입력 : ');
+/* if (조건식) {
+    참 실행 블럭;
+} else if (조건식) {
+    거짓 실행 블럭;
+} else if (조건식) {
+    거짓 실행 블럭;
+} else {
+} */
 
-number2 = +prompt('두번째 정수 입력 : ');
+let score;
+let grade;
 
-// alert(number1 > number2 ? '큰 수는 ' + number1 :  number1 < number2 ?  '큰 수는 ' + number2 : '같음');
+score = +prompt('점수 : ');
 
-alert(number1 == number2 ? '같음' : `큰 수는 ${number1 < number2 ? number2 : number1}`);
-/* alert(number1 == number2 ? '같음 : '큰 수는' + number1 < number2 ? number2 :number1); 에서는
-    '큰 수는'과 number1 < number2 ? 이 먼저 결합하므로 + 다음을 ()로 묶어줘야 함
-    따라서 alert(number1 == number2 ? '같음 : '큰 수는' + (number1 < number2 ? number2 :number1)); 가 됨 */
+if (score >= 90) {
+    grade = 'A';
+} else if (score >= 80) {
+    /* 단순히 score가 80 이상이 아니라 위의 score >= 90 의 반대인 score < 90 이 같이 해석되어서
+    score < 90 && score >= 80 으로 해석해야 함 */
+    grade = 'B';
+} else if (score >= 70) {
+    grade = 'C';
+} else if (score >= 60) {
+    grade = 'D';
+} else {
+    grade = 'E';
+}
+
+alert(`학점은 ${grade}`);
+
+/*
+if (score >= 90) {
+    if (grade == 'A') {
+    }
+}
+
+ = if (score >= 90 && grade == 'A');
+ */
+
+//  =======================================
+
+/* 
+if (score >= 90) {
+    console.log('이 바보들아');
+}
+if (score == 'A'){
+    console.log('이 바보들아');
+}
+
+= if (score >= 90 || grade == 'A') {
+    console.log('이 바보들아');
+}
+ */
+
+// =====================================
+console.log(!true)
+// ! = not --> false

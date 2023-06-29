@@ -1,69 +1,65 @@
-'use strict'
+'use strict';
 
-/* if (조건식) {
-    참 실행 블럭;
-} else {
-    거짓 실행 블럭;
-    } */
+/* switch 문 */
 
-/* if (조건식) {
-    참 실행 블럭;
+// if : 연속적이면서 넓은 범위 측정
+// switch : 비연속적이거나 좁은 범위 측정
+
+/* switch (평가할 값(변수, 상수) ) {
+    // 변수, 상수(숫자, 문자열), 식
+    case 선택값1:
+    실행문;
+    break;
+
+    case 선택값2:
+    실행문;
+    break;
+
+    case 선택값3:
+    break;
+
+    // default 는 생략 가능
+    default:
+    실행문;
+    break;
 } */
 
-/* if (조건식) {
-    참 실행 블럭;
-} else if (조건식) {
-    거짓 실행 블럭;
-} else if (조건식) {
-    거짓 실행 블럭;
-} else {
-} */
+/* 선택문 */
 
-let score;
+let rank;
 let grade;
 
-score = +prompt('점수 : ');
+rank = +prompt('등수 : ');
 
-if (score >= 90) {
-    grade = 'A';
-} else if (score >= 80) {
-    /* 단순히 score가 80 이상이 아니라 위의 score >= 90 의 반대인 score < 90 이 같이 해석되어서
-    score < 90 && score >= 80 으로 해석해야 함 */
-    grade = 'B';
-} else if (score >= 70) {
-    grade = 'C';
-} else if (score >= 60) {
-    grade = 'D';
-} else {
-    grade = 'E';
+switch (rank) {
+    case 1:
+        grade = 'A'
+        break;
+    case 2:
+        grade = 'B'
+        break;
+    case 3:
+        grade = 'C'
+        break
+    default:
+        grade = 'F'
+        break;
 }
 
-alert(`학점은 ${grade}`);
-
-/*
-if (score >= 90) {
-    if (grade == 'A') {
-    }
+switch (rank) {
+    case 1:
+    case 2:
+        grade = 'A'
+        break;
+    case 3:
+    case 4:
+        grade = 'B'
+        break;
+    case 5:
+    case 6:
+        grade = 'C'
+        break;
+    default:
+        grade = 'F'
+        break;
 }
-
- = if (score >= 90 && grade == 'A');
- */
-
-//  =======================================
-
-/* 
-if (score >= 90) {
-    console.log('이 바보들아');
-}
-if (score == 'A'){
-    console.log('이 바보들아');
-}
-
-= if (score >= 90 || grade == 'A') {
-    console.log('이 바보들아');
-}
- */
-
-// =====================================
-console.log(!true)
-// ! = not --> false

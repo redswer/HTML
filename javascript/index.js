@@ -1,30 +1,23 @@
-'use strict';
+'use strict'
 
-/* do {
-    반복실행블럭
-} while (조건식(반복)); */
+let tot = 0;
+let i = 0;
 
-// 35 ~ 71
-let i = 34;
+while (i < 100) {
+    i = i + 1;
+    tot = tot + i;
+}
 
-do {
-    i++;
-    console.log(i);
-} while (i < 71);
+console.log(tot);
 
-// 86 ~ 117
-let i = 86;
+/* 
+최초가상과거누적합 = 0;
+과거대상값 = 0;
 
-do {
-    console.log(i);
-    i++;
-} while (i < 118);
+while (현재대상값 < 100) {
+    현재대상값 = 과거대상값 + 1;
+    현재누적합 = 과거누적합 + 현재대상값;
+}
 
-// 61 ~ 99
-let i = 60;
-
-do {
-    i++;
-    if (i >= 100) break;
-    console.log(i);
-} while (1);
+console.log(현재누적합);
+*/

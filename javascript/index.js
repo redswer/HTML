@@ -1,65 +1,24 @@
 'use strict';
 
-/* switch 문 */
+let n1, n2;
 
-// if : 연속적이면서 넓은 범위 측정
-// switch : 비연속적이거나 좁은 범위 측정
+n1 = +prompt('정수1 : ');
+n2 = +prompt('정수2 : ');
 
-/* switch (평가할 값(변수, 상수) ) {
-    // 변수, 상수(숫자, 문자열), 식
-    case 선택값1:
-    실행문;
-    break;
+// let text;
+// if (n1 == n2) {
+//     text = '두 수는 같음';
+// } else if (n1 > n2) {
+//     text = `큰 수는 ${n1}`;
+// } else {
+//     text = `큰 수는 ${n2}`;
+// }
 
-    case 선택값2:
-    실행문;
-    break;
+// alert(text);
 
-    case 선택값3:
-    break;
-
-    // default 는 생략 가능
-    default:
-    실행문;
-    break;
-} */
-
-/* 선택문 */
-
-let rank;
-let grade;
-
-rank = +prompt('등수 : ');
-
-switch (rank) {
-    case 1:
-        grade = 'A'
-        break;
-    case 2:
-        grade = 'B'
-        break;
-    case 3:
-        grade = 'C'
-        break
-    default:
-        grade = 'F'
-        break;
+if (n1 === n2) {
+    alert('두 수는 같음');
+} else {
+    alert(`큰 수는 ${n1 > n2 ? n1 : n2}`);
 }
 
-switch (rank) {
-    case 1:
-    case 2:
-        grade = 'A'
-        break;
-    case 3:
-    case 4:
-        grade = 'B'
-        break;
-    case 5:
-    case 6:
-        grade = 'C'
-        break;
-    default:
-        grade = 'F'
-        break;
-}

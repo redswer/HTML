@@ -1,59 +1,28 @@
+/*
+    < confirm > - 확인/취소 버튼을 제공하는 대화상자 활성화.
+
+- 사용자가 확인 또는 취소 버튼을 누를 때까지 메시지가 창에 보여지고
+  사용자가 확인 버튼을 누르면 true를, 취소 버튼이나 Esc를 누르면 false를 반환.
+
+형식    :    confirm( message? : string ) : boolean
+
+*/
+
 'use strict';
 
-// if : 연속적이면서 넓은 범위 측정
-// switch : 비연속적이거나 좁은 범위 측정
+const id = 'psy7758';
 
-switch (평가할 값(변수, 상수) ) {
-    case 선택값1:               // 변수, 상수(숫자, 문자열), 식
-    실행문;
-    break;
-    case 선택값2:
-    실행문;
-    break;
-    case 선택값3:
-    실행문;
-    break;
-    default:    // 생략가능
-    실행문;
-    break;
+for (let inputId; ;) {
+    inputId = prompt('아이디 입력');
+
+    if (confirm('아이디가 정확합니까?')) {
+        if (inputId === id) {
+            alert('입력한 아이디가 정확히 일치합니다.');
+            break;
+        } else {
+            alert('아이디가 일치하지 않습니다. 재입력 바랍니다.');
+        }
+    }
 }
 
-// 선택문
-
-let rank;
-let grade;
-
-rank = +prompt('등수 : ');
-
-switch (rank) {
-    case 1:
-        grade = 'A';
-        break;
-    case 2:
-        grade = 'B';
-        break;
-    case 3:
-        grade = 'C';
-        break;
-    default:
-        grade = 'F';
-        break;
-}
-
-switch (rank) {
-    case 1:
-    case 2:
-        grade = 'A';
-        break;
-    case 3:
-    case 4:
-        grade = 'B';
-        break;
-    case 5:
-    case 6:
-        grade = 'C';
-        break;
-    default:
-        grade = 'F';
-        break;
-}
+close();

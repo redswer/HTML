@@ -1,13 +1,26 @@
 'use strict';
 
-let n1, n2;
+let name;
+let ko, en, math;
+let grade;
+let score;
 
-n1 = +prompt('정수1 :');
-n2 = +prompt('정수2 :');
+name = prompt('이름 :');
 
-alert(`${n1}과(와) ${n2}의 차는 ${n1 > n2 ? n1 - n2 : n2 - n1}입니다.`);
+ko = +prompt('국어 점수 :');
+en = +prompt('영어 점수 :');
+math = +prompt('수학 점수');
 
-if (confirm('창을 닫을 까요?')) {
+score = (ko + en + math) / 3;
 
-    close();
+if (score >= 90) {
+    grade = 'A';
+} else if (score >= 80) {
+    grade = 'B';
+} else if (score >= 70) {
+    grade = 'C';
+} else {
+    grade = 'F';
 }
+
+alert(`< 성적 > \n 학생명 : ${name}, 학점 : ${grade}, 평균 : ${score}`);

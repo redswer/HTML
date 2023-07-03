@@ -1,23 +1,24 @@
-'use strict'
-
-let tot = 0;
-let i = 1;
-
-do {
-    tot += i;           // tot = tot + i;
-    i++;                // i = i + 1;
-} while (i < 101)
-
-console.log(tot)
+'user strict';
 
 /* 
-최초가상과거누적합 = 0;
-과거대상값 = 1;
+작은 수 : 1
+큰 수 : 10
 
-do {
-    현재누적합 = 과거누적합 + 현재대상값;
-    현재대상값 = 과거대상값 + 1;
-} while (i < 101);
-
-console.log(현재누적합);
+1부터 10 까지 누적합 : 55
 */
+
+let tot = 0,
+    min, max;
+
+min = +prompt('작은 수 : ');
+max = +prompt('큰 수 : ');
+
+/* for (let i = min; i < max + 1; i++) {
+    tot = tot + i;
+} */
+
+for (let i = min; i <= max; i++) {
+    tot += i;
+}
+
+alert(`${min} 부터 ${max} 까지 누적합 : ${tot}`)

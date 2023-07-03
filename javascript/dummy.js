@@ -1,9 +1,10 @@
-'use strict';
+/* 
+정수 : 1
+정수 : 2
+정수 : 3
+정수 : 4
+정수 : 5
+정수 : 0
 
-let tot = 0;
-
-for (let i = 0; i < 101; i++) {
-    tot = tot + i;
-}
-
-console.log(tot);
+누적합 : 15
+*/

@@ -1,36 +1,34 @@
-'user strict';
+'use strict';
 
 /* 
-정수1 : 1
-정수2 : 10
+정수 : 1
+정수 : 2
+정수 : 3
+정수 : 4
+정수 : 5
+정수 : 0
 
-1부터 10 까지 누적합 : 55
-
-정수1 : 100
-정수2 : 1
-
-1부터 100까지 누적합 : 5050
+누적합 : 15
 */
 
 let tot = 0,
-    min, max;
+    n1;
 
-min = +prompt('정수1 : ');
-max = +prompt('정수2 : ');
+// do {
+//     n1 = +prompt('정수 : ');
+//     tot = tot + n1;
+// } while (n1 != 0);
 
-/* '교환(swapping)' excel 파일 참고 */
-if (max < min) {
-    let t = min;
+// while (1) {
+//     n1 = +prompt('정수 : ');
+//     if (n1 === 0) break;
+//     tot = tot + n1;
+// }
 
-    min = max, max = t;
+for (; ;) {
+    n1 = +prompt('정수 : ');
+    if (n === 0) break;
+    tot += n1;
 }
 
-/* for (let i = min; i < max + 1; i++) {
-    tot = tot + i;
-} */
-
-for (let i = min; i <= max; i++) {
-    tot += i;
-}
-
-alert(`${min} 부터 ${max} 까지 누적합 : ${tot}`);
+alert(`누적합 : ${tot}`);

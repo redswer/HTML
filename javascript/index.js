@@ -13,16 +13,16 @@
 */
 
 let tot = 0,
-    n1, n2,
     min, max;
 
-n1 = +prompt('정수1 : ');
-n2 = +prompt('정수2 : ');
+min = +prompt('정수1 : ');
+max = +prompt('정수2 : ');
 
-if (n1 < n2) {
-    min = n1, max = n2;    
-} else {
-    min = n2, max = n1;
+/* '교환(swapping)' excel 파일 참고 */
+if (max < min) {
+    let t = min;
+
+    min = max, max = t;
 }
 
 /* for (let i = min; i < max + 1; i++) {

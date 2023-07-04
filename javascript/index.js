@@ -5,7 +5,8 @@
 for (let i = 1; i < 10; i++) {
     // if (i >= 6) break;
     for (let j = 1, result; j < 10; j++) {
-        // if (j >= 6) break;
+        if (j >= 6) break;
+// 모든 단에서 *6 까지만 출력됨
         result = i * j;
         
         // 정렬
@@ -14,6 +15,5 @@ for (let i = 1; i < 10; i++) {
     }
     // 줄바꿈
     document.write('<br/>');
-    if (i >= 6) break;
-// 빠져나오기 전에 이미 위에서 6단까지 반복됬으므로 6단까지 출력됨
+    // if (i >= 6) break;
 }

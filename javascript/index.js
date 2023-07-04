@@ -1,22 +1,15 @@
 'use strict';
 
-// 구구단
+/* v = 1; */
 
-//  for (초기식; 조건식; 증감식)
+// 하나의 로직이 끝나고 나서도 사용되면 전역변수로 선언
+let v = 1;
 
-// 레이블 (out) 을 밖에다 걸면 안쪽 for문 안의 break 의 적용 대상이 바깥쪽 for문으로 바뀜 따라서 1단의 *5 까지만 출력됨
-// 변수처럼 활용 가능 (반드시 out 일 필요 없음)
-
-out:
-for (let i = 1; i < 10; i++) {
-
-    for (let j = 1, result; j < 10; j++) {
-        if (j >= 6) break out;
-        result = i * j;
-
-        // 정렬
-        document.write(`${i} X ${j} =${result / 10 >= 1 ? '' : '&nbsp;'}${result} &nbsp; &nbsp;`);
+// 하나의 로직 안에서만 사용하면 지역변수로 선언
+for (let i = 1, v = 1; i <= 5; i++) {       // i = 행
+    // 안쪽의 중첩문에는 사용 x
+    for (let j = 1; j <= 5; j++) {          // j = 열
+        document.write(`${String(v).length >= 2 ? '' : '&nbsp;'}${v++} `);
     }
-    // 줄바꿈
     document.write('<br/>');
 }

@@ -1,19 +1,15 @@
 'use strict';
 
-let under, over,
-    n = 1;
+// 구구단
 
-while (1) {
-    under = +prompt('밑수 : ');
-    if (under >= 0) {
-        over = +prompt('지수 : ');
-        if (over >= 0) break;
+for (let i = 1; i < 10; i++) {
+    for (let j = 1, result; j < 10; j++) {
+        result = i * j;
+
+        // 정렬
+        document.write(`${i} X ${j} =${result / 10 >= 1 ? '' : '&nbsp;'}${result} `);
+        // = document.write(`${i} X ${j} =${String(result).length >= 2 ? '' :'&nbsp;'}${result} `);
     }
-    alert('음수가 입력되었습니다. 재입력 바랍니다.');
+    // 줄바꿈
+    document.write('<br/>');
 }
-
-for (let i = 0; i < over; i++) {
-    n = n * under;
-}
-
-alert(`${under}의 ${over}승은 ${n}입니다.`);

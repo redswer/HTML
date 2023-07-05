@@ -1,24 +1,12 @@
 'use strict';
 
-let n;
-let numCnt;
+// 8 참고
 
-n = +prompt('줄수 : ');
-
-// 4자릿수까지 정렬
-
-numCnt = String(n * n).length;
-
-for (let i = 1, v = 1; i <= n; i++) {
-    for (let j = 1; j <= i + n - 1; j++) {
-        if (j < n + 1 - i) {
-            for (let i = 0; i <= numCnt; i++) {
-                document.write('&nbsp;');
-            }
+for (let i = 1, v = 1; i <= 3; i++) {
+    for (let j = 1; j <= 6 - i; j++) {
+        if (j <= i - 1) {
+            document.write('&nbsp;&nbsp;');
         } else {
-            for (let i = 0; i < numCnt - String(v).length; i++) {
-                document.write('&nbsp;');
-            }
             document.write(`${v++} `);
         }
     }

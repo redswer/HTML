@@ -1,126 +1,136 @@
 'use strict';
 
-// const = 값부에 대한 변경 제한       선언과 동시에 초기화시켜야 함
-
-const str1 = '   Removes Whitespace   from\n';     // \n = 개행문자
-const str2 = 'both ends of a String';
-
-
-// string.trim(): string
-
-/* 문자열 양쪽 끝의 공백을 제거한 새로운 문자열을 반환. 여기서 공백은 space, tab, NBSP, 개행문자(\n). */
-
-console.log(str1);
-console.log(str1.trim());
-console.log(str1.trim() + str2);
-console.log();
-
+const idx = '012345678901234567890';
+const str = 'both ends of a String';
 
 /*
-    string.trimStart(): string
-    
-    - 문자열의 처음 공백을 제거한 새로운 문자열을 반환.
-    -----------------------------------------------------------------------------------------------------
-    string.trimEnd(): string
+    string.startsWith( searchString: string, position?: number ): boolean
+    string.endsWith( searchString: string, position?: number ): boolean
 
-- 문자열의 끝 공백을 제거한 새로운 문자열을 반환.
-*/
-
-console.log(str1.trimStart() + str2);
-console.log(str1.trimEnd() + str2);
-console.log();
-
-
-/*
-    string.toLowerCase(): string    -   모든 문자열을 소문자로 변환한 새로운 문자열 반환.
-
-    string.toUpperCase(): string    -   모든 문자열을 대문자로 변환한 새로운 문자열 반환
-
-    string.repeat( count: number ): string - 해당 문자열을 count만큼 재생한 새로운 문자열 반환.
-*/
-
-console.log(str1.toLowerCase());
-console.log(str1.toUpperCase());
-console.log(str1.repeat(3));
-console.log();
-
-
-/*
-    string.substring( startIndex: number, endIndex?: number ): string
-
--   시작인덱스(startIndex) 부터 종료인덱스(endIndex) 전까지의 새로운 부분 문자열 반환.
-    종료인덱스를 생략하면 시작인덱스부터 문자열 끝까지 추출되며, 종료인덱스 위치의 문자는
-    포함되지 않음에 주의. 시작인덱스가 종료인덱스 보다 큰 경우도 허용되는데, 이 경우 내부적으로
-    시작인덱스와 종료인덱스를 서로 치환하여 시작인덱스가 종료인덱스 보다 작도록 처리.
-    시작 인덱스가 인덱스 범위를 벗어난 경우 빈 문자열 반환.
+-   대상 문자열이 검색문자열(searchString)로 시작(startsWith)하거나 끝(endsWith)나는지 여부 반환.
+    추가 인수 position을 통해 검색 시작 위치 결정.
 
 -----------------------------------------------------------------------------------------------------
 
-    string.slice( startIndex: number, endIndex?: number ): string
+    string.includes( searchString: string, position?: number ): boolean
 
--   substring와 사용 방법이 거의 동일. 단, 음수 인덱싱이 가능하고 시작인덱스가 종료인덱스 보다 큰 경우
-    빈 문자열('')을 반환한다는 차이.
-    시작 인덱스가 인덱스 범위를 벗어난 경우 빈 문자열 반환.
+-   대상 문자열에 검색문자열(searchString)이 포함되어 있는지 여부 반환.
+    추가 인수 position 통해 검색 시작 위치 결정.
 */
 
-console.log(str2.substring(5));
-console.log(str2.substring(5, 8));
-console.log(str2.substring(8, 5));
-// 시작인덱스가 종료인덱스 보다 큰 경우이므로 내부적으로 다시 start가 5가 되고 end가 8이 되도록 서로 치환
-console.log();
-
-console.log(str2.slice(5, 8));
-console.log(str2.slice(8, 5));
-// 시작인덱스가 종료인덱스 보다 큰 경우 빈 문자열 반환.
-console.log(str2.slice(-6));
-// 끝에서부터 6번째까지 출력
+console.log(str.startsWith('both'));        // true
+console.log(str.startsWith('ends'));        // false
+console.log(str.startsWith('ends', 5));     // true
+// 5의 위치인 e 부터 검색 시작
+console.log(str.endsWith('String'));
+console.log(str.includes('of'));
 console.log();
 
 
+/* 배열 연산자와 charAt은 기능상 동일하지만, 배열 연산자는 해당 인덱스에 문자가 존재하지 않으면 undefined를
+    반환하는 반면 charAt은 빈 문자열('')을 반환. */
 
-const str3 = 'replaces the matched substring with a replacement substring.';
+console.log(str[50]);           // undefined 반환
+console.log(str.charAt(50));    // 빈 문자열 반환
+console.log('=========');
+
+
+for (const ch of str) {
+    // 배열 접근시 사용하는 for ~ of를 문자열에도 동일 적용 가능.
+    console.log(ch);
+    // str의 문자가 ch 로 복사되어 반환 / for문이기 때문에 문자 하나하나가 반환
+}
+console.log();
+
 
 /*
-    String.replace(searchValue: string | RegExp, replaceValue: string): string
+    indexOf( searchString: string, position?: number ): number
 
--   대응되는 최초 문자열(searchValue)을 검색하여 다른 문자열(replaceValue)로 치환한 새로운 문자열을
-    반환(원본 문자열은 유지). 대응되는 부분이 없으면 원본 문자열 그대로 반환.
-    전체적인 검색은 정규식을 이용한 별도 g 플래그를 이용해야만 가능.
+-   substring은 인덱스를 지정해 해당 위치의 부분 문자열을 반환받는 반면, indexOf는 문자열을 지정해 검색되는
+    문자열의 최초 해당 인덱스를 반환. 검색 시작 위치(position)를 추가로 지정 가능하며 검색 실패시 -1 반환.
+    단, 최초 검색되는 문자열에 대응되는 인덱스만 반환할 뿐 매칭된 모든 문자열의 인덱스를 반환하는 것은
+    아님에 주의.
 
------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 
-    String.split(separator: string | RegExp, limit?: number): string[]
+    lastIndexOf( searchString: string, position?: number): number
 
-    대상 문자열을 지정된 구분자(Separator)로 나누어 구분자로 분리된 문자열들을 배열 형태로
-    반환. 구분자는 문자열 또는 정규식으로 지정 가능하며 제한자(limit)를 두어 반환받을 배열의
-    요소를 제한 가능. 인수를 모두 생략하면 전체 문자열이 하나의 배열 요소로 반환.
+-   indexOf와 기능상 동일하되 역순 검색.
+
 */
 
-console.log(str3.replace('sub', 'main'));
-// 최초 sub 가 main 으로 바뀌어서 출력
-console.log(str3);
-console.log(str3.replace('middle', 'center'));
-// middle 이 없으므로 원본 그대로 출력
+console.log(str.indexOf('t'));
+// t 는 2번째이기 때문에 2 반환
+console.log(str.indexOf('t', 5));
+// 5번째부터 검색하므로 16 반환
+console.log(str.lastIndexOf('t'));
+// 마지막 t 를 검색하므로 16 반환
 console.log();
 
 
-const str4 = 'Uses a regular expression';
+/* indexOf 활용 반복되는 문자열 검색. */
 
-console.log(str4.split());
-// 인수를 모두 생략하면 전체 문자열이 하나의 배열 요소로 반환.
-console.log(str4.split(''));
-// 구분자를 빈 문자열로 지정하면 대상 문자열의 모든 문자들을 배열 요소들로 반환.
-console.log(str4.split('', 4));
-// 제한자 인수를 두어 반환 배열 요소들을 제한.
-console.log();
+for (let ix = 0, findIx; ;) {
+    findIx = str.indexOf('t', ix);
+    if (findIx == -1) break;
+    // 음수값이면 undefined 가 반환되므로 -1일때 break
 
-console.log(str4.split(' '));
-// '공백' 이므로 단어들이 배열 요소로 출력
-console.log(str4.split(' ', 2));
-// 배열 요소인 단어들 중 2번째까지 배열 요소로 출력
-console.log(str4.split(' ')[2]);
-// 구분자를 통해 반환받은 배열을 통한 인덱싱 / 배열에서는 첫 번째 요소가 0 이므로 2번째인 regular 출력
-console.log();
+    console.log(findIx);
+    ix = findIx + 1;
+}
+console.log()
 
 
-// console.log(str4.length);   //  length : 문자열의 길이를 조사하는 속성(property).
+/*
+    string.codePointAt( pos: number ): number
+
+-   해당 문자열에서 pos에 해당하는 인덱스 위치값에 대한 유니코드 값 반환.
+    js에서의 모든 문자열은 UTF-16형식으로 인코딩.
+    ( 구버젼 메서드 - charCodeAt )
+*/
+
+console.log('A'.codePointAt());
+// 인수(pos) 미 지정시 디폴트 0.
+
+console.log('ABC'.codePointAt(1));
+console.log('a'.codePointAt());
+console.log('abc'.codePointAt(1));
+console.log('--------------------------');
+
+
+/*
+    String.fromCharCode( ...codes: number[] ): string               - 구버젼.
+
+-   인수로 지정한 유니코드 값들에 대응되는 문자열을 반환.
+    ... 은 다중 인수 지정이 가능함을 의미.
+
+----------------------------------------------------------------------------------------------------
+
+    String.fromCodePoint( ...codePoints: number[] ): string
+
+-   fromCharCode와 동작이 동일하지만 fromCharCode는 서로게이트 쌍을 처리 못하지만,
+    fromCodePoint는 보다 최신에 나온 메서드로 서로게이트 쌍을 처리 가능.
+
+※ 서로게이트 쌍 : 2바이트로 표현되는 유니코드의 범위의 한계로 인해 사용빈도가 낮은 특수 문자들에
+                   대하여 2바이트 쌍(4byte)으로 인코딩하여 표현.
+*/
+
+console.log(String.fromCharCode(65));
+console.log(String.fromCharCode(97, 98));
+console.log()
+console.log(String.fromCodePoint(65));
+console.log(String.fromCodePoint(97, 98));
+console.log('--------------------------');
+
+
+/* codePointAt, fromCodePoint 메서드를 이용한 대소문자 변환. */
+
+/* js에서는 자바와 같이 'a' - 'A' 같은 연산 시
+    내부적으로 숫자로 평가되어 연산되지는 않고 NaN 결과값 도출 */
+
+const dis = 'a'.codePointAt() - 'A'.codePointAt();
+let input = 't';      // 입력 문자로 가정.
+let lowerCode = input.codePointAt();
+
+console.log(String.fromCodePoint(lowerCode - dis));
+console.log('--------------------------');

@@ -1,21 +1,24 @@
 'use strict';
 
-let a = [];
+let str = '@ Javascript &';
 
-/* 
-a[0] = 1;
-a[1] = 2;
-a[2] = 3;
-a[3] = 4;
-a[4] = 5;
-*/
+for (let i = 0; i < str.length; i++) {
+    // 문자열에 대한 배열 인덱싱 제공.
+    console.log(str[i]);
+    // 공백을 포함한 문자 하나하나가 출력됨 : @, 공백, J, a, v, a ..... 공백, &
 
-for (let i = 0; i < 5; i++) {
-    a[i] = i + 1;
 }
+console.log('--------')
 
+// 문자열 자체에 대한 배열 인덱싱도 가능.
 
-/* 배열은 값을 저장하기 위한 목적이지, 값을 출력하는 목적으로 사용하지 않기 때문에 출력은 따로 입력 */
-for (let i = 0; i < a.length; i++) {
-    console.log(a[i]);
-}
+console.log('@ Javascript &'[0]);
+// 0번째 문자가 출력됨 : @ 
+
+// str.lenght - 1 = 배열 크기 - 1 = 인덱스 종료값
+
+console.log('@ Javascript &'[str.length - 1]);
+// 마지막 문자가 출력됨 : &
+
+//  = 
+console.log(str[str.length - 1]);

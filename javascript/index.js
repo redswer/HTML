@@ -1,24 +1,21 @@
 'use strict';
 
-let line, m;
+let a = [];
 
-line = +prompt('줄수 : ');
-m = (line + 1) / 2
+/* 
+a[0] = 1;
+a[1] = 2;
+a[2] = 3;
+a[3] = 4;
+a[4] = 5;
+*/
 
-for (let i = 1, v = 1, st, ed; i <= line; i++) {
+for (let i = 0; i < 5; i++) {
+    a[i] = i + 1;
+}
 
-    if (i <= m) {
-        st = m + 1 - i, ed = i + line - m;
-    } else {
-        st = i - (line - m), ed = line + m - i;
-    }
 
-    for (let j = 1; j <= ed; j++) {
-        if (j < st) {
-            document.write('&nbsp; &nbsp;');
-        } else {
-            document.write(`${String(v).length >= 2 ? '' : '&nbsp;'}${v++} `);
-        }
-    }
-    document.write('<br/>');
+/* 배열은 값을 저장하기 위한 목적이지, 값을 출력하는 목적으로 사용하지 않기 때문에 출력은 따로 입력 */
+for (let i = 0; i < a.length; i++) {
+    console.log(a[i]);
 }

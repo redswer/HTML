@@ -1,42 +1,71 @@
+/*     < 자바스크립트의 자료 표현 형식 > */
 
-/* < use strict > */
-
-/* 자바스크립트는 기본적으로 별도의 변수 타입을 구분하지 않아 변수 선언 시 let, const, var과 같은 구문 생략이
-      가능한 묵시적 변수 선언이 가능함으로써 유연하고 빠른 프로그래밍이 가능하지만, 이는 프로그램의
-      안정성 측면에서는 상당한 리스크를 수반
-   따라서 프로그램의 안정성과 좀 더 나은 성능 향상을 위해서 엄격모드(strict mode) 사용을 권장 */
-
-
-// 'use strict';  
-
-/* 엄격모드 활성화
-      이와 같이 전역적으로 선두에 선언되어야 적용되며, 코드의 중간에 선언되는 것은 적용되지 않음 */
+/*
+- boolean, null, undefined, number, bigint, string, symbol 이상의 기본 자료형(Primitive : 원시 타입)과
+  참조형  Object로 구성되며 변수의 타입이 아님에 유의.   Object를 제외한 기본 자료형은 더 이상 쪼갤수
+  없는 값을 의미하고 이러한 값을 원시값(Primitive value)이라 지칭하며 설정 및 쓰기가 불가한 값(상수)을
+  의미.
 
 
-n1 = 20;
-console.log(n1);
-/* 비 엄격모드에서는 let, const, var구문을 생략하는 묵시적 변수 선언 가능
-   단, 엄격모드 (strict mode) 적용시에는 컴파일 에러 발생 */
+boolean : null, NaN(Not a Number), Undefined, ""(빈문자열), 0 은  false와 같진 않지만  조건식이나 산술
+          연산 시 상호 변환하여 평가 가능하며, 그 외의 값에 대해서는 연산 시 true로 변환하여 평가 가능.
+          논리 연산자 !(not)을 이용하여 확인 가능.
+
+undefined : 값을 할당하지 않은 변수(미 초기화)는 브라우저가 undefined값 할당.
+            또한 명시적 반환(return)을 하지않는 함수도 undefined값을 반환.
+
+null : null은 사용자가 명시적으로 할당.
+
+bigint : number보다 더 큰 정수를 표현하기 위한 타입. 숫자 상수에 접미사 n을 붙여 표현.
+
+symbol : ECMAScript 6에서 추가된 타입으로 열거형과 유사한 고유한 식별자로써의 기능을 담당하며 객체의
+         속성 key값으로도 사용 가능.    다른 래퍼(Wrapper) 객체와는 달리 new연산자를 통한 Symbol객체
+         생성은 불가.
+
+---------------------------------------------------------------------------------------------------------
+*/
+
+// < 변수의 자료형 >
+
+'use strict';
+
+let value;
+
+value = 15;
+value = null;
+value = false;
+value = 'string';
+/* 자바스크립트에서 변수의 타입은 느슨한 타입(loosely typed) 또는 동적 타입(dynamic typed)이한
+      적용되어 별도의 변수의 타입을 구분하지 않으며 대입되는 값에 의해 그 타입이 동적으로 결정
+   따라서 하나의 변수에 여러 타입의 값을 저장 가능 */
+
+console.log(value);
+console.log();
 
 
-n2;
-/*  비 엄격모드에서 변수에 대한 묵시적 선언을 해도 초기화를 하면 문제가 되지 않지만, 이와 같이 묵시적 선언에
-      할당 (assignment) 연산을 하지 않은 경우에는 선언 자체가 인정되지 않음 */
+console.log(!null);
+console.log(!undefined);
+console.log(!NaN);
+console.log(!'');
+console.log(!0);
+/* boolean 타입의 값이 대상이 되는 논리연산자(!)에 다른 타입의 값을 대상으로 함으로써 자동으로
+      boolean 타입의 값으로 변환하여 연산 */
+console.log();
 
 
-// 함수의 선언 형식 : function 함수명() {  실행블럭; }
-function test() {
+let n;
 
-      'use strict';
-      /*  함수에 이와 같이 지역적으로 엄격모드 선언 가능
-          단, 이 때에도 전역적으로 선언할 때와 마찬가지로 함수의 선두에 선언되어야만 적용 */
-      n2 = 30;
+console.log(n);
+// n은 명시적 선언을 하였지만, 초기화하지 않았으므로 undefined값으로 평가
+console.log();
 
+function test1() {
+      let n = 5;
 }
+function test2() {
+      return 10;
+}
+console.log(test1());
+// 명시적 반환을 하지 않는 함수도 undefined값을 반환
 
-console.log(n2);
-
-test();
-console.log(n2);
-/* 비 엄격모드에서의 묵시적 변수 선언은 함수 외부에서 바로 직접 참조는 안되지만,
-      함수 호출을 통해 전역변수처럼 참조 가능. */
+console.log(test2());

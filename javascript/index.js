@@ -1,52 +1,25 @@
-/*
-    < 문제 >
-
-- 주민번호를 입력받되 하이픈(-)을 포함하여 입력하면 "하이픈(-)을 공백으로 변경을 원하십니까?" 라는
-  문구를 표시하는 확인/취소 대화상자를 활성화시켜 "확인" 버튼을 클릭하면 공백으로 변경하고 "취소"
-  버튼을 클릭하면 하이픈이 포함된 그대로 대화상자에 표시되도록 프로그램 구현.
-  단, 하이픈이 포함되지 않은 경우에는 입력받은 그대로 대화상자에 표시되도록 구현.
-*/
-
 'use strict';
 
-/* 1. replace */
-let n = prompt('주민번호 : ');
+/* 
+      < 사이트 URL을 이용한 비밀번호 생성 >
 
-if (n.includes('-')) {
+step1 : "http://" 부분은 제외하고 추출.                             =>      daum.net
+step2 : 닷(.)부터 표시되는 문자열을 제외하여 추출.                   =>      daum
+step3 : '$' + 처음 3자리 + 총 글자 수 + url 의 14번째 문자.         =>      $dau4e
 
-    if (confirm('하이픈(-)을 공백으로 변경을 원하십니까?')) {
-        n = n.replace('-', ' ');
-    }
-}
+※ url 의 14번째 문자가 존재하지 않을 때는 ? 문자로 표시.            =>      $dau4?
+*/
 
-alert(n);
+let url = 'http://daum.net';
+let step1, step2, step3;
 
+step1 = url.split('/')[2];
 
-// /* 2. slice */
-// let n = prompt('주민번호 : ');
+step2 = step1.split('.')[0];
 
-// if (n.includes('-')) {
+step3 = `$${step2.slice(0, 3)}${step2.length}${url.length < 14 ? '?' : url[13]}`;
 
-//     let hyphen = n.indexOf('-');
+//  = `$${step2.slice(0, 3)}${step2.length}${url.charAt(13) ? url.charAt(13) : '?'}`;
+//  = `$${step2.slice(0, 3)}${step2.length}${url[13] ? url[13] : '?'}`;
 
-//     if (confirm('하이픈(-)을 공백으로 변경을 원하십니까?')) {
-//         n = `${n.slice(0, hyphen)} ${n.slice(-(hyphen + 1))}`;
-//     }
-// }
-
-// alert(n);
-
-
-// /* 3. split */
-// let n = prompt('주민번호 : ');
-
-// if (n.includes('-')) {
-
-//     let hypen = n.split('-');
-
-//     if (confirm('하이픈(-)을 공백으로 변경을 원하십니까?')) {
-//         n = `${hypen[0]} ${hypen[1]}`;
-//     }
-// }
-
-// alert(n);
+alert(step3);
